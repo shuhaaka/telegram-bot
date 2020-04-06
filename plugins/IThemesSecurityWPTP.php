@@ -1,11 +1,11 @@
 <?php
 
-namespace telegrambot;
+namespace tgrambot;
 
 if (!defined('ABSPATH')) exit;
 global $IThemesSecurityWPTP;
 
-class IThemesSecurityWPTP extends TelegramBot
+class IThemesSecurityWPTP extends TgramBot
 {
     public static $instance = null;
 
@@ -13,7 +13,7 @@ class IThemesSecurityWPTP extends TelegramBot
     {
         parent::__construct();
 
-        add_action('telegrambot_plugins_settings_content', [$this, 'settings_content']);
+        add_action('tgrambot_plugins_settings_content', [$this, 'settings_content']);
 
         if ($this->get_option('ithemessecurity_new_blacklisted_ip_notification', 0)) {
             add_action('itsec-new-blacklisted-ip', [$this, 'new_blacklisted_ip']);
@@ -53,7 +53,7 @@ class IThemesSecurityWPTP extends TelegramBot
         $text = "*" . __('iThemes Security new blacklisted IP', $this->plugin_key) . "*\n\n";
         $text .= __('IP', $this->plugin_key) . ': ' . $ip . "\n";
         $text .= __('Date', $this->plugin_key) . ': ' . HelpersWPTP::localeDate() . "\n";
-        $text = apply_filters('telegrambot_ithemessecurity_new_blacklisted_ip_notification_text', $text,$ip);
+        $text = apply_filters('tgrambot_ithemessecurity_new_blacklisted_ip_notification_text', $text,$ip);
 
         if (!$text) return;
 

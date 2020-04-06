@@ -1,11 +1,11 @@
 <?php
 
-namespace telegrambot;
+namespace tgrambot;
 
 if (!defined('ABSPATH')) exit;
 if (!class_exists('WooCommerce')) return;
 
-class WooCommerceWPTP extends TelegramBot
+class WooCommerceWPTP extends TgramBot
 {
     protected $tabID = 'woocommerce-wptp-tab', $default_products_keyboard;
     public static $instance = null;
@@ -18,16 +18,16 @@ class WooCommerceWPTP extends TelegramBot
             array('text' => __('Detail', $this->plugin_key), 'callback_data' => 'product_detail')
         ));
 
-        add_filter('telegrambot_words', [$this, 'words']);
-        add_filter('telegrambot_patterns_tags', [$this, 'patterns_tags']);
-        add_filter('telegrambot_query_args', [$this, 'query_args'], 10, 2);
-        add_filter('telegrambot_post_info', [$this, 'product_info'], 10, 3);
-        add_filter('telegrambot_default_keyboard', [$this, 'default_keyboard'], 20);
-        add_filter('telegrambot_settings_tabs', [$this, 'settings_tab'], 30);
-        add_action('telegrambot_settings_content', [$this, 'settings_content']);
-        add_action('telegrambot_inline_keyboard_response', [$this, 'inline_keyboard_response']);
-        add_action('telegrambot_keyboard_response', [$this, 'keyboard_response']);
-        add_filter('telegrambot_default_commands', [$this, 'default_commands'], 20);
+        add_filter('tgrambot_words', [$this, 'words']);
+        add_filter('tgrambot_patterns_tags', [$this, 'patterns_tags']);
+        add_filter('tgrambot_query_args', [$this, 'query_args'], 10, 2);
+        add_filter('tgrambot_post_info', [$this, 'product_info'], 10, 3);
+        add_filter('tgrambot_default_keyboard', [$this, 'default_keyboard'], 20);
+        add_filter('tgrambot_settings_tabs', [$this, 'settings_tab'], 30);
+        add_action('tgrambot_settings_content', [$this, 'settings_content']);
+        add_action('tgrambot_inline_keyboard_response', [$this, 'inline_keyboard_response']);
+        add_action('tgrambot_keyboard_response', [$this, 'keyboard_response']);
+        add_filter('tgrambot_default_commands', [$this, 'default_commands'], 20);
 
         add_action('init', [$this, 'cart_init'], 99999);
         add_action('woocommerce_payment_complete', [$this, 'woocommerce_payment_complete']);
@@ -51,7 +51,7 @@ class WooCommerceWPTP extends TelegramBot
 
         add_action('delete_comment', [$this, 'order_note_delete_notification'], 10, 2);
 
-        $this->words = apply_filters('telegrambot_words', $this->words);
+        $this->words = apply_filters('tgrambot_words', $this->words);
     }
 
     /**
@@ -97,7 +97,7 @@ class WooCommerceWPTP extends TelegramBot
             }
             $text .= __('Date', $this->plugin_key) . ': ' . HelpersWPTP::localeDate() . "\n";
 
-            $text = apply_filters('telegrambot_wc_admin_product_stock_change_notification_text', $text, $product);
+            $text = apply_filters('tgrambot_wc_admin_product_stock_change_notification_text', $text, $product);
 
             foreach ($users as $user)
                 $this->telegram->sendMessage($text, $keyboards, $user['user_id'], 'Markdown');
@@ -134,7 +134,7 @@ class WooCommerceWPTP extends TelegramBot
             $text .= __('New status', $this->plugin_key) . ': ' . wc_get_order_status_name($new_status) . "\n";
             $text .= __('Date', $this->plugin_key) . ': ' . HelpersWPTP::localeDate($order->get_date_modified()) . "\n";
 
-            $text = apply_filters('telegrambot_wc_admin_order_status_notification_text', $text, $order, $order_id);
+            $text = apply_filters('tgrambot_wc_admin_order_status_notification_text', $text, $order, $order_id);
 
             foreach ($users as $user)
                 $this->telegram->sendMessage($text, $keyboards, $user['user_id'], 'Markdown');
@@ -176,7 +176,7 @@ class WooCommerceWPTP extends TelegramBot
                 $text .= __('Order number', $this->plugin_key) . ': ' . $order_id . "\n";
                 $text .= __('New status', $this->plugin_key) . ': ' . wc_get_order_status_name($new_status) . "\n";
                 $text .= __('Date', $this->plugin_key) . ': ' . HelpersWPTP::localeDate($order->get_date_modified()) . "\n";
-                $text = apply_filters('telegrambot_wc_user_order_status_notification_text', $text, $order, $order_id);
+                $text = apply_filters('tgrambot_wc_user_order_status_notification_text', $text, $order, $order_id);
 
                 $this->telegram->sendMessage($text, $keyboards, $user['user_id'], 'Markdown');
             }
@@ -216,7 +216,7 @@ class WooCommerceWPTP extends TelegramBot
             $text .= __('Note', $this->plugin_key) . ': ' . "\n" . $content . "\n";
             $text .= __('Date', $this->plugin_key) . ': ' . HelpersWPTP::localeDate() . "\n";
 
-            $text = apply_filters('telegrambot_wc_admin_order_note_notification_text', $text, $content, $order_id);
+            $text = apply_filters('tgrambot_wc_admin_order_note_notification_text', $text, $content, $order_id);
 
             foreach ($users as $user) {
                 $this->telegram->sendMessage($text, $keyboards, $user['user_id'], 'Markdown');
@@ -266,7 +266,7 @@ class WooCommerceWPTP extends TelegramBot
                 $text .= __('Order number', $this->plugin_key) . ': ' . $order_id . "\n";
                 $text .= __('Note', $this->plugin_key) . ': ' . "\n" . $customer_note . "\n";
                 $text .= __('Date', $this->plugin_key) . ': ' . HelpersWPTP::localeDate() . "\n";
-                $text = apply_filters('telegrambot_wc_user_order_note_customer_notification_text', $text, $customer_note, $order_id);
+                $text = apply_filters('tgrambot_wc_user_order_note_customer_notification_text', $text, $customer_note, $order_id);
 
                 $this->telegram->sendMessage($text, $keyboards, $user['user_id'], 'Markdown');
                 $message_id = $this->telegram->get_last_result()['result']['message_id'];
@@ -351,7 +351,7 @@ class WooCommerceWPTP extends TelegramBot
                 $text .= $product_name . ' × ' . $item_quantity . ' = ' . $item_total . "\n";
             }
 
-            $text = apply_filters('telegrambot_wc_new_order_notification_text', $text, $order, $order_id);
+            $text = apply_filters('tgrambot_wc_new_order_notification_text', $text, $order, $order_id);
 
             foreach ($users as $user)
                 $this->telegram->sendMessage($text, $keyboards, $user['user_id'], 'Markdown');
@@ -404,7 +404,7 @@ class WooCommerceWPTP extends TelegramBot
 
     function default_keyboard($keyboard)
     {
-        $this->words = apply_filters('telegrambot_words', $this->words);
+        $this->words = apply_filters('tgrambot_words', $this->words);
         $new_keyboard = array(
             $this->words['products'],
             $this->words['product_categories'],
@@ -585,7 +585,7 @@ class WooCommerceWPTP extends TelegramBot
     function keyboard_response($user_text)
     {
         $words = $this->words;
-        $this->words = apply_filters('telegrambot_words', $this->words);
+        $this->words = apply_filters('tgrambot_words', $this->words);
         if ($user_text == '/products' || $user_text == $words['products']) {
             $this->update_user(array('page' => 1));
             $this->update_user_meta('product_category_id', null);
@@ -618,7 +618,7 @@ class WooCommerceWPTP extends TelegramBot
 
     function inline_keyboard_response($data)
     {
-        $this->words = apply_filters('telegrambot_words', $this->words);
+        $this->words = apply_filters('tgrambot_words', $this->words);
         $button_data = $data['data'];
 
         if ($this->button_data_check($button_data, 'product_variation_back')) {
@@ -642,7 +642,7 @@ class WooCommerceWPTP extends TelegramBot
             $this->select_product_variation($product, $button_data['5'], $button_data['6'], $button_data['7'], $button_data['4'], $taxonomy);
 
         } elseif ($this->button_data_check($button_data, 'image_galleries')) {
-            $image_send_mode = apply_filters('telegrambot_image_send_mode', 'image_path');
+            $image_send_mode = apply_filters('tgrambot_image_send_mode', 'image_path');
 
             $product_id = intval(end(explode('_', $button_data)));
             if (get_post_status($product_id) === 'publish') {
@@ -1194,9 +1194,9 @@ class WooCommerceWPTP extends TelegramBot
     function send_products($products)
     {
         if (count($products['product'])) {
-            $image_send_mode = apply_filters('telegrambot_image_send_mode', 'image_path');
+            $image_send_mode = apply_filters('tgrambot_image_send_mode', 'image_path');
 
-            $this->words = apply_filters('telegrambot_words', $this->words);
+            $this->words = apply_filters('tgrambot_words', $this->words);
             $keyboard = $this->default_products_keyboard;
             $i = 1;
             $current_page = $this->user['page'];
@@ -1227,7 +1227,7 @@ class WooCommerceWPTP extends TelegramBot
 
     function send_product($product)
     {
-        $image_send_mode = apply_filters('telegrambot_image_send_mode', 'image_path');
+        $image_send_mode = apply_filters('tgrambot_image_send_mode', 'image_path');
         $price = $this->product_price($product);
         $add_info = '';
         $metas = array();

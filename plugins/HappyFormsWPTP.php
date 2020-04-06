@@ -1,18 +1,18 @@
 <?php
 
-namespace telegrambot;
+namespace tgrambot;
 
 if (!defined('ABSPATH')) exit;
 global $HappyFormsWPTP;
 
-class HappyFormsWPTP extends TelegramBot
+class HappyFormsWPTP extends TgramBot
 {
     public static $instance = null;
 
     public function __construct()
     {
         parent::__construct();
-        add_action('telegrambot_plugins_settings_content', [$this, 'settings_content']);
+        add_action('tgrambot_plugins_settings_content', [$this, 'settings_content']);
 
         if ($this->get_option('happyforms_new_message_notification', false)) {
             add_action('happyforms_submission_success', [$this, 'form_submit'], 10, 2);
@@ -98,7 +98,7 @@ class HappyFormsWPTP extends TelegramBot
 
         $text .= __('Date', $this->plugin_key) . ': ' . HelpersWPTP::localeDate() . "\n";
 
-        $text = apply_filters('telegrambot_happyforms_message_notification_text', $text, $submission, $form);
+        $text = apply_filters('tgrambot_happyforms_message_notification_text', $text, $submission, $form);
 
         if ($text) {
             foreach ($users as $user) {

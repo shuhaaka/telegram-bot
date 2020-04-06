@@ -1,18 +1,18 @@
 <?php
 
-namespace telegrambot;
+namespace tgrambot;
 
 if (!defined('ABSPATH')) exit;
 global $MailchimpForWPWPTP;
 
-class MailchimpForWPWPTP extends TelegramBot
+class MailchimpForWPWPTP extends TgramBot
 {
     public static $instance = null;
 
     public function __construct()
     {
         parent::__construct();
-        add_action('telegrambot_plugins_settings_content', [$this, 'settings_content']);
+        add_action('tgrambot_plugins_settings_content', [$this, 'settings_content']);
 
         if ($this->get_option('mailchimpforwp_email_subscribe_notification', false))
             add_action('mc4wp_form_subscribed', [$this, 'email_subscribed'], 10, 4);
@@ -112,7 +112,7 @@ class MailchimpForWPWPTP extends TelegramBot
         $text .= __('Email', $this->plugin_key) . ': ' . $email . "\n";
         $text .= __('Date', $this->plugin_key) . ': ' . HelpersWPTP::localeDate() . "\n";
 
-        $text = apply_filters('telegrambot_mailchimpforwp_new_subscriber_notification_text', $text, $email, $form, $event);
+        $text = apply_filters('tgrambot_mailchimpforwp_new_subscriber_notification_text', $text, $email, $form, $event);
 
         if (!$text) return;
 

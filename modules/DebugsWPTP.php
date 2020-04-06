@@ -1,7 +1,7 @@
 <?php
-namespace telegrambot;
+namespace tgrambot;
 
-class DebugsWPTP extends TelegramBot
+class DebugsWPTP extends TgramBot
 {
     public static $instance = null;
     protected $page_key, $page_title, $telegramFilterCountry = ['IR', 'CN', 'RU'], $url;
@@ -15,11 +15,11 @@ class DebugsWPTP extends TelegramBot
         add_action('admin_menu', array($this, 'menu'), 999999);
         add_action('admin_enqueue_scripts', [$this, 'admin_enqueue_scripts']);
 
-        add_filter('telegrambot_debugs_info', [$this, 'wptp_info'], 1);
-        add_filter('telegrambot_debugs_info', [$this, 'php_info']);
-        add_filter('telegrambot_debugs_info', [$this, 'wp_info']);
-        add_filter('telegrambot_debugs_info', [$this, 'host_info']);
-        add_filter('telegrambot_debugs_info', [$this, 'ssl_info']);
+        add_filter('tgrambot_debugs_info', [$this, 'wptp_info'], 1);
+        add_filter('tgrambot_debugs_info', [$this, 'php_info']);
+        add_filter('tgrambot_debugs_info', [$this, 'wp_info']);
+        add_filter('tgrambot_debugs_info', [$this, 'host_info']);
+        add_filter('tgrambot_debugs_info', [$this, 'ssl_info']);
     }
 
     function admin_enqueue_scripts()
@@ -32,7 +32,7 @@ class DebugsWPTP extends TelegramBot
     }
 
     /**
-     * Add menu to WP Telegram Pro main menu
+     * Add menu to Telegram Bot main menu
      */
     function menu()
     {
@@ -186,7 +186,7 @@ class DebugsWPTP extends TelegramBot
      */
     function pageContent()
     {
-        $debugs = apply_filters('telegrambot_debugs_info', []);
+        $debugs = apply_filters('tgrambot_debugs_info', []);
         ?>
         <div class="wrap wptp-wrap">
             <h1 class="wp-heading-inline"><?php echo $this->plugin_name . $this->page_title_divider . $this->page_title ?></h1>
@@ -213,7 +213,7 @@ class DebugsWPTP extends TelegramBot
      */
     function checkSSLCertificate($host)
     {
-        if (!is_ssl() || !class_exists('telegrambot\SSLCertificateWPTP')) return false;
+        if (!is_ssl() || !class_exists('tgrambot\SSLCertificateWPTP')) return false;
         try {
             $SSLCertificate = new SSLCertificateWPTP($host);
             return $SSLCertificate->request()->response();

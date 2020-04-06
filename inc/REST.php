@@ -5,7 +5,7 @@
  * @since 1.0
  */
 
-namespace telegrambot;
+namespace tgrambot;
 
 defined('ABSPATH') || exit;
 
@@ -32,7 +32,7 @@ class REST extends Instance
      */
     public function rest_api_init()
     {
-        register_rest_route('telegrambot/v1', '/telegram_bot_auth', array(
+        register_rest_route('tgrambot/v1', '/telegram_bot_auth', array(
             'methods' => 'POST',
             'callback' => [$this, 'telegramBotAuth'],
         ));

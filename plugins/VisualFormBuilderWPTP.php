@@ -1,18 +1,18 @@
 <?php
 
-namespace telegrambot;
+namespace tgrambot;
 
 if (!defined('ABSPATH')) exit;
 global $VisualFormBuilderWPTP;
 
-class VisualFormBuilderWPTP extends TelegramBot
+class VisualFormBuilderWPTP extends TgramBot
 {
     public static $instance = null;
 
     public function __construct()
     {
         parent::__construct();
-        add_action('telegrambot_plugins_settings_content', [$this, 'settings_content']);
+        add_action('tgrambot_plugins_settings_content', [$this, 'settings_content']);
 
         if ($this->get_option('visualformbuilder_new_message_notification', false)) {
             add_action('vfb_after_email', [$this, 'form_submit']);
@@ -134,7 +134,7 @@ class VisualFormBuilderWPTP extends TelegramBot
 
         $text .= __('Date', $this->plugin_key) . ': ' . HelpersWPTP::localeDate() . "\n";
 
-        $text = apply_filters('telegrambot_visualformbuilder_message_notification_text', $text, $fields, $entry_id, $form_id);
+        $text = apply_filters('tgrambot_visualformbuilder_message_notification_text', $text, $fields, $entry_id, $form_id);
 
         if ($text) {
             $keyboard = array(array(

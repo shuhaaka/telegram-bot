@@ -1,18 +1,18 @@
 <?php
 
-namespace telegrambot;
+namespace tgrambot;
 
 if (!defined('ABSPATH')) exit;
 global $ForminatorWPTP;
 
-class ForminatorWPTP extends TelegramBot
+class ForminatorWPTP extends TgramBot
 {
     public static $instance = null;
 
     public function __construct()
     {
         parent::__construct();
-        add_action('telegrambot_plugins_settings_content', [$this, 'settings_content']);
+        add_action('tgrambot_plugins_settings_content', [$this, 'settings_content']);
 
         if ($this->get_option('forminator_new_message_notification', false)) {
             add_action('forminator_custom_form_mail_admin_sent', [$this, 'form_submit'], 10, 5);

@@ -11,7 +11,7 @@
  * WC tested up to: 3.9
  */
 
-namespace telegrambot;
+namespace tgrambot;
 
 if (!defined('ABSPATH')) exit;
 
@@ -49,7 +49,7 @@ require_once WPTELEGRAMPRO_INC_DIR . 'Users.php';
 
 HelpersWPTP::requireAll(WPTELEGRAMPRO_MOD_DIR);
 
-class TelegramBot
+class TgramBot
 {
     public static $instance = null;
     public 
@@ -72,21 +72,21 @@ class TelegramBot
         $this->page_title_divider = is_rtl() ? ' < ' : ' > ';
         $this->options = get_option($this->plugin_key);
         $this->telegram = new TelegramWPTP($this->get_option('api_token'));
-        $this->db_users_table = $wpdb->prefix . 'telegrambot_users';
+        $this->db_users_table = $wpdb->prefix . 'tgrambot_users';
         $this->plugin_name = __('Telegram Bot', $this->plugin_key);
         $this->now = date("Y-m-d H:i:s");
         $this->init($bypass);
-        $this->words = apply_filters('telegrambot_words', $this->words);
+        $this->words = apply_filters('tgrambot_words', $this->words);
 
-        add_filter('telegrambot_words', [$this, 'words']);
+        add_filter('tgrambot_words', [$this, 'words']);
 
         if ($bypass) {
             REST::get_instance()->init();
             Users::get_instance()->init();
 
-            add_action('telegrambot_keyboard_response', [$this, 'change_user_status'], 1);
-            add_action('telegrambot_keyboard_response', [$this, 'connect_telegram_wp_user'], 20);
-            add_filter('telegrambot_after_settings_update_message', [$this, 'after_settings_updated_message'], 10);
+            add_action('tgrambot_keyboard_response', [$this, 'change_user_status'], 1);
+            add_action('tgrambot_keyboard_response', [$this, 'connect_telegram_wp_user'], 20);
+            add_filter('tgrambot_after_settings_update_message', [$this, 'after_settings_updated_message'], 10);
             add_action('wp_login', [$this, 'check_user_id']);
             add_action('user_register', [$this, 'check_user_id']);
             add_action('admin_menu', [$this, 'menu']);
@@ -96,12 +96,12 @@ class TelegramBot
             add_filter('plugin_action_links', [$this, 'plugin_action_links'], 10, 2);
             add_filter('plugin_row_meta', [$this, 'plugin_row_meta'], 10, 4);
 
-            add_filter('telegrambot_settings_update_message', [$this, 'check_ssl'], 100);
-            add_filter('telegrambot_settings_tabs', [$this, 'settings_tab'], 100);
-            add_action('telegrambot_helps_content', [$this, 'helps_command_list'], 1);
-            add_action('telegrambot_settings_content', [$this, 'about_settings_content']);
-            add_filter('telegrambot_post_info', [$this, 'fix_post_info'], 9999, 3);
-            add_filter('telegrambot_telegram_bot_api_parameters', [$this, 'fix_telegram_text'], 9999);
+            add_filter('tgrambot_settings_update_message', [$this, 'check_ssl'], 100);
+            add_filter('tgrambot_settings_tabs', [$this, 'settings_tab'], 100);
+            add_action('tgrambot_helps_content', [$this, 'helps_command_list'], 1);
+            add_action('tgrambot_settings_content', [$this, 'about_settings_content']);
+            add_filter('tgrambot_post_info', [$this, 'fix_post_info'], 9999, 3);
+            add_filter('tgrambot_telegram_bot_api_parameters', [$this, 'fix_telegram_text'], 9999);
         }
     }
 
@@ -161,7 +161,7 @@ class TelegramBot
 
     function helps_command_list()
     {
-        $commands = apply_filters('telegrambot_default_commands', array());
+        $commands = apply_filters('tgrambot_default_commands', array());
         $textRows = count($commands) > 7 ? 7 : count($commands);
         ?>
         <div class="item">
@@ -198,17 +198,11 @@ class TelegramBot
     {
         ?>
         <div id="<?php echo $this->aboutTabID ?>-content" class="wptp-tab-content hidden">
-            <h3><?php _e('Integrate WordPress with Telegram', $this->plugin_key) ?></h3>
-            <p><?php _e('Do you like WP Telegram Pro?', $this->plugin_key) ?>
-                <br>
-                <a href="https://wordpress.org/support/plugin/wp-telegram-pro/reviews/#new-post" target="_blank">
-                    <?php _e('Give it a rating', $this->plugin_key) ?>
-                    <br><span class="star-ratings">★★★★★</span></a>
-            </p>
+            <h3><?php _e('Integrate WordPress with Telegram', $this->plugin_key) ?></h3>            
             <p>
                 <?php
                 _e('Keep in touch with me:', $this->plugin_key);
-                ?> <a href="http://parsa.ws">Parsa Kafi</a>
+                ?> <a href="https://eson.uz">Shuhrat Mamataliyev</a>
             </p>
         </div>
         <?php
@@ -221,9 +215,9 @@ class TelegramBot
 
         // When pressed inline keyboard button
         if (isset($data['data'])) {
-            do_action('telegrambot_inline_keyboard_response', $data);
+            do_action('tgrambot_inline_keyboard_response', $data);
         } else {
-            do_action('telegrambot_keyboard_response', $user_text);
+            do_action('tgrambot_keyboard_response', $user_text);
         }
         exit;
     }
@@ -271,7 +265,7 @@ class TelegramBot
     {
         $allow_status = array('search');
         $user_text = trim($user_text, '/');
-        $this->words = $words = apply_filters('telegrambot_words', $this->words);
+        $this->words = $words = apply_filters('tgrambot_words', $this->words);
         $words = array_flip($words);
         if (isset($words[$user_text])) {
             if (in_array($words[$user_text], $allow_status))
@@ -382,22 +376,22 @@ class TelegramBot
     function settings()
     {
         $tabs_title_list = array();
-        $tabs_title = apply_filters('telegrambot_settings_tabs', $tabs_title_list);
+        $tabs_title = apply_filters('tgrambot_settings_tabs', $tabs_title_list);
 
-        $update_message = apply_filters('telegrambot_settings_update_message', '');
+        $update_message = apply_filters('tgrambot_settings_update_message', '');
 
         if (isset($_POST['wpt_nonce_field']) && wp_verify_nonce($_POST['wpt_nonce_field'], 'settings_submit')) {
             unset($_POST['wpt_nonce_field']);
             unset($_POST['_wp_http_referer']);
 
-            do_action('telegrambot_before_settings_updated', $this->options, $_POST);
-            $update_message = apply_filters('telegrambot_before_settings_update_message', $update_message, $this->options, $_POST);
+            do_action('tgrambot_before_settings_updated', $this->options, $_POST);
+            $update_message = apply_filters('tgrambot_before_settings_update_message', $update_message, $this->options, $_POST);
 
-            $options = apply_filters('telegrambot_option_settings', $_POST, $this->options);
+            $options = apply_filters('tgrambot_option_settings', $_POST, $this->options);
             update_option($this->plugin_key, $options, false);
 
-            do_action('telegrambot_after_settings_updated', $this->options, $options);
-            $update_message = apply_filters('telegrambot_after_settings_update_message', $update_message, $this->options, $_POST);
+            do_action('tgrambot_after_settings_updated', $this->options, $options);
+            $update_message = apply_filters('tgrambot_after_settings_update_message', $update_message, $this->options, $_POST);
         }
 
         $this->options = get_option($this->plugin_key);
@@ -418,7 +412,7 @@ class TelegramBot
             </div>
             <form action="" method="post">
                 <?php wp_nonce_field('settings_submit', 'wpt_nonce_field');
-                do_action('telegrambot_settings_content');
+                do_action('tgrambot_settings_content');
                 ?>
 
                 <button type="submit" class="button-save">
@@ -501,7 +495,7 @@ class TelegramBot
                     $args['cat'] = intval($query['category_id']);
             }
         }
-        $args = apply_filters('telegrambot_query_args', $args, $query);
+        $args = apply_filters('tgrambot_query_args', $args, $query);
 
         $query_ = new \WP_Query($args);
 
@@ -561,7 +555,7 @@ class TelegramBot
                     $items[$post_type][$c]['categories'] = $this->get_taxonomy_terms('category', $post_id);
                 }
 
-                $items[$post_type][$c] = apply_filters('telegrambot_post_info', $items[$post_type][$c], $post_id, $query);
+                $items[$post_type][$c] = apply_filters('tgrambot_post_info', $items[$post_type][$c], $post_id, $query);
 
                 $c++;
             }
@@ -752,7 +746,7 @@ class TelegramBot
         $adminUrl = preg_replace("(^https?://)", "", get_admin_url());
         $admin_path = str_replace($blogUrl . '/', ABSPATH, $adminUrl);
         // Make it filterable, so other plugins can hook into it.
-        $admin_path = apply_filters('telegrambot_get_admin_path', $admin_path);
+        $admin_path = apply_filters('tgrambot_get_admin_path', $admin_path);
         return $admin_path;
     }
 
@@ -1021,10 +1015,10 @@ class TelegramBot
         $user_link = 'https://t.me/';
         $pattern = '/^(?:' . preg_quote($bot_api_url, '/') . '|' . preg_quote($user_link, '/') . ')/i';
         $to_telegram = preg_match($pattern, $url);
-        $by_telegrambot = (isset($r['headers']['telegrambot']) && $r['headers']['telegrambot']);
+        $by_tgrambot = (isset($r['headers']['tgrambot']) && $r['headers']['tgrambot']);
 
         // if the request is sent to Telegram by WP Telegram Pro
-        return $to_telegram && $by_telegrambot;
+        return $to_telegram && $by_tgrambot;
     }
 
     function check_ssl($message)
@@ -1112,7 +1106,7 @@ class TelegramBot
     function plugin_row_meta($links_array, $plugin_file, $plugin_data, $status)
     {
         if ($plugin_file == plugin_basename(__FILE__)) {
-            $links_array[] = '<a href="https://t.me/wptelegrampro" target="_blank">' . __('Telegram Channel', $this->plugin_key) . '</a>';
+            $links_array[] = '<a href="https://eson.uz" target="_blank">' . __('Telegram Channel', $this->plugin_key) . '</a>';
         }
 
         return $links_array;
@@ -1122,7 +1116,7 @@ class TelegramBot
     {
         global $table_prefix, $wpdb;
 
-        $table_name = 'telegrambot_users';
+        $table_name = 'tgrambot_users';
         $wp_table = $table_prefix . $table_name;
 
         if ($wpdb->get_var("show tables like '$wp_table'") != $wp_table) {
@@ -1148,7 +1142,7 @@ class TelegramBot
             dbDelta($sql);
         }
 
-        update_option('telegrambot_version', WPTELEGRAMPRO_VERSION, false);
+        update_option('tgrambot_version', WPTELEGRAMPRO_VERSION, false);
         update_option('update_keyboard_time_wptp', current_time('U'), false);
     }
 
@@ -1168,4 +1162,4 @@ class TelegramBot
 }
 
 $TelegramBot = TelegramBot::getInstance(true);
-register_activation_hook(__FILE__, array('telegrambot\TelegramBot', 'install'));
+register_activation_hook(__FILE__, array('tgrambot\TelegramBot', 'install'));

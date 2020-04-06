@@ -1,18 +1,18 @@
 <?php
 
-namespace telegrambot;
+namespace tgrambot;
 
 if (!defined('ABSPATH')) exit;
 global $WPStatisticsWPTP;
 
-class WPStatisticsWPTP extends TelegramBot
+class WPStatisticsWPTP extends TgramBot
 {
     public static $instance = null;
 
     public function __construct()
     {
         parent::__construct();
-        add_action('telegrambot_plugins_settings_content', [$this, 'settings_content']);
+        add_action('tgrambot_plugins_settings_content', [$this, 'settings_content']);
 
         if ($this->get_option('wpstatistics_send_report_notification', false)) {
             add_filter('wp_statistics_final_text_report_email', [$this, 'send_report']);
@@ -63,7 +63,7 @@ class WPStatisticsWPTP extends TelegramBot
         $text .= $text_report . "\n";
 
         $text .= __('Date', $this->plugin_key) . ': ' . HelpersWPTP::localeDate() . "\n";
-        $text = apply_filters('telegrambot_wpstatistics_send_report_notification_text', $text, $final_text_report);
+        $text = apply_filters('tgrambot_wpstatistics_send_report_notification_text', $text, $final_text_report);
 
         if (!$text) return $final_text_report;
 

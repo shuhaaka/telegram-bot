@@ -1,7 +1,7 @@
 <?php
-namespace telegrambot;
+namespace tgrambot;
 
-class ProxyWPTP extends TelegramBot
+class ProxyWPTP extends TgramBot
 {
     public static $instance = null;
     private static $proxy;
@@ -11,11 +11,11 @@ class ProxyWPTP extends TelegramBot
     {
         parent::__construct();
 
-        add_filter('telegrambot_settings_tabs', [$this, 'settings_tab'], 35);
-        add_action('telegrambot_settings_content', [$this, 'settings_content']);
-        add_action('telegrambot_helps_content', [$this, 'helps_google_proxy']);
-        add_filter('telegrambot_image_send_mode', [$this, 'image_send_mode'], 35);
-        add_filter('telegrambot_proxy_status', [$this, 'proxy_status'], 35);
+        add_filter('tgrambot_settings_tabs', [$this, 'settings_tab'], 35);
+        add_action('tgrambot_settings_content', [$this, 'settings_content']);
+        add_action('tgrambot_helps_content', [$this, 'helps_google_proxy']);
+        add_filter('tgrambot_image_send_mode', [$this, 'image_send_mode'], 35);
+        add_filter('tgrambot_proxy_status', [$this, 'proxy_status'], 35);
 
         $this->setup_proxy();
     }
@@ -45,8 +45,8 @@ class ProxyWPTP extends TelegramBot
         if ($proxy_status === 'google_script') {
             $google_script_url = $this->get_option('google_script_url');
             if (!empty($google_script_url)) {
-                add_filter('telegrambot_api_remote_post_args', [$this, 'google_script_request_args'], 10, 3);
-                add_filter('telegrambot_api_request_url', [$this, 'google_script_request_url']);
+                add_filter('tgrambot_api_remote_post_args', [$this, 'google_script_request_args'], 10, 3);
+                add_filter('tgrambot_api_request_url', [$this, 'google_script_request_url']);
             }
 
         } elseif ($proxy_status === 'php_proxy')
@@ -82,7 +82,7 @@ class ProxyWPTP extends TelegramBot
      */
     private static function get_proxy()
     {
-        return (array)apply_filters('telegrambot_api_curl_proxy', self::$proxy);
+        return (array)apply_filters('tgrambot_api_curl_proxy', self::$proxy);
     }
 
     /**
@@ -102,7 +102,7 @@ class ProxyWPTP extends TelegramBot
     {
         if ($this->check_remote_post($r, $url)) {
             foreach (self::get_proxy() as $option => $value)
-                ${'proxy_' . $option} = apply_filters("telegrambot_api_curl_proxy_{$option}", $value);
+                ${'proxy_' . $option} = apply_filters("tgrambot_api_curl_proxy_{$option}", $value);
 
             if (!empty($proxy_host) && !empty($proxy_port)) {
                 if (!empty($proxy_type))

@@ -1,18 +1,18 @@
 <?php
 
-namespace telegrambot;
+namespace tgrambot;
 
 if (!defined('ABSPATH')) exit;
 global $WPSMSWPTP;
 
-class WPSMSWPTP extends TelegramBot
+class WPSMSWPTP extends TgramBot
 {
     public static $instance = null;
 
     public function __construct()
     {
         parent::__construct();
-        add_action('telegrambot_plugins_settings_content', [$this, 'settings_content']);
+        add_action('tgrambot_plugins_settings_content', [$this, 'settings_content']);
 
         if ($this->get_option('wpsms_add_subscriber_notification', false)) {
             add_action('wp_sms_add_subscriber', [$this, 'add_subscriber'], 10, 4);
@@ -56,7 +56,7 @@ class WPSMSWPTP extends TelegramBot
         $text .= __('Mobile Number', $this->plugin_key) . ': ' . $mobile . "\n";
 
         $text .= __('Date', $this->plugin_key) . ': ' . HelpersWPTP::localeDate() . "\n";
-        $text = apply_filters('telegrambot_wpsms_new_subscriber_notification_text', $text, $name, $mobile);
+        $text = apply_filters('tgrambot_wpsms_new_subscriber_notification_text', $text, $name, $mobile);
 
         if (!$text) return;
 

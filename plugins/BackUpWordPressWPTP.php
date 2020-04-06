@@ -1,20 +1,20 @@
 <?php
 
-namespace telegrambot;
+namespace tgrambot;
 if (!defined('ABSPATH')) exit;
 global $BackUpWordPressWPTP;
 
-class BackUpWordPressWPTP extends TelegramBot
+class BackUpWordPressWPTP extends TgramBot
 {
     public static $instance = null;
 
     public function __construct()
     {
         parent::__construct();
-        add_action('telegrambot_plugins_settings_content', [$this, 'settings_content']);
+        add_action('tgrambot_plugins_settings_content', [$this, 'settings_content']);
 
         if ($this->get_option('backupwordpress_plugin_new_backup_notification', false)) {
-            add_action('telegrambot_backupwordpress_plugin_new_backup', [$this, 'new_backup'], 10, 2);
+            add_action('tgrambot_backupwordpress_plugin_new_backup', [$this, 'new_backup'], 10, 2);
             //add_action('plugins_loaded', [$this, 'plugins_loaded'], 99999);
             $this->plugins_loaded();
         }
@@ -122,7 +122,7 @@ class BackUpWordPressWPTP extends TelegramBot
         $text = $title . "\n\n";
         $text .= $message;
         $text .= "\n" . __('Date', $this->plugin_key) . ': ' . HelpersWPTP::localeDate() . "\n";
-        $text = apply_filters('telegrambot_backupwordpress_plugin_new_backup_notification_text', $text, $title, $message, $backup);
+        $text = apply_filters('tgrambot_backupwordpress_plugin_new_backup_notification_text', $text, $title, $message, $backup);
 
         if (!$text) return;
 

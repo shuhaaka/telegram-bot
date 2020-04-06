@@ -1,5 +1,5 @@
 <?php
-namespace telegrambot;
+namespace tgrambot;
 use WP_Scripts;
 
 /**
@@ -20,7 +20,7 @@ class FilterableScriptsWPTP extends WP_Scripts
      */
     public function localize($handle, $object_name, $l10n)
     {
-        $l10n = apply_filters('telegrambot_localize_script', $l10n, $handle, $object_name);
+        $l10n = apply_filters('tgrambot_localize_script', $l10n, $handle, $object_name);
         return parent::localize($handle, $object_name, $l10n);
     }
 }

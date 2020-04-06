@@ -1,20 +1,20 @@
 <?php
 
-namespace telegrambot;
+namespace tgrambot;
 
 use TNP_User;
 
 if (!defined('ABSPATH')) exit;
 global $NewsletterWPTP;
 
-class NewsletterWPTP extends TelegramBot
+class NewsletterWPTP extends TgramBot
 {
     public static $instance = null;
 
     public function __construct()
     {
         parent::__construct();
-        add_action('telegrambot_plugins_settings_content', [$this, 'settings_content']);
+        add_action('tgrambot_plugins_settings_content', [$this, 'settings_content']);
 
         if ($this->get_option('newsletter_plugin_new_subscriber_notification', false))
             add_action('newsletter_user_confirmed', [$this, 'send_notification']);
@@ -80,7 +80,7 @@ class NewsletterWPTP extends TelegramBot
         $text .= __('Email', $this->plugin_key) . ': ' . $user->email . "\n";
         //$text .= __('Status', $this->plugin_key) . ': ' . $status_value . "\n";
         $text .= __('Date', $this->plugin_key) . ': ' . HelpersWPTP::localeDate() . "\n";
-        $text = apply_filters('telegrambot_newsletter_plugin_' . $status . '_notification_text', $text, $user);
+        $text = apply_filters('tgrambot_newsletter_plugin_' . $status . '_notification_text', $text, $user);
 
         if (!$text) return;
 

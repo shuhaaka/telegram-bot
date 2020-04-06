@@ -1,6 +1,6 @@
 <?php
 
-namespace telegrambot;
+namespace tgrambot;
 
 use dologin\Data;
 use dologin\IP;
@@ -11,7 +11,7 @@ use WP_User;
 if (!defined('ABSPATH')) exit;
 global $DoLoginWPTP;
 
-class DoLoginWPTP extends TelegramBot
+class DoLoginWPTP extends TgramBot
 {
     public static $instance = null;
     private $_dry_run = false;
@@ -19,18 +19,18 @@ class DoLoginWPTP extends TelegramBot
     public function __construct()
     {
         parent::__construct();
-        add_action('telegrambot_plugins_settings_content', [$this, 'settings_content']);
+        add_action('tgrambot_plugins_settings_content', [$this, 'settings_content']);
 
         if ($this->get_option('dologin_plugin_two_factor_auth', false)) {
             add_action('init', [$this, 'init_addon']);
             add_action('init', function () {
                 $GLOBALS['wp_scripts'] = new FilterableScriptsWPTP;
             });
-            add_filter('telegrambot_localize_script', [$this, 'localize_script'], 30, 3);
+            add_filter('tgrambot_localize_script', [$this, 'localize_script'], 30, 3);
             add_filter('authenticate', [$this, 'authenticate'], 30, 3);
         }
 
-        $this->words = apply_filters('telegrambot_words', $this->words);
+        $this->words = apply_filters('tgrambot_words', $this->words);
     }
 
     function settings_content()
@@ -279,7 +279,7 @@ class DoLoginWPTP extends TelegramBot
         if ($bot_user) {
             $text = "*" . sprintf(__('Dear %s', $this->plugin_key), $user->display_name) . "*\n";
             $text .= $message;
-            $text = apply_filters('telegrambot_dologin_plugin_two_factor_auth_notification_text', $text, $bot_user, $message, $user);
+            $text = apply_filters('tgrambot_dologin_plugin_two_factor_auth_notification_text', $text, $bot_user, $message, $user);
 
             if ($text) {
                 $keyboard = array(array(

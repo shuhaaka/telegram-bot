@@ -1,10 +1,11 @@
 <?php
 /**
  * The abstract instance
- *
+ * @Author: Shuhrat Mamataliyev
+ * @WebSite: https://eson.uz
  * @since      	1.0
  */
-namespace telegrambot;
+namespace tgrambot;
 
 defined( 'ABSPATH' ) || exit;
 

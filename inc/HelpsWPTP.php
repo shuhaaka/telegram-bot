@@ -1,7 +1,7 @@
 <?php
-namespace telegrambot;
+namespace tgrambot;
 
-class HelpsWPTP extends TelegramBot
+class HelpsWPTP extends TgramBot
 {
     public static $instance = null;
     protected $page_key, $page_title;
@@ -25,7 +25,7 @@ class HelpsWPTP extends TelegramBot
         <div class="wrap wptp-wrap">
             <h1 class="wp-heading-inline"><?php echo $this->plugin_name . $this->page_title_divider . $this->page_title ?></h1>
             <div class="accordion-wptp">
-                <?php do_action('telegrambot_helps_content'); ?>
+                <?php do_action('tgrambot_helps_content'); ?>
             </div>
         </div>
         <?php

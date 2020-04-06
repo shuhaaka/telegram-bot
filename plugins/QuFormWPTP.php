@@ -1,6 +1,6 @@
 <?php
 
-namespace telegrambot;
+namespace tgrambot;
 
 use Quform;
 use Quform_Repository;
@@ -8,14 +8,14 @@ use Quform_Repository;
 if (!defined('ABSPATH')) exit;
 global $QuFormWPTP;
 
-class QuFormWPTP extends TelegramBot
+class QuFormWPTP extends TgramBot
 {
     public static $instance = null;
 
     public function __construct()
     {
         parent::__construct();
-        add_action('telegrambot_plugins_settings_content', [$this, 'settings_content']);
+        add_action('tgrambot_plugins_settings_content', [$this, 'settings_content']);
 
         if ($this->get_option('quform_new_message_notification', false)) {
             add_filter('quform_post_process', [$this, 'form_submit'], 10, 2);
@@ -150,7 +150,7 @@ class QuFormWPTP extends TelegramBot
 
         $text .= __('Date', $this->plugin_key) . ': ' . HelpersWPTP::localeDate() . "\n";
 
-        $text = apply_filters('telegrambot_quform_message_notification_text', $text, $form);
+        $text = apply_filters('tgrambot_quform_message_notification_text', $text, $form);
 
         if ($text) {
             $keyboard = array(array(

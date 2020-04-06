@@ -1,11 +1,11 @@
 <?php
 
-namespace telegrambot;
+namespace tgrambot;
 
 if (!defined('ABSPATH')) exit;
 global $AllInOneWPSecurityFirewallWPTP;
 
-class AllInOneWPSecurityFirewallWPTP extends TelegramBot
+class AllInOneWPSecurityFirewallWPTP extends TgramBot
 {
     public static $instance = null;
 
@@ -13,7 +13,7 @@ class AllInOneWPSecurityFirewallWPTP extends TelegramBot
     {
         parent::__construct();
 
-        add_action('telegrambot_plugins_settings_content', [$this, 'settings_content']);
+        add_action('tgrambot_plugins_settings_content', [$this, 'settings_content']);
 
         if ($this->get_option('allinonewpsecurityfirewall_lock_user_notification', false)) {
             add_action('aiowps_lockdown_event', [$this, 'lock_user'], 10, 2);

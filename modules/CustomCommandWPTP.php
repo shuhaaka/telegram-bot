@@ -1,9 +1,9 @@
 <?php
 
-namespace telegrambot;
+namespace tgrambot;
 if (!defined('ABSPATH')) exit;
 
-class CustomCommandWPT extends TelegramBot
+class CustomCommandWPT extends TgramBot
 {
     public static $instance = null;
 

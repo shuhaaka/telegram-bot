@@ -1,8 +1,8 @@
 <?php
 
-namespace telegrambot;
+namespace tgrambot;
 
-class WordPressWPTP extends TelegramBot
+class WordPressWPTP extends TgramBot
 {
     public static $instance = null;
     protected $tabID = 'wordpress-wptp-tab';
@@ -10,18 +10,18 @@ class WordPressWPTP extends TelegramBot
     public function __construct()
     {
         parent::__construct();
-        $this->words = apply_filters('telegrambot_words', $this->words);
+        $this->words = apply_filters('tgrambot_words', $this->words);
 
-        add_filter('telegrambot_patterns_tags', [$this, 'patterns_tags']);
-        add_filter('telegrambot_settings_tabs', [$this, 'settings_tab'], 10);
-        add_action('telegrambot_settings_content', [$this, 'settings_content']);
-        add_action('telegrambot_inline_keyboard_response', array($this, 'inline_keyboard'));
-        add_action('telegrambot_keyboard_response', array($this, 'post_action'));
-        add_action('telegrambot_keyboard_response', array($this, 'check_keyboard_need_update'), 9999);
-        add_filter('telegrambot_before_settings_update_message', array($this, 'update_api_token'), 10, 3);
-        add_filter('telegrambot_option_settings', array($this, 'update_bot_username'), 100, 2);
-        add_filter('telegrambot_default_keyboard', [$this, 'default_keyboard'], 10);
-        add_filter('telegrambot_default_commands', [$this, 'default_commands'], 10);
+        add_filter('tgrambot_patterns_tags', [$this, 'patterns_tags']);
+        add_filter('tgrambot_settings_tabs', [$this, 'settings_tab'], 10);
+        add_action('tgrambot_settings_content', [$this, 'settings_content']);
+        add_action('tgrambot_inline_keyboard_response', array($this, 'inline_keyboard'));
+        add_action('tgrambot_keyboard_response', array($this, 'post_action'));
+        add_action('tgrambot_keyboard_response', array($this, 'check_keyboard_need_update'), 9999);
+        add_filter('tgrambot_before_settings_update_message', array($this, 'update_api_token'), 10, 3);
+        add_filter('tgrambot_option_settings', array($this, 'update_bot_username'), 100, 2);
+        add_filter('tgrambot_default_keyboard', [$this, 'default_keyboard'], 10);
+        add_filter('tgrambot_default_commands', [$this, 'default_commands'], 10);
 
         add_action('show_user_profile', [$this, 'user_profile']);
         add_action('edit_user_profile', [$this, 'user_profile']);
@@ -119,7 +119,7 @@ class WordPressWPTP extends TelegramBot
 
     function default_keyboard($keyboard)
     {
-        $this->words = apply_filters('telegrambot_words', $this->words);
+        $this->words = apply_filters('tgrambot_words', $this->words);
         $new_keyboard = array(
             $this->words['posts'],
             $this->words['categories']
@@ -204,7 +204,7 @@ class WordPressWPTP extends TelegramBot
             /* translators: 1: User name 2: Date 3: Time 4: IP address */
             $text .= sprintf(__('Your successful login to %1$s account on date %2$s at %3$s with %4$s IP address done.', $this->plugin_key), $user_login, HelpersWPTP::localeDate(null, "l j F Y"), HelpersWPTP::localeDate(null, "H:i"), "[{$userIP}](http://{$userIP}.ipaddress.com)");
 
-            $text = apply_filters('telegrambot_user_login_notification_text', $text, $user_login, $user);
+            $text = apply_filters('tgrambot_user_login_notification_text', $text, $user_login, $user);
 
             if ($text) {
                 $keyboard = array(array(
@@ -254,7 +254,7 @@ class WordPressWPTP extends TelegramBot
 
             $text .= __('Date', $this->plugin_key) . ': ' . HelpersWPTP::localeDate() . "\n";
 
-            $text = apply_filters('telegrambot_admin_users_login_notification_text', $text, $user_login, $user);
+            $text = apply_filters('tgrambot_admin_users_login_notification_text', $text, $user_login, $user);
 
             if ($text) {
                 $this->telegram->disable_web_page_preview(true);
@@ -275,7 +275,7 @@ class WordPressWPTP extends TelegramBot
     {
         $text = $email['message'];
         $text = str_replace([__('Email'), __('emailed'), __('email')], __('notification', $this->plugin_key), $text);
-        $text = apply_filters('telegrambot_admin_recovery_mode_notification_text', $text, $email, $url);
+        $text = apply_filters('tgrambot_admin_recovery_mode_notification_text', $text, $email, $url);
 
         if (!$text) return $email;
 
@@ -302,7 +302,7 @@ class WordPressWPTP extends TelegramBot
     function admin_auto_core_update_notification($email, $type, $core_update, $result)
     {
         $text = $email['body'];
-        $text = apply_filters('telegrambot_admin_auto_core_update_notification_text', $text, $email, $type, $core_update, $result);
+        $text = apply_filters('tgrambot_admin_auto_core_update_notification_text', $text, $email, $type, $core_update, $result);
 
         if (!$text) return $email;
 
@@ -355,7 +355,7 @@ class WordPressWPTP extends TelegramBot
 
             $text .= __('Date', $this->plugin_key) . ': ' . HelpersWPTP::localeDate() . "\n";
 
-            $text = apply_filters('telegrambot_admin_register_new_user_notification_text', $text, $user_id, $user);
+            $text = apply_filters('tgrambot_admin_register_new_user_notification_text', $text, $user_id, $user);
 
             if ($text) {
                 $this->telegram->disable_web_page_preview(true);
@@ -392,7 +392,7 @@ class WordPressWPTP extends TelegramBot
                 if (!empty($comment->comment_content))
                     $text .= __('Comment') . ":\n" . stripslashes(strip_tags($comment->comment_content)) . "\n";
 
-                $text = apply_filters('telegrambot_wp_new_comment_notification_text', $text, $comment, $comment_ID);
+                $text = apply_filters('tgrambot_wp_new_comment_notification_text', $text, $comment, $comment_ID);
 
                 if ($text)
                     foreach ($users as $user) {
@@ -462,7 +462,7 @@ class WordPressWPTP extends TelegramBot
         if (!is_array($posts['parameter']['post_type']))
             $posts['parameter']['post_type'] = array($posts['parameter']['post_type']);
 
-        $image_send_mode = apply_filters('telegrambot_image_send_mode', 'image_path');
+        $image_send_mode = apply_filters('tgrambot_image_send_mode', 'image_path');
 
         $posts_ = array();
         foreach ($posts['parameter']['post_type'] as $post_type)
@@ -470,7 +470,7 @@ class WordPressWPTP extends TelegramBot
                 $posts_ = array_merge($posts_, $posts[$post_type]);
 
         if (count($posts_) > 0) {
-            $this->words = apply_filters('telegrambot_words', $this->words);
+            $this->words = apply_filters('tgrambot_words', $this->words);
             $i = 1;
             $current_page = $this->user['page'];
             //$this->telegram->sendMessage(serialize($posts));
@@ -507,7 +507,7 @@ class WordPressWPTP extends TelegramBot
         if (!empty($system_time)) {
             $update_keyboard_time = $this->get_user_meta('update_keyboard_time');
             if (empty($update_keyboard_time) || $system_time > $update_keyboard_time) {
-                $default_keyboard = apply_filters('telegrambot_default_keyboard', array());
+                $default_keyboard = apply_filters('tgrambot_default_keyboard', array());
                 $default_keyboard = $this->telegram->keyboard($default_keyboard);
                 $this->telegram->sendMessage(__('Update'), $default_keyboard);
                 $this->update_user_meta('update_keyboard_time', current_time('U'));
@@ -518,13 +518,13 @@ class WordPressWPTP extends TelegramBot
     function post_action($user_text)
     {
         $this->set_user();
-        $this->words = $words = apply_filters('telegrambot_words', $this->words);
+        $this->words = $words = apply_filters('tgrambot_words', $this->words);
         $current_status = $this->user_field('status');
 
         if ($user_text == '/start' || strpos($user_text, '/start') !== false) {
             $message = $this->get_option('start_command');
             $message = empty(trim($message)) ? __('Welcome!', $this->plugin_key) : $message;
-            $default_keyboard = apply_filters('telegrambot_default_keyboard', array());
+            $default_keyboard = apply_filters('tgrambot_default_keyboard', array());
             $default_keyboard = $this->telegram->keyboard($default_keyboard);
             $this->telegram->sendMessage($message, $default_keyboard);
 

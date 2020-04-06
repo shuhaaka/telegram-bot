@@ -1,18 +1,18 @@
 <?php
 
-namespace telegrambot;
+namespace tgrambot;
 
 if (!defined('ABSPATH')) exit;
 global $WeFormsWPTP;
 
-class WeFormsWPTP extends TelegramBot
+class WeFormsWPTP extends TgramBot
 {
     public static $instance = null;
 
     public function __construct()
     {
         parent::__construct();
-        add_action('telegrambot_plugins_settings_content', [$this, 'settings_content']);
+        add_action('tgrambot_plugins_settings_content', [$this, 'settings_content']);
 
         if ($this->get_option('weforms_new_message_notification', false)) {
             add_action('weforms_entry_submission', [$this, 'form_submit'], 10, 4);
@@ -110,7 +110,7 @@ class WeFormsWPTP extends TelegramBot
 
         $text .= __('Date', $this->plugin_key) . ': ' . HelpersWPTP::localeDate() . "\n";
 
-        $text = apply_filters('telegrambot_weforms_message_notification_text', $text, $entry_id, $form_id, $page_id, $form_settings);
+        $text = apply_filters('tgrambot_weforms_message_notification_text', $text, $entry_id, $form_id, $page_id, $form_settings);
 
         if ($text) {
             $keyboard = array(array(

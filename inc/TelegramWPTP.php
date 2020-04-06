@@ -1,11 +1,11 @@
 <?php
 /**
  * Telegram Bot API
- * @Author: Parsa Kafi
- * @WebSite: http://parsa.ws
+ * @Author: Shuhrat Mamataliyev
+ * @WebSite: https://eson.uz
  */
 
-namespace telegrambot;
+namespace tgrambot;
 if (!defined('ABSPATH')) exit;
 if (class_exists('TelegramWPTP')) return;
 
@@ -18,7 +18,7 @@ class TelegramWPTP
     function __construct($token)
     {
         $this->token = $token;
-        add_filter('telegrambot_api_request_parameters', [$this, 'request_file_parameter']);
+        add_filter('tgrambot_api_request_parameters', [$this, 'request_file_parameter']);
         add_action('http_api_curl', [$this, 'modify_http_api_curl'], 10, 3);
     }
 
@@ -54,13 +54,13 @@ class TelegramWPTP
     function request($method, $parameter = array())
     {
         $parameter['disable_web_page_preview'] = $this->disable_web_page_preview;
-        $proxy_status = apply_filters('telegrambot_proxy_status', '');
+        $proxy_status = apply_filters('tgrambot_proxy_status', '');
         $url = 'https://api.telegram.org/bot' . $this->token . '/' . $method;
 
-        $parameter = apply_filters('telegrambot_telegram_bot_api_parameters', $parameter);
+        $parameter = apply_filters('tgrambot_telegram_bot_api_parameters', $parameter);
 
         if (!empty($proxy_status)) {
-            $headers = array('telegrambot' => true);
+            $headers = array('tgrambot' => true);
 
             if (in_array($method, $this->fileMethod) && isset($parameter['file'])) {
                 $key = $this->file_key = strtolower(str_replace(array('send', 'VideoNote'), array('', 'video_note'), $method));
@@ -79,9 +79,9 @@ class TelegramWPTP
                 remove_action('http_api_curl', [$this, 'modify_http_api_curl']);
             }
 
-            $url = apply_filters('telegrambot_api_request_url', $url);
+            $url = apply_filters('tgrambot_api_request_url', $url);
 
-            // $parameter = apply_filters('telegrambot_api_request_parameters', $parameter);
+            // $parameter = apply_filters('tgrambot_api_request_parameters', $parameter);
             $parameter = $this->request_file_parameter($parameter);
 
             $args = array(
@@ -93,9 +93,9 @@ class TelegramWPTP
             );
 
             foreach ($args as $argument => $value)
-                $args[$argument] = apply_filters("telegrambot_api_request_arg_{$argument}", $value);
+                $args[$argument] = apply_filters("tgrambot_api_request_arg_{$argument}", $value);
 
-            $args = apply_filters('telegrambot_api_remote_post_args', $args, $method, $this->token);
+            $args = apply_filters('tgrambot_api_remote_post_args', $args, $method, $this->token);
             $raw_response = $this->raw_response = $this->last_result = wp_remote_post($url, $args);
             $this->set_properties($raw_response);
             $this->valid_json = $this->decode_body();
@@ -137,7 +137,7 @@ class TelegramWPTP
 
     function request_file_parameter($parameter)
     {
-        $image_send_mode = apply_filters('telegrambot_image_send_mode', 'image_path');
+        $image_send_mode = apply_filters('tgrambot_image_send_mode', 'image_path');
         if ($this->file && $image_send_mode === 'image_path') {
             $parameter[$this->file_key] = new \CURLFile(realpath($this->file));
         }
@@ -146,7 +146,7 @@ class TelegramWPTP
 
     function modify_http_api_curl(&$handle, $r, $url)
     {
-        $image_send_mode = apply_filters('telegrambot_image_send_mode', 'image_path');
+        $image_send_mode = apply_filters('tgrambot_image_send_mode', 'image_path');
         if (!isset($r['headers']['attache_file']) || $image_send_mode !== 'image_path') return;
         if ($this->check_remote_post($r, $url)) {
             curl_setopt($handle, CURLOPT_HTTPHEADER, array("Content-Type:multipart/form-data"));

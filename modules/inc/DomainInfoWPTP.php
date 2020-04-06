@@ -1,15 +1,14 @@
 <?php
 
-namespace wptelegrampro;
+namespace tgrambot;
 
 /**
- * WPTelegramPro Domain Info
+ * TelegramBot Domain Info
  *
- * @link       https://wordpress.org/plugins/wp-telegram-pro
  * @since      1.0.0
  *
- * @package    WPTelegramPro
- * @subpackage WPTelegramPro/modules/inc
+ * @package    TelegramBot
+ * @subpackage TelegramBot/modules/inc
  */
 class DomainInfoWPTP
 {

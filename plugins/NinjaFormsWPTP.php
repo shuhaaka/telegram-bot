@@ -1,18 +1,18 @@
 <?php
 
-namespace telegrambot;
+namespace tgrambot;
 
 if (!defined('ABSPATH')) exit;
 global $NinjaFormsWPTP;
 
-class NinjaFormsWPTP extends TelegramBot
+class NinjaFormsWPTP extends TgramBot
 {
     public static $instance = null;
 
     public function __construct()
     {
         parent::__construct();
-        add_action('telegrambot_plugins_settings_content', [$this, 'settings_content']);
+        add_action('tgrambot_plugins_settings_content', [$this, 'settings_content']);
 
         if ($this->get_option('ninjaforms_new_message_notification', false)) {
             add_action('ninja_forms_after_submission', [$this, 'ninjaforms_submit'], 10, 2);
@@ -89,7 +89,7 @@ class NinjaFormsWPTP extends TelegramBot
 
         $text .= __('Date', $this->plugin_key) . ': ' . HelpersWPTP::localeDate() . "\n";
 
-        $text = apply_filters('telegrambot_ninjaforms_message_notification_text', $text, $form_data);
+        $text = apply_filters('tgrambot_ninjaforms_message_notification_text', $text, $form_data);
 
         if ($text) {
             $keyboard = array(array(

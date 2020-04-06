@@ -1,11 +1,11 @@
 <?php
 
-namespace telegrambot;
+namespace tgrambot;
 
 if (!defined('ABSPATH')) exit;
 global $WPCerberSecurityWPTP;
 
-class WPCerberSecurityWPTP extends TelegramBot
+class WPCerberSecurityWPTP extends TgramBot
 {
     public static $instance = null;
     protected $events;
@@ -25,7 +25,7 @@ class WPCerberSecurityWPTP extends TelegramBot
             'scan' => __('Scanner Report', $this->plugin_key),
         );
 
-        add_action('telegrambot_plugins_settings_content', [$this, 'settings_content']);
+        add_action('tgrambot_plugins_settings_content', [$this, 'settings_content']);
 
         if (count($this->get_option('wpcerbersecurity_events', []))) {
             add_action('cerber_notify_sent', [$this, 'event_action'], 10, 2);
@@ -83,7 +83,7 @@ class WPCerberSecurityWPTP extends TelegramBot
         $text .= wp_strip_all_tags($body) . "\n";
 
         $text .= __('Date', $this->plugin_key) . ': ' . HelpersWPTP::localeDate() . "\n";
-        $text = apply_filters('telegrambot_wpcerbersecurity_event_notification_text', $text, $body, $params);
+        $text = apply_filters('tgrambot_wpcerbersecurity_event_notification_text', $text, $body, $params);
 
         if (!$text) return;
 

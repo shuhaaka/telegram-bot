@@ -1,9 +1,9 @@
 <?php
-namespace telegrambot;
+namespace tgrambot;
 
 if (!defined('ABSPATH')) exit;
 
-class PluginsWPTP extends TelegramBot
+class PluginsWPTP extends TgramBot
 {
     protected $tabID = 'plugins-wptp-tab',
         $plugins = array(
@@ -125,8 +125,8 @@ class PluginsWPTP extends TelegramBot
     function plugins_loaded()
     {
         if (!$this->check_plugins()) return;
-        add_filter('telegrambot_settings_tabs', [$this, 'settings_tab'], 35);
-        add_action('telegrambot_settings_content', [$this, 'settings_content']);
+        add_filter('tgrambot_settings_tabs', [$this, 'settings_tab'], 35);
+        add_action('tgrambot_settings_content', [$this, 'settings_content']);
     }
 
     function settings_tab($tabs)
@@ -140,7 +140,7 @@ class PluginsWPTP extends TelegramBot
         ?>
         <div id="<?php echo $this->tabID ?>-content" class="wptp-tab-content hidden">
             <table>
-                <?php do_action('telegrambot_plugins_settings_content'); ?>
+                <?php do_action('tgrambot_plugins_settings_content'); ?>
             </table>
         </div>
         <?php

@@ -1,20 +1,20 @@
 <?php
 
-namespace telegrambot;
+namespace tgrambot;
 if (!defined('ABSPATH')) exit;
 global $ContactForm7WPTP;
 
-class ContactForm7WPTP extends TelegramBot
+class ContactForm7WPTP extends TgramBot
 {
     protected $cf7_fields = array('email', 'name', 'subject', 'message'),
-        $cf7_prefix_field = 'telegrambot_',
+        $cf7_prefix_field = 'tgrambot_',
         $cf7_message_ids = array();
     public static $instance = null;
 
     public function __construct()
     {
         parent::__construct();
-        add_action('telegrambot_plugins_settings_content', [$this, 'settings_content']);
+        add_action('tgrambot_plugins_settings_content', [$this, 'settings_content']);
 
         if ($this->get_option('cf7_new_message_notification', false)) {
             add_action('wpcf7_submit', [$this, 'wpcf7_submit'], 5, 2);
@@ -166,13 +166,13 @@ class ContactForm7WPTP extends TelegramBot
                 if ($subject)
                     $text .= __('Subject', $this->plugin_key) . ': ' . $subject . "\n";
                 if ($message) {
-                    $message = apply_filters('telegrambot_wpcf7_notification_message', $message, $args, $contact_form, $result);
+                    $message = apply_filters('tgrambot_wpcf7_notification_message', $message, $args, $contact_form, $result);
                     $text .= __('Message', $this->plugin_key) . ':' . "\n" . $message . "\n";
                 }
 
                 $text .= __('Date', $this->plugin_key) . ': ' . HelpersWPTP::localeDate() . "\n";
 
-                $text = apply_filters('telegrambot_wpcf7_message_notification_text', $text, $args, $contact_form, $result);
+                $text = apply_filters('tgrambot_wpcf7_message_notification_text', $text, $args, $contact_form, $result);
 
                 if ($text)
                     foreach ($users as $user) {
@@ -235,7 +235,7 @@ class ContactForm7WPTP extends TelegramBot
             $value = wpcf7_mail_replace_tags($template);
         }
 
-        $value = apply_filters('telegrambot_wpcf7_get_value', $value,
+        $value = apply_filters('tgrambot_wpcf7_get_value', $value,
             $field, $contact_form);
 
         return $value;

@@ -1,18 +1,18 @@
 <?php
 
-namespace telegrambot;
+namespace tgrambot;
 
 if (!defined('ABSPATH')) exit;
 global $EverestFormsWPTP;
 
-class EverestFormsWPTP extends TelegramBot
+class EverestFormsWPTP extends TgramBot
 {
     public static $instance = null;
 
     public function __construct()
     {
         parent::__construct();
-        add_action('telegrambot_plugins_settings_content', [$this, 'settings_content']);
+        add_action('tgrambot_plugins_settings_content', [$this, 'settings_content']);
 
         if ($this->get_option('everestforms_new_message_notification', false)) {
             add_action('everest_forms_process_complete', [$this, 'form_submit'], 10, 4);
@@ -102,7 +102,7 @@ class EverestFormsWPTP extends TelegramBot
 
         $text .= __('Date', $this->plugin_key) . ': ' . HelpersWPTP::localeDate() . "\n";
 
-        $text = apply_filters('telegrambot_everestforms_message_notification_text', $text, $form_fields, $entry, $form_data, $entry_id);
+        $text = apply_filters('tgrambot_everestforms_message_notification_text', $text, $form_fields, $entry, $form_data, $entry_id);
 
         if ($text) {
             $keyboard = array(array(

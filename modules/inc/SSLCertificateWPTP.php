@@ -1,15 +1,14 @@
 <?php
 
-namespace wptelegrampro;
+namespace tgrambot;
 /**
- * WPTelegramPro SSL Certificate
+ * TelegramBot SSL Certificate
  *
- * @link       https://wordpress.org/plugins/wp-telegram-pro
  * @since      1.0.0
  * @copyright  Based on https://github.com/spatie/ssl-certificate
  *
- * @package    WPTelegramPro
- * @subpackage WPTelegramPro/modules/inc
+ * @package    TelegramBot
+ * @subpackage TelegramBot/modules/inc
  */
 class SSLCertificateWPTP
 {

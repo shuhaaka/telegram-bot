@@ -1,18 +1,18 @@
 <?php
 
-namespace telegrambot;
+namespace tgrambot;
 
 if (!defined('ABSPATH')) exit;
 global $WPFormsWPTP;
 
-class WPFormsWPTP extends TelegramBot
+class WPFormsWPTP extends TgramBot
 {
     public static $instance = null;
 
     public function __construct()
     {
         parent::__construct();
-        add_action('telegrambot_plugins_settings_content', [$this, 'settings_content']);
+        add_action('tgrambot_plugins_settings_content', [$this, 'settings_content']);
 
         if ($this->get_option('wpforms_new_message_notification', false)) {
             add_action('wpforms_process_complete', [$this, 'wpforms_submit'], 10, 4);
@@ -99,7 +99,7 @@ class WPFormsWPTP extends TelegramBot
 
         $text = "*" . __('New message', $this->plugin_key) . "*\n\n" . $text;
         $text .= __('Date', $this->plugin_key) . ': ' . HelpersWPTP::localeDate() . "\n";
-        $text = apply_filters('telegrambot_wpforms_message_notification_text', $text, $fields, $entry, $form_data, $entry_id);
+        $text = apply_filters('tgrambot_wpforms_message_notification_text', $text, $fields, $entry, $form_data, $entry_id);
 
         if (!$text) return;
 

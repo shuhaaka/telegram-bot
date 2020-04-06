@@ -5,7 +5,7 @@
  * @since 1.0
  */
 
-namespace telegrambot;
+namespace tgrambot;
 
 use WP_Error;
 use WP_User;
@@ -173,8 +173,8 @@ class Users extends Instance
         wp_register_script('wptp-login', WPTELEGRAMPRO_URL . '/assets/js/login.js', array('jquery'), $js_version, false);
 
         $localize_data = array();
-        $localize_data['login_url'] = get_rest_url(null, 'telegrambot/v1/telegram_bot_auth');
-        wp_localize_script('wptp-login', 'telegrambot_login', $localize_data);
+        $localize_data['login_url'] = get_rest_url(null, 'tgrambot/v1/telegram_bot_auth');
+        wp_localize_script('wptp-login', 'tgrambot_login', $localize_data);
 
         wp_enqueue_script('wptp-login');
     }
@@ -197,7 +197,7 @@ class Users extends Instance
      */
     public function login_form()
     {
-        $inputClass = apply_filters('telegrambot_input_class', '');
+        $inputClass = apply_filters('tgrambot_input_class', '');
         $login_form = '<p id="wptp-login-process">' . __('Telegram Authentication', WPTELEGRAMPRO_PLUGIN_KEY) . ':
                             <span id="wptp-process-msg"></span>
                         </p>
@@ -205,7 +205,7 @@ class Users extends Instance
                             <label for="wptp-two_factor_code">' . __('Dynamic Code', WPTELEGRAMPRO_PLUGIN_KEY) . ':</label>
                             <br /><input type="text" name="wptp-two_factor_code" id="wptp-two_factor_code" class="' . $inputClass . '" autocomplete="off" />
                         </p>';
-        $login_form = apply_filters('telegrambot_tfa_login_form_output', $login_form);
+        $login_form = apply_filters('tgrambot_tfa_login_form_output', $login_form);
         echo $login_form;
     }
 
@@ -240,7 +240,7 @@ class Users extends Instance
             $telegram = $this->WPTelegramPro->telegram;
             $text = "*" . sprintf(__('Dear %s', WPTELEGRAMPRO_PLUGIN_KEY), $user->display_name) . "*\n";
             $text .= $message;
-            $text = apply_filters('telegrambot_two_factor_auth_notification_text', $text, $bot_user, $message, $user);
+            $text = apply_filters('tgrambot_two_factor_auth_notification_text', $text, $bot_user, $message, $user);
 
             if ($text) {
                 $keyboard = array(array(

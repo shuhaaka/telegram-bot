@@ -1,11 +1,11 @@
 <?php
 
-namespace telegrambot;
+namespace tgrambot;
 
 if (!defined('ABSPATH')) exit;
 global $WordfenceWPTP;
 
-class WordfenceWPTP extends TelegramBot
+class WordfenceWPTP extends TgramBot
 {
     public static $instance = null;
     protected $security_events;
@@ -29,8 +29,8 @@ class WordfenceWPTP extends TelegramBot
             'increasedAttackRate' => __('Increase in attack rate', $this->plugin_key),
         );
 
-        add_action('telegrambot_plugins_settings_content', [$this, 'settings_content']);
-        add_filter('telegrambot_words', [$this, 'new_words']);
+        add_action('tgrambot_plugins_settings_content', [$this, 'settings_content']);
+        add_filter('tgrambot_words', [$this, 'new_words']);
 
         if (count($this->get_option('wordfence_security_events', []))) {
             add_action('wordfence_security_event', [$this, 'event_action'], 10, 3);
@@ -131,7 +131,7 @@ class WordfenceWPTP extends TelegramBot
         }
 
         $text .= __('Date', $this->plugin_key) . ': ' . HelpersWPTP::localeDate() . "\n";
-        $text = apply_filters('telegrambot_wordfence_security_event_notification_text', $text, $event, $data, $alertCallback);
+        $text = apply_filters('tgrambot_wordfence_security_event_notification_text', $text, $event, $data, $alertCallback);
 
         if (!$text) return;
 

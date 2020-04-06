@@ -1,6 +1,6 @@
 <?php
 
-namespace telegrambot;
+namespace tgrambot;
 
 use GF_Field;
 use GFFormsModel;
@@ -11,14 +11,14 @@ use GFAPI;
 if (!defined('ABSPATH')) exit;
 global $GravityFormsWPTP;
 
-class GravityFormsWPTP extends TelegramBot
+class GravityFormsWPTP extends TgramBot
 {
     public static $instance = null;
 
     public function __construct()
     {
         parent::__construct();
-        add_action('telegrambot_plugins_settings_content', [$this, 'settings_content']);
+        add_action('tgrambot_plugins_settings_content', [$this, 'settings_content']);
 
         if ($this->get_option('gravityforms_new_message_notification', false)) {
             add_action('gform_after_submission', [$this, 'gravityforms_submit'], 10, 2);
@@ -163,7 +163,7 @@ class GravityFormsWPTP extends TelegramBot
 
         $text .= __('Date', $this->plugin_key) . ': ' . HelpersWPTP::localeDate($entry['date_created']) . "\n";
 
-        $text = apply_filters('telegrambot_gravityforms_message_notification_text', $text, $entry, $form);
+        $text = apply_filters('tgrambot_gravityforms_message_notification_text', $text, $entry, $form);
 
         if ($text) {
             $keyboard = array(array(

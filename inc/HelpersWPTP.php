@@ -1,14 +1,14 @@
 <?php
 
-namespace telegrambot;
+namespace tgrambot;
 /**
- * TelegramBot Helper functions
+ * TgramBot Helper functions
  *
- * @link       https://wordpress.org/plugins/wp-telegram-pro
- * @since      1.0.0
+ * @Author: Shuhrat Mamataliyev
+ * @WebSite: https://eson.uz
  *
- * @package    TelegramBot
- * @subpackage TelegramBot/inc
+ * @package    TgramBot
+ * @subpackage TgramBot/inc
  */
 class HelpersWPTP
 {
@@ -298,7 +298,7 @@ class HelpersWPTP
 
     public static function localeDate($time = null, $format = "Y/m/d H:i:s")
     {
-        $format = apply_filters('telegrambot_date_format', $format);
+        $format = apply_filters('tgrambot_date_format', $format);
 
         if ($time == null) $time = date("Y-m-d H:i:s");
 

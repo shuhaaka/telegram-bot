@@ -1,9 +1,9 @@
 <?php
 
-namespace telegrambot;
+namespace tgrambot;
 if (!defined('ABSPATH')) exit;
 
-class ChannelWPTP extends TelegramBot
+class ChannelWPTP extends TgramBot
 {
     public static $instance = null;
     protected $tabID = 'channel-wptp-tab';
@@ -15,13 +15,13 @@ class ChannelWPTP extends TelegramBot
         parent::__construct();
         add_action('wp_ajax_channel_members_count_wptp', [$this, 'channel_members_count']);
         add_action('wp_ajax_quick_send_channel_wptp', [$this, 'quick_send_channel']);
-        add_filter('telegrambot_settings_tabs', [$this, 'settings_tab'], 20);
-        add_action('telegrambot_settings_content', [$this, 'settings_content']);
+        add_filter('tgrambot_settings_tabs', [$this, 'settings_tab'], 20);
+        add_action('tgrambot_settings_content', [$this, 'settings_content']);
         add_action('before_settings_updated_wptp', [$this, 'before_settings_updated'], 2);
         add_Shortcode('channel_members_wptp', [$this, 'channel_members_shortcode']);
         add_Shortcode('if_statement_wptp', [$this, 'if_statement_shortcode']);
-        add_filter('telegrambot_channel_text', [$this, 'replace_channel_text'], 999999, 2);
-        add_action('telegrambot_helps_content', [$this, 'helps_channel']);
+        add_filter('tgrambot_channel_text', [$this, 'replace_channel_text'], 999999, 2);
+        add_action('tgrambot_helps_content', [$this, 'helps_channel']);
         add_action('init', [$this, 'channel_init']);
 
         if ($this->get_option('send_to_channels') == 1) {
@@ -140,7 +140,7 @@ class ChannelWPTP extends TelegramBot
                         $terms = get_the_terms($post_id, $_field[1]);
                         $names = (is_wp_error($terms) || empty($terms)) ? array() : wp_list_pluck($terms, 'name');
                         if (!empty($names)) {
-                            $delimiter = apply_filters('telegrambot_taxonomy_terms_delimiter', ' | ');
+                            $delimiter = apply_filters('tgrambot_taxonomy_terms_delimiter', ' | ');
                             $value = implode($delimiter, $names);
                         }
                     }
@@ -239,7 +239,7 @@ class ChannelWPTP extends TelegramBot
 
     function send_to_channel($post_id, $channel, $index = 0)
     {
-        $image_send_mode = apply_filters('telegrambot_image_send_mode', 'image_path');
+        $image_send_mode = apply_filters('tgrambot_image_send_mode', 'image_path');
         $keyboards = null;
         $options = $this->options;
         $result = false;
@@ -292,7 +292,7 @@ class ChannelWPTP extends TelegramBot
                 else
                     $post['categories'] = '';
 
-            $this->patterns_tags = apply_filters('telegrambot_patterns_tags', $this->patterns_tags);
+            $this->patterns_tags = apply_filters('tgrambot_patterns_tags', $this->patterns_tags);
             foreach ($this->patterns_tags as $group => $group_item) {
                 if (isset($group_item['plugin']) && !$this->check_plugin_active($group_item['plugin']))
                     continue;
@@ -307,7 +307,7 @@ class ChannelWPTP extends TelegramBot
                 }
             }
 
-            $text = apply_filters('telegrambot_channel_text', $text, $post_id);
+            $text = apply_filters('tgrambot_channel_text', $text, $post_id);
 
             $this->telegram->disable_web_page_preview($disable_web_page_preview);
             if ($featured_image && $post[$image_send_mode] !== null)
@@ -828,7 +828,7 @@ class ChannelWPTP extends TelegramBot
 
     private function select_tags()
     {
-        $this->patterns_tags = apply_filters('telegrambot_patterns_tags', $this->patterns_tags);
+        $this->patterns_tags = apply_filters('tgrambot_patterns_tags', $this->patterns_tags);
         $select = '<select class="patterns-select-wptp">';
         $select .= '<option style="display:none;" selected> ' . __('- Select a Tag -', $this->plugin_key) . ' </option>';
         foreach ($this->patterns_tags as $group => $group_item) {

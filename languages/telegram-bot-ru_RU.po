@@ -4,7 +4,7 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Project-Id-Version: Telegram Bot\n"
 "POT-Creation-Date: 2020-04-06 16:25+0500\n"
-"PO-Revision-Date: 2020-04-06 16:52+0500\n"
+"PO-Revision-Date: 2020-04-06 17:34+0500\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -54,9 +54,8 @@ msgid "Display website"
 msgstr "Показать вебсайт"
 
 #: inc/WordPressWPTP.php:70 modules/WoocommerceWPTP.php:382
-#, fuzzy
 msgid "Connect to Telegram"
-msgstr "Соединять "
+msgstr "Подключиться к Telegram"
 
 #: inc/WordPressWPTP.php:83 modules/ChannelWPTP.php:52
 #: plugins/BackUpWordPressServiceWPTP.php:32
@@ -84,9 +83,8 @@ msgid "Or"
 msgstr "Или"
 
 #: inc/WordPressWPTP.php:98 modules/WoocommerceWPTP.php:388
-#, fuzzy
 msgid "Request Connect"
-msgstr "Соединять "
+msgstr "Запросить подключение"
 
 #: inc/WordPressWPTP.php:100 modules/WoocommerceWPTP.php:383
 msgid "Send this code from telegram bot to identify the your user."
@@ -125,9 +123,8 @@ msgid "WordPress Tags"
 msgstr "WordPress теги"
 
 #: inc/WordPressWPTP.php:172
-#, fuzzy
 msgid "The ID of this post"
-msgstr "Неверный ID записи."
+msgstr "ID этого поста"
 
 #: inc/WordPressWPTP.php:173
 #, fuzzy
@@ -140,14 +137,12 @@ msgid "The Slug of this post"
 msgstr "Слаг"
 
 #: inc/WordPressWPTP.php:175
-#, fuzzy
 msgid "The first 55 words of this post"
-msgstr "Пожалуйста, сначала сохраните пост!"
+msgstr "Первые 55 слов этого поста"
 
 #: inc/WordPressWPTP.php:176
-#, fuzzy
 msgid "The whole content of this post"
-msgstr "Пожалуйста, введите какой-нибудь текст для публикации."
+msgstr "Все содержание этого поста"
 
 #: inc/WordPressWPTP.php:177
 #, fuzzy
@@ -155,9 +150,8 @@ msgid "The display name of author of this post"
 msgstr "Пост автора"
 
 #: inc/WordPressWPTP.php:178
-#, fuzzy
 msgid "The permalink of this author posts"
-msgstr "Постоянная ссылка к "
+msgstr "Постоянная ссылка этого автора сообщения"
 
 #: inc/WordPressWPTP.php:179
 #, fuzzy
@@ -295,9 +289,8 @@ msgid "Comment"
 msgstr "Комментарий"
 
 #: inc/WordPressWPTP.php:500 modules/WoocommerceWPTP.php:1224
-#, fuzzy
 msgid "Your request without result!"
-msgstr "Ваш запрос на вывод средств был отменен"
+msgstr "Ваш запрос без результата!"
 
 #: inc/WordPressWPTP.php:512 inc/WordPressWPTP.php:819
 #: modules/DebugsWPTP.php:165
@@ -420,9 +413,8 @@ msgid ""
 msgstr ""
 
 #: inc/WordPressWPTP.php:707
-#, fuzzy
 msgid "Successful connect message"
-msgstr "Соединять "
+msgstr "Сообщение об успешном подключении"
 
 #: inc/WordPressWPTP.php:717
 msgid "Disconnect message"
@@ -544,9 +536,8 @@ msgid "Go to channel options and select 'Administrator' option."
 msgstr ""
 
 #: modules/ChannelWPTP.php:93
-#, fuzzy
 msgid "Select 'Add Administrator' option."
-msgstr "Выбрать опцию"
+msgstr "Выберите опцию «Добавить администратора»."
 
 #: modules/ChannelWPTP.php:94
 msgid "Search the username of your bot and add it as administrator."
@@ -589,18 +580,16 @@ msgid "Attache featured Image"
 msgstr "Рекоендуемое изображение"
 
 #: modules/ChannelWPTP.php:525
-#, fuzzy
 msgid "[Set 'channel' attribute]"
-msgstr "Атрибут"
+msgstr "[Установить атрибут 'channel']"
 
 #: modules/ChannelWPTP.php:538
 msgid "[API Token or Channel Username Invalid]"
 msgstr ""
 
 #: modules/ChannelWPTP.php:551
-#, fuzzy
 msgid "Channel Member Count:"
-msgstr "Участник"
+msgstr "Количество участников канала:"
 
 #: modules/ChannelWPTP.php:553
 msgid ""
@@ -680,9 +669,8 @@ msgid "Active on PostType"
 msgstr "Не активно"
 
 #: modules/ChannelWPTP.php:746
-#, fuzzy
 msgid "With featured image?"
-msgstr "Рекоендуемое изображение"
+msgstr "С избранным изображением?"
 
 #: modules/ChannelWPTP.php:757
 #, fuzzy
@@ -737,9 +725,8 @@ msgid "Disable"
 msgstr "Отключить"
 
 #: modules/ChannelWPTP.php:833
-#, fuzzy
 msgid "- Select a Tag -"
-msgstr "Выберите тег"
+msgstr "- Выберите тег -"
 
 #: modules/DebugsWPTP.php:13 telegram-bot.php:1094
 msgid "Debugs"
@@ -774,14 +761,12 @@ msgid "Issuer"
 msgstr ""
 
 #: modules/DebugsWPTP.php:86
-#, fuzzy
 msgid "Valid"
-msgstr "Статус вебхука должен быть действительным."
+msgstr "Действительный"
 
 #: modules/DebugsWPTP.php:89
-#, fuzzy
 msgid "Valid from"
-msgstr "От:"
+msgstr "Действителен с"
 
 #: modules/DebugsWPTP.php:92
 #, fuzzy
@@ -804,9 +789,8 @@ msgid "Key"
 msgstr "Ключ"
 
 #: modules/DebugsWPTP.php:98
-#, fuzzy
 msgid "SSL Info"
-msgstr "Принудительно используется SSL?"
+msgstr "SSL Info"
 
 #: modules/DebugsWPTP.php:121 plugins/WordfenceWPTP.php:163
 #, fuzzy
@@ -827,11 +811,8 @@ msgid "Language"
 msgstr "Язык"
 
 #: modules/DebugsWPTP.php:125
-#, fuzzy
 msgid "Character encoding"
-msgstr ""
-"Многобайтовые строки (mbstring) используются для конвертации кодировки "
-"символов (как для электронной почты) или перевода символов в нижний регистр."
+msgstr "Кодировка символов"
 
 #: modules/DebugsWPTP.php:126
 #, fuzzy
@@ -853,9 +834,8 @@ msgid "PHP Version"
 msgstr "Версия PHP"
 
 #: modules/DebugsWPTP.php:144
-#, fuzzy
 msgid "PHP CURL"
-msgstr "cURL версии"
+msgstr "PHP CURL"
 
 #: modules/DebugsWPTP.php:160
 #, fuzzy
@@ -928,9 +908,8 @@ msgid "Host IP or domain name like 192.168.55.124"
 msgstr ""
 
 #: modules/ProxyWPTP.php:216
-#, fuzzy
 msgid "Proxy Port"
-msgstr "smtp_port"
+msgstr "Proxy Port"
 
 #: modules/ProxyWPTP.php:222
 msgid "Target Port like 8080"
@@ -942,9 +921,8 @@ msgid "Proxy Type"
 msgstr "Тип"
 
 #: modules/ProxyWPTP.php:231
-#, fuzzy
 msgid "HTTP"
-msgstr "http://"
+msgstr "HTTP"
 
 #: modules/ProxyWPTP.php:235
 msgid "SOCKS4"
@@ -967,9 +945,8 @@ msgid "Username"
 msgstr "Имя пользователя"
 
 #: modules/ProxyWPTP.php:260 modules/ProxyWPTP.php:271
-#, fuzzy
 msgid "Leave empty if not required"
-msgstr "Оставьте пустым, чтобы использовать ставку по умолчанию."
+msgstr "Оставьте пустым, если не требуется"
 
 #: modules/ProxyWPTP.php:265
 msgid "Password"
@@ -983,9 +960,8 @@ msgid ""
 msgstr ""
 
 #: modules/ProxyWPTP.php:293
-#, fuzzy
 msgid "How to Deploy"
-msgstr "Как идут дела?"
+msgstr "Как развернуть"
 
 #: modules/ProxyWPTP.php:295
 #, php-format
@@ -1059,9 +1035,8 @@ msgid "Detail"
 msgstr "Подробнее"
 
 #: modules/WoocommerceWPTP.php:87
-#, fuzzy
 msgid "Product stock status"
-msgstr "Контролирует статус наличия товара."
+msgstr "Состояние товара на складе"
 
 #: modules/WoocommerceWPTP.php:88 modules/WoocommerceWPTP.php:719
 msgid "Product"
@@ -1073,9 +1048,8 @@ msgid "Stock status"
 msgstr "Состояние на складе"
 
 #: modules/WoocommerceWPTP.php:92
-#, fuzzy
 msgid "No stock"
-msgstr "В наличии:"
+msgstr "Нет на складе"
 
 #: modules/WoocommerceWPTP.php:95
 #, fuzzy
@@ -1083,14 +1057,12 @@ msgid "Low stock"
 msgstr "Величина малых запасов"
 
 #: modules/WoocommerceWPTP.php:96
-#, fuzzy
 msgid "Current quantity"
-msgstr "Количество:"
+msgstr "Текущее количество"
 
 #: modules/WoocommerceWPTP.php:131 modules/WoocommerceWPTP.php:175
-#, fuzzy
 msgid "Order status changed"
-msgstr "%d статус заказа изменился."
+msgstr "Статус заказа изменен"
 
 #: modules/WoocommerceWPTP.php:132 modules/WoocommerceWPTP.php:176
 #: modules/WoocommerceWPTP.php:215 modules/WoocommerceWPTP.php:266
@@ -1100,9 +1072,8 @@ msgid "Order number"
 msgstr "Номер заказа"
 
 #: modules/WoocommerceWPTP.php:133
-#, fuzzy
 msgid "Old status"
-msgstr " Год назад"
+msgstr "Старый статус"
 
 #: modules/WoocommerceWPTP.php:134 modules/WoocommerceWPTP.php:177
 #, fuzzy
@@ -1111,9 +1082,8 @@ msgstr "Статус нового продукта"
 
 #: modules/WoocommerceWPTP.php:214 modules/WoocommerceWPTP.php:265
 #: modules/WoocommerceWPTP.php:849 modules/WoocommerceWPTP.php:862
-#, fuzzy
 msgid "New order note"
-msgstr "Заметка к заказу."
+msgstr "Новая запись заказа"
 
 #: modules/WoocommerceWPTP.php:216 modules/WoocommerceWPTP.php:267
 msgid "Note"
@@ -1124,9 +1094,8 @@ msgid "New Order"
 msgstr "Новый заказ"
 
 #: modules/WoocommerceWPTP.php:342
-#, fuzzy
 msgid "Total price"
-msgstr "Всего: "
+msgstr "Итоговая цена"
 
 #: modules/WoocommerceWPTP.php:343
 #, fuzzy
@@ -1148,9 +1117,8 @@ msgid "Products"
 msgstr "Товары"
 
 #: modules/WoocommerceWPTP.php:399
-#, fuzzy
 msgid "Product Categories List"
-msgstr "Список или выпадающий список категорий товара."
+msgstr "Список категорий товаров"
 
 #: modules/WoocommerceWPTP.php:400 modules/WoocommerceWPTP.php:422
 #, fuzzy
@@ -1158,207 +1126,163 @@ msgid "Cart"
 msgstr "Корзина"
 
 #: modules/WoocommerceWPTP.php:421
-#, fuzzy
 msgid "Product Categories"
 msgstr "Категории продукта"
 
 #: modules/WoocommerceWPTP.php:423
-#, fuzzy
 msgid "Checkout"
 msgstr "Заказать"
 
 #: modules/WoocommerceWPTP.php:424
-#, fuzzy
 msgid "Your cart is empty."
-msgstr "Оформление заказа не доступно, пока ваша корзина пуста."
+msgstr "Ваша корзина пуста."
 
 #: modules/WoocommerceWPTP.php:425
-#, fuzzy
 msgid "Empty Cart?"
-msgstr "Прятать корзину если она пуста"
+msgstr "Пустая корзина?"
 
 #: modules/WoocommerceWPTP.php:426
-#, fuzzy
 msgid "Cart has been empty."
-msgstr "был добавлен в корзину!"
+msgstr "Корзина была пуста."
 
 #: modules/WoocommerceWPTP.php:427
-#, fuzzy
 msgid "Refresh Cart"
-msgstr "обновить"
+msgstr "Обновить корзину"
 
 #: modules/WoocommerceWPTP.php:428
-#, fuzzy
 msgid "In stock"
 msgstr "В наличии"
 
 #: modules/WoocommerceWPTP.php:429
-#, fuzzy
 msgid "Out of stock"
 msgstr "Нет на складе"
 
 #: modules/WoocommerceWPTP.php:556
-#, fuzzy
 msgid "WooCommerce Tags"
-msgstr "Теги: "
+msgstr "Теги WooCommerce"
 
 #: modules/WoocommerceWPTP.php:559
-#, fuzzy
 msgid "The currency symbol"
 msgstr "Символ валюты"
 
 #: modules/WoocommerceWPTP.php:560
-#, fuzzy
 msgid "The price of this product"
-msgstr "Это базовая цена и будет начальной ценой доставки для каждого продукта"
+msgstr "Цена этого продукта"
 
 #: modules/WoocommerceWPTP.php:561
-#, fuzzy
 msgid "The regular price of this product"
-msgstr "Обычная цена продукта."
+msgstr "Обычная цена этого продукта"
 
 #: modules/WoocommerceWPTP.php:562
-#, fuzzy
 msgid "The sale price of this product"
 msgstr "Цена продукта со скидкой"
 
 #: modules/WoocommerceWPTP.php:563
-#, fuzzy
 msgid "The width of this product"
-msgstr "Ширина товара (%s)."
+msgstr "Ширина этого продукта"
 
 #: modules/WoocommerceWPTP.php:564
-#, fuzzy
 msgid "The length of this product"
-msgstr "Длина товара (%s)."
+msgstr "Длина этого продукта"
 
 #: modules/WoocommerceWPTP.php:565
-#, fuzzy
 msgid "The height of this product"
-msgstr "Высота товара (%s)."
+msgstr "Высота этого продукта"
 
 #: modules/WoocommerceWPTP.php:566
-#, fuzzy
 msgid "The weight of this product"
-msgstr "Вес товара (%s)."
+msgstr "Вес этого продукта"
 
 #: modules/WoocommerceWPTP.php:567
-#, fuzzy
 msgid "The dimensions of this product"
-msgstr "Размеры товара."
+msgstr "Размеры этого продукта"
 
 #: modules/WoocommerceWPTP.php:568
-#, fuzzy
 msgid "The average rating of this product"
-msgstr "Средняя оценка."
+msgstr "Средняя оценка этого продукта"
 
 #: modules/WoocommerceWPTP.php:569
-#, fuzzy
 msgid "The SKU (Stock Keeping Unit) of this product"
-msgstr "(Поддержание наличия)"
+msgstr "Артикул (единицы хранения) этого продукта"
 
 #: modules/WoocommerceWPTP.php:570
-#, fuzzy
 msgid "Is this product downloadable? (Yes or No)"
-msgstr "Если товар является скачиваемым."
+msgstr "Этот продукт можно загрузить? (Да или нет)"
 
 #: modules/WoocommerceWPTP.php:571
-#, fuzzy
 msgid "Is this product virtual? (Yes or No)"
-msgstr "Если товар является виртуальным."
+msgstr "Этот продукт виртуальный? (Да или нет)"
 
 #: modules/WoocommerceWPTP.php:572
-#, fuzzy
 msgid "Is this product sold individually? (Yes or No)"
-msgstr "Продается индивидуально?"
+msgstr "Этот продукт продается индивидуально? (Да или нет)"
 
 #: modules/WoocommerceWPTP.php:573
-#, fuzzy
 msgid "The tax status of this product"
-msgstr "Неверный налоговый статус товара."
+msgstr "Налоговый статус этого продукта"
 
 #: modules/WoocommerceWPTP.php:574
-#, fuzzy
 msgid "The tax class of this product"
-msgstr ""
-"Выберите налоговый класс для этого товара. Налоговые классы используются для "
-"применения разных налоговых ставок для различных типов товара."
+msgstr "Налоговый класс этого продукта"
 
 #: modules/WoocommerceWPTP.php:575
-#, fuzzy
 msgid "The stock amount of this product"
-msgstr "Величина малых запасов"
+msgstr "На складе количество этого продукта"
 
 #: modules/WoocommerceWPTP.php:576
-#, fuzzy
 msgid "The stock status of this product"
-msgstr "Контролирует статус наличия товара."
+msgstr "Состояние на складе этого продукта"
 
 #: modules/WoocommerceWPTP.php:577
-#, fuzzy
 msgid "Whether or not backorders allowed?"
-msgstr ""
-"При включённом управлении запасами, здесь можно включить приём предзаказов. "
-"Если включено, то количество товаров в запасе может быть ниже 0."
+msgstr "Разрешены ли задержки?"
 
 #: modules/WoocommerceWPTP.php:578
-#, fuzzy
 msgid "Is this a featured product? (Yes or No)"
-msgstr "Да"
+msgstr "Это рекомендуемый продукт? (Да или нет)"
 
 #: modules/WoocommerceWPTP.php:579
-#, fuzzy
 msgid "Is this product visible? (Yes or No)"
-msgstr "Определите, виден ли вариант на странице продукта."
+msgstr "Этот продукт виден? (Да или нет)"
 
 #: modules/WoocommerceWPTP.php:650
-#, fuzzy
 msgid "Galleries"
 msgstr "Галереи"
 
 #: modules/WoocommerceWPTP.php:673
-#, fuzzy
 msgid "Back to Product"
-msgstr "назад"
+msgstr "Вернуться к продукту"
 
 #: modules/WoocommerceWPTP.php:683 modules/WoocommerceWPTP.php:713
 #: modules/WoocommerceWPTP.php:723
-#, fuzzy
 msgid "The product does not exist"
 msgstr "Продукт не существует"
 
 #: modules/WoocommerceWPTP.php:694
-#, fuzzy
 msgid "Remove from Cart:"
-msgstr "Удалить из группы"
+msgstr "Удалить из корзины:"
 
 #: modules/WoocommerceWPTP.php:697
-#, fuzzy
 msgid "Add to Cart:"
-msgstr "В корзину"
+msgstr "Добавить в корзину:"
 
 #: modules/WoocommerceWPTP.php:699
-#, fuzzy
 msgid "Please select product variations:"
-msgstr "Выберите продукт"
+msgstr "Пожалуйста, выберите варианты продукта:"
 
 #: modules/WoocommerceWPTP.php:760
-#, fuzzy
 msgid "Product Category Invalid!"
-msgstr "Родительская категория товара неверна"
+msgstr "Категория товара недействительна!"
 
 #: modules/WoocommerceWPTP.php:798
-#, fuzzy
 msgid "WooCommerce"
 msgstr "WooCommerce"
 
 #: modules/WoocommerceWPTP.php:810
-#, fuzzy
 msgid "Products Per Page"
 msgstr "Кол-во продуктов на странице"
 
 #: modules/WoocommerceWPTP.php:818
-#, fuzzy
 msgid "Exclude Categories"
 msgstr "Исключить категории"
 
@@ -1367,26 +1291,22 @@ msgid "None"
 msgstr "Никто"
 
 #: modules/WoocommerceWPTP.php:824
-#, fuzzy
 msgid "Exclude Display Categories"
-msgstr "Исключить категории"
+msgstr "Исключить отображаемые категории"
 
 #: modules/WoocommerceWPTP.php:837
 msgid "New order"
 msgstr "Новый заказ"
 
 #: modules/WoocommerceWPTP.php:840 modules/WoocommerceWPTP.php:859
-#, fuzzy
 msgid "Order status change"
-msgstr "Возможность менять статус заказа"
+msgstr "Изменение статуса заказа"
 
 #: modules/WoocommerceWPTP.php:843
-#, fuzzy
 msgid "Product low stock"
 msgstr "Товар заканчивается"
 
 #: modules/WoocommerceWPTP.php:846
-#, fuzzy
 msgid "Product no stock"
 msgstr "Товара нет в наличии"
 
@@ -1395,29 +1315,24 @@ msgid "Customers"
 msgstr "Клиенты"
 
 #: modules/WoocommerceWPTP.php:867
-#, fuzzy
 msgid "Empty the cart"
-msgstr "Прятать корзину если она пуста"
+msgstr "Очистить корзину"
 
 #: modules/WoocommerceWPTP.php:871
-#, fuzzy
 msgid "After Redirect to Cart Page"
 msgstr "Перенаправить в корзину после успешного добавления"
 
 #: modules/WoocommerceWPTP.php:881
-#, fuzzy
 msgid "After Payment Complete"
-msgstr "Баланс после платежа"
+msgstr "После завершения платежа"
 
 #: modules/WoocommerceWPTP.php:890
-#, fuzzy
 msgid "Display"
 msgstr "Отображение"
 
 #: modules/WoocommerceWPTP.php:893
-#, fuzzy
 msgid "Meta Data"
-msgstr "Метаданные."
+msgstr "Метаданные"
 
 #: modules/WoocommerceWPTP.php:896 modules/WoocommerceWPTP.php:1237
 msgid "Weight"
@@ -1437,17 +1352,15 @@ msgstr "Рейтинг"
 
 #: modules/WoocommerceWPTP.php:910
 msgid "Keyboard"
-msgstr ""
+msgstr "Клавиатура"
 
 #: modules/WoocommerceWPTP.php:913
-#, fuzzy
 msgid "Gallery Button"
-msgstr "Кнопка"
+msgstr "Кнопка галлереи"
 
 #: modules/WoocommerceWPTP.php:916
-#, fuzzy
 msgid "Category Buttons"
-msgstr "Кнопки Поделиться"
+msgstr "Кнопка Категории"
 
 #: modules/WoocommerceWPTP.php:1016 modules/WoocommerceWPTP.php:1020
 msgid "Select"
@@ -1458,28 +1371,25 @@ msgid "N/A"
 msgstr "Недоступно"
 
 #: plugins/AllInOneWPSecurityFirewallWPTP.php:35
-#, fuzzy
 msgid "Notification for lock the user"
-msgstr "Уведомление"
+msgstr "Уведомление о блокировке пользователя"
 
 #: plugins/AllInOneWPSecurityFirewallWPTP.php:54
 msgid "All In One WP Security & Firewall lock the user"
-msgstr ""
+msgstr "All In One WP Security & Firewall lock the user"
 
 #: plugins/AllInOneWPSecurityFirewallWPTP.php:59
 #: plugins/WPUserAvatarWPTP.php:72 plugins/WordfenceWPTP.php:164
-#, fuzzy
 msgid "User Name"
 msgstr "Имя пользователя"
 
 #: plugins/AllInOneWPSecurityFirewallWPTP.php:61
-#, fuzzy
 msgid "IP range"
-msgstr "Диапазон до"
+msgstr "IP Диапазон"
 
 #: plugins/AllInOneWPSecurityFirewallWPTP.php:71
 msgid "All In One WP Security & Firewall Dashboard"
-msgstr ""
+msgstr "All In One WP Security & Firewall Dashboard"
 
 #: plugins/BackUpWordPressServiceWPTP.php:41
 #, fuzzy
@@ -1493,12 +1403,12 @@ msgstr "Переотправить уведомление о новом зака
 
 #: plugins/BackUpWordPressWPTP.php:45
 msgid "Requires the Schedule \"Telegram Notification\" option to be enabled."
-msgstr ""
+msgstr "Требует, чтобы опция «Уведомление о телеграмме» была включена."
 
 #: plugins/BackUpWordPressWPTP.php:76
-#, fuzzy, php-format
+#, php-format
 msgid "Backup of %s Failed"
-msgstr "Ошибка при импортировании %s товара"
+msgstr "Ошибка при восстановления %s товара"
 
 #: plugins/BackUpWordPressWPTP.php:77
 #, php-format
@@ -1516,9 +1426,9 @@ msgid ""
 msgstr ""
 
 #: plugins/BackUpWordPressWPTP.php:84
-#, fuzzy, php-format
+#, php-format
 msgid "Backup of %s"
-msgstr "Резервное копирование/восстановление"
+msgstr "Резервное копирование  %s"
 
 #: plugins/BackUpWordPressWPTP.php:85
 #, php-format
@@ -1538,24 +1448,20 @@ msgid "Unfortunately, the backup file was too large to attach to this message."
 msgstr ""
 
 #: plugins/BackUpWordPressWPTP.php:134
-#, fuzzy
 msgid "BackUpWordPress Dashboard"
-msgstr "Консоль"
+msgstr "BackUpWordPress Dashboard"
 
 #: plugins/BackWPupWPTP.php:39
-#, fuzzy
 msgid "Notification for send log"
-msgstr "Уведомление"
+msgstr "Уведомление для отправки журнала"
 
 #: plugins/BackWPupWPTP.php:61
-#, fuzzy
 msgid "BackWPup new log"
-msgstr "Вход"
+msgstr "BackWPup new log"
 
 #: plugins/BackWPupWPTP.php:80
-#, fuzzy
 msgid "BackWPup Dashboard"
-msgstr "Консоль"
+msgstr "BackWPup Dashboard"
 
 #: plugins/CalderaFormsWPTP.php:33 plugins/ContactForm7WPTP.php:37
 #: plugins/EverestFormsWPTP.php:39 plugins/FormidableFormsWPTP.php:38
@@ -1564,9 +1470,8 @@ msgstr "Консоль"
 #: plugins/NinjaFormsWPTP.php:34 plugins/QuFormWPTP.php:60
 #: plugins/VisualFormBuilderWPTP.php:34 plugins/WPFormsWPTP.php:37
 #: plugins/WeFormsWPTP.php:38
-#, fuzzy
 msgid "Notification for new message"
-msgstr "Переотправить уведомление о новом заказе"
+msgstr "Уведомление о новом сообщении"
 
 #: plugins/CalderaFormsWPTP.php:43 plugins/ContactForm7WPTP.php:61
 #: plugins/EverestFormsWPTP.php:49 plugins/FormidableFormsWPTP.php:48
@@ -1575,9 +1480,8 @@ msgstr "Переотправить уведомление о новом зака
 #: plugins/NinjaFormsWPTP.php:44 plugins/QuFormWPTP.php:70
 #: plugins/VisualFormBuilderWPTP.php:44 plugins/WPFormsWPTP.php:47
 #: plugins/WeFormsWPTP.php:48
-#, fuzzy
 msgid "Notification from this forms"
-msgstr "Оповещения"
+msgstr "Уведомление от этой формы"
 
 #: plugins/CalderaFormsWPTP.php:50 plugins/ContactForm7WPTP.php:70
 #: plugins/EverestFormsWPTP.php:56 plugins/FormidableFormsWPTP.php:55
@@ -1596,7 +1500,6 @@ msgstr "Всё"
 #: plugins/NinjaFormsWPTP.php:78 plugins/QuFormWPTP.php:106
 #: plugins/VisualFormBuilderWPTP.php:79 plugins/WPFormsWPTP.php:100
 #: plugins/WeFormsWPTP.php:83
-#, fuzzy
 msgid "New message"
 msgstr "Новый сообщение"
 
@@ -1631,26 +1534,23 @@ msgstr ""
 #: plugins/DologinWPTP.php:226
 #, php-format
 msgid "Dynamic Code: %1$s ,Location: %2$s."
-msgstr ""
+msgstr "Динамический код: %1$s, Локация: %2$s."
 
 #: plugins/FormidableFormsWPTP.php:154
-#, fuzzy
 msgid "(no title)"
 msgstr "(без заголовка)"
 
 #: plugins/FormidableFormsWPTP.php:154
-#, fuzzy
 msgid " (child)"
-msgstr "Дочерняя тема"
+msgstr " (дочерняя)"
 
 #: plugins/IThemesSecurityWPTP.php:35
-#, fuzzy
 msgid "Notification for new blacklisted IP"
-msgstr "Уведомление по электронной почте о представлении нового продукта"
+msgstr "Уведомление о новом черном списке IP"
 
 #: plugins/IThemesSecurityWPTP.php:53
 msgid "iThemes Security new blacklisted IP"
-msgstr ""
+msgstr "iThemes Security new blacklisted IP"
 
 #: plugins/IThemesSecurityWPTP.php:54 plugins/WordfenceWPTP.php:162
 msgid "IP"
@@ -1661,14 +1561,12 @@ msgid "iThemes Security Dashboard"
 msgstr "iThemes Security Dashboard"
 
 #: plugins/MailchimpForWPWPTP.php:42
-#, fuzzy
 msgid "Notification for email subscribe"
-msgstr "Подписаться"
+msgstr "Уведомление о подписке на электронную почту"
 
 #: plugins/MailchimpForWPWPTP.php:52
-#, fuzzy
 msgid "Notification for email unsubscribe"
-msgstr "отписаться"
+msgstr "Уведомление по электронной почте отписаться"
 
 #: plugins/MailchimpForWPWPTP.php:100
 #, fuzzy
@@ -1738,9 +1636,8 @@ msgid "A new activity has been recorded"
 msgstr "Элемент ленты активности был успешно обновлен."
 
 #: plugins/WPCerberSecurityWPTP.php:24
-#, fuzzy
 msgid "Weekly report"
-msgstr "Еденедельно"
+msgstr "Еденедельный отчет"
 
 #: plugins/WPCerberSecurityWPTP.php:25
 #, fuzzy
@@ -1748,9 +1645,8 @@ msgid "Scanner Report"
 msgstr "Жалоба"
 
 #: plugins/WPCerberSecurityWPTP.php:53
-#, fuzzy
 msgid "Notification for events"
-msgstr "Уведомление"
+msgstr "Уведомление для событий"
 
 #: plugins/WPCerberSecurityWPTP.php:98
 #, fuzzy
@@ -1758,19 +1654,16 @@ msgid "WP Cerber Security Dashboard"
 msgstr "Модерацию в админке WordPress"
 
 #: plugins/WPSMSWPTP.php:53
-#, fuzzy
 msgid "SMS new subscriber"
-msgstr "Ошибка отправки SMS"
+msgstr "SMS new subscriber"
 
 #: plugins/WPSMSWPTP.php:56
-#, fuzzy
 msgid "Mobile Number"
 msgstr "Телефон"
 
 #: plugins/WPStatisticsWPTP.php:35
-#, fuzzy
 msgid "Notification for statistical reporting"
-msgstr "Оповещения"
+msgstr "Уведомление для статистической отчетности"
 
 #: plugins/WPStatisticsWPTP.php:43
 msgid ""
@@ -1799,9 +1692,8 @@ msgid "User avatar change notification"
 msgstr "Сменить аватар"
 
 #: plugins/WPUserAvatarWPTP.php:82
-#, fuzzy
 msgid "User Profile"
-msgstr "Добавить поля профиля пользователя"
+msgstr "Профиль пользователя"
 
 #: plugins/WordfenceWPTP.php:17
 #, fuzzy
@@ -1819,9 +1711,8 @@ msgid "Wordfence deactivated"
 msgstr "Деактивированный"
 
 #: plugins/WordfenceWPTP.php:20
-#, fuzzy
 msgid "IP address blocked"
-msgstr "IP адрес"
+msgstr "IP адрес блокирован"
 
 #: plugins/WordfenceWPTP.php:21
 #, fuzzy
@@ -1838,9 +1729,8 @@ msgid "User locked out from login"
 msgstr ""
 
 #: plugins/WordfenceWPTP.php:24
-#, fuzzy
 msgid "Administrator user logged in"
-msgstr "Администратору и Пользователю"
+msgstr "Администратор вошел в систему"
 
 #: plugins/WordfenceWPTP.php:25
 msgid "Administrator user logged in from a new device or location"
