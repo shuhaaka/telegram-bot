@@ -154,14 +154,14 @@ class PluginsWPTP extends TgramBot
     function check_plugins()
     {
         foreach ($this->plugins as $plugin => $info)
-            if (file_exists(WPTELEGRAMPRO_PLUGINS_DIR . $info['class'] . '.php') && $this->check_plugin_active($info['path'])) {
+            if (file_exists(TGRAM_PLUGINS_DIR . $info['class'] . '.php') && $this->check_plugin_active($info['path'])) {
                 if (isset($info['preneed'])) {
                     foreach ($info['preneed'] as $file)
-                        if (file_exists(WPTELEGRAMPRO_PLUGINS_DIR . $file))
-                            require_once WPTELEGRAMPRO_PLUGINS_DIR . $file;
+                        if (file_exists(TGRAM_PLUGINS_DIR . $file))
+                            require_once TGRAM_PLUGINS_DIR . $file;
                 }
                 $this->currentActivePlugins[] = $plugin;
-                require_once WPTELEGRAMPRO_PLUGINS_DIR . $info['class'] . '.php';
+                require_once TGRAM_PLUGINS_DIR . $info['class'] . '.php';
             }
         return count($this->currentActivePlugins) > 0;
     }

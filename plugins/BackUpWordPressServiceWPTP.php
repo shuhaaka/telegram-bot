@@ -29,16 +29,16 @@ class BackUpWordPressServiceWPTP extends Service
         ?>
         <tr>
             <th scope="row">
-                <label for="<?php echo esc_attr($this->get_field_name('notification')); ?>"><?php _e('Telegram', WPTELEGRAMPRO_PLUGIN_KEY); ?></label>
+                <label for="<?php echo esc_attr($this->get_field_name('notification')); ?>"><?php _e('Telegram', TGRAM_PLUGIN_KEY); ?></label>
             </th>
             <td>
                 <label><input type="checkbox" value="1"
                               id="<?php echo esc_attr($this->get_field_name('notification')); ?>"
-                              name="<?php echo esc_attr($this->get_field_name('notification')); ?>" <?php checked($this->get_field_value('notification'), 1) ?>> <?php _e('Notification', WPTELEGRAMPRO_PLUGIN_KEY) ?>
+                              name="<?php echo esc_attr($this->get_field_name('notification')); ?>" <?php checked($this->get_field_value('notification'), 1) ?>> <?php _e('Notification', TGRAM_PLUGIN_KEY) ?>
                 </label><br>
                 <label><input type="checkbox" value="1"
                               id="<?php echo esc_attr($this->get_field_name('attache')); ?>"
-                              name="<?php echo esc_attr($this->get_field_name('attache')); ?>" <?php checked($this->get_field_value('attache'), 1) ?>> <?php _e('Attache backup file', WPTELEGRAMPRO_PLUGIN_KEY) ?>
+                              name="<?php echo esc_attr($this->get_field_name('attache')); ?>" <?php checked($this->get_field_value('attache'), 1) ?>> <?php _e('Attache backup file', TGRAM_PLUGIN_KEY) ?>
                 </label>
             </td>
         </tr>
@@ -67,7 +67,7 @@ class BackUpWordPressServiceWPTP extends Service
     public function display()
     {
         if ($this->is_service_active())
-            return __('Telegram', WPTELEGRAMPRO_PLUGIN_KEY);
+            return __('Telegram', TGRAM_PLUGIN_KEY);
         return '';
     }
 

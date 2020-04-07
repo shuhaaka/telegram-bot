@@ -22,10 +22,10 @@
 namespace IP2Location;
 
 /**
- * IP2Location database class
+ * IP2Location Databasex class
  *
  */
-class Database {
+class Databasex {
 
     /**
      * Current module's version
@@ -306,14 +306,14 @@ class Database {
     const EXCEPTION_SHMOP_CREATE_FAILED = 10004;
 
     /**
-     * The specified database file was not found
+     * The specified Databasex file was not found
      *
      * @var int
      */
     const EXCEPTION_DBFILE_NOT_FOUND = 10005;
 
     /**
-     * Not enough memory to load database file
+     * Not enough memory to load Databasex file
      *
      * @var int
      */
@@ -327,7 +327,7 @@ class Database {
     const EXCEPTION_NO_CANDIDATES = 10007;
 
     /**
-     * Failed to open database file
+     * Failed to open Databasex file
      *
      * @var int
      */
@@ -352,7 +352,7 @@ class Database {
     const FILE_IO = 100001;
 
     /**
-     * Read the whole database into a variable for caching
+     * Read the whole Databasex into a variable for caching
      *
      * @var int
      */
@@ -391,7 +391,7 @@ class Database {
      * Column offset mapping
      *
      * Each entry contains an array mapping databse version (0--23) to offset within a record.
-     * A value of 0 means the column is not present in the given database version.
+     * A value of 0 means the column is not present in the given Databasex version.
      *
      * @access private
      * @static
@@ -454,12 +454,12 @@ class Database {
     ];
 
     /**
-     * Database names, in order of preference for file lookup
+     * Databasex names, in order of preference for file lookup
      *
      * @var array
      */
-    private static $databases = [
-        // IPv4 databases
+    private static $Databasexs = [
+        // IPv4 Databasexs
         'IP-COUNTRY-REGION-CITY-LATITUDE-LONGITUDE-ZIPCODE-TIMEZONE-ISP-DOMAIN-NETSPEED-AREACODE-WEATHER-MOBILE-ELEVATION-USAGETYPE',
         'IP-COUNTRY-REGION-CITY-LATITUDE-LONGITUDE-ISP-DOMAIN-MOBILE-USAGETYPE',
         'IP-COUNTRY-REGION-CITY-LATITUDE-LONGITUDE-ZIPCODE-TIMEZONE-ISP-DOMAIN-NETSPEED-AREACODE-WEATHER-MOBILE-ELEVATION',
@@ -484,7 +484,7 @@ class Database {
         'IP-COUNTRY-REGION-CITY',
         'IP-COUNTRY-ISP',
         'IP-COUNTRY',
-        // IPv6 databases
+        // IPv6 Databasexs
         'IPV6-COUNTRY-REGION-CITY-LATITUDE-LONGITUDE-ZIPCODE-TIMEZONE-ISP-DOMAIN-NETSPEED-AREACODE-WEATHER-MOBILE-ELEVATION-USAGETYPE',
         'IPV6-COUNTRY-REGION-CITY-LATITUDE-LONGITUDE-ISP-DOMAIN-MOBILE-USAGETYPE',
         'IPV6-COUNTRY-REGION-CITY-LATITUDE-LONGITUDE-ZIPCODE-TIMEZONE-ISP-DOMAIN-NETSPEED-AREACODE-WEATHER-MOBILE-ELEVATION',
@@ -559,11 +559,11 @@ class Database {
     private $resource = false;
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //  Database metadata  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //  Databasex metadata  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
-     * Database's compilation date
+     * Databasex's compilation date
      *
      * @access private
      * @var int
@@ -571,7 +571,7 @@ class Database {
     private $date;
 
     /**
-     * Database's type (0--23)
+     * Databasex's type (0--23)
      *
      * @access private
      * @var int
@@ -579,7 +579,7 @@ class Database {
     private $type;
 
     /**
-     * Database's register width (as an array mapping 4 to IPv4 width, and 6 to IPv6 width)
+     * Databasex's register width (as an array mapping 4 to IPv4 width, and 6 to IPv6 width)
      *
      * @access private
      * @var array
@@ -587,7 +587,7 @@ class Database {
     private $columnWidth = [];
 
     /**
-     * Database's pointer offset (as an array mapping 4 to IPv4 offset, and 6 to IPv6 offset)
+     * Databasex's pointer offset (as an array mapping 4 to IPv4 offset, and 6 to IPv6 offset)
      *
      * @access private
      * @var array
@@ -595,7 +595,7 @@ class Database {
     private $offset = [];
 
     /**
-     * Amount of IP address ranges the database contains (as an array mapping 4 to IPv4 count, and 6 to IPv6 count)
+     * Amount of IP address ranges the Databasex contains (as an array mapping 4 to IPv4 count, and 6 to IPv6 count)
      *
      * @access private
      * @var array
@@ -603,7 +603,7 @@ class Database {
     private $ipCount = [];
 
     /**
-     * Offset withing the database where IP data begins (as an array mapping 4 to IPv4 base, and 6 to IPv6 base)
+     * Offset withing the Databasex where IP data begins (as an array mapping 4 to IPv4 base, and 6 to IPv6 base)
      *
      * @access private
      * @var array
@@ -637,7 +637,7 @@ class Database {
      * Constructor
      *
      * @access public
-     * @param string $file  Filename of the BIN database to load
+     * @param string $file  Filename of the BIN Databasex to load
      * @param int $mode  Caching mode (one of FILE_IO, MEMORY_CACHE, or SHARED_MEMORY)
      * @throws \Exception
      */
@@ -665,7 +665,7 @@ class Database {
                 // try to open the shared memory segment
                 $this->resource = @shmop_open($shmKey, 'a', 0, 0);
                 if (false === $this->resource) {
-                    // the segment did not exist, create it and load the database into it
+                    // the segment did not exist, create it and load the Databasex into it
                     $fp = fopen($rfile, 'rb');
                     if (false === $fp) {
                         throw new \Exception(__CLASS__ . ": Unable to open file '{$rfile}'.", self::EXCEPTION_FILE_OPEN_FAILED);
@@ -735,7 +735,7 @@ class Database {
         // set default fields to retrieve
         $this->defaultFields = $defaultFields;
 
-        // extract database metadata
+        // extract Databasex metadata
         $this->type           = $this->readByte(1) - 1;
         $this->columnWidth[4] = $this->readByte(2) * 4;
         $this->columnWidth[6] = $this->columnWidth[4] + 12;
@@ -784,7 +784,7 @@ class Database {
      *
      * @access public
      * @static
-     * @param string $file  Filename of the BIN database whise segment must be deleted
+     * @param string $file  Filename of the BIN Databasex whise segment must be deleted
      * @throws \Exception
      */
     public static function shmTeardown($file) {
@@ -798,7 +798,7 @@ class Database {
 
         // If the file cannot be found, except away
         if (false === $rfile) {
-            throw new \Exception(__CLASS__ . ": Database file '{$file}' does not seem to exist.", self::EXCEPTION_DBFILE_NOT_FOUND);
+            throw new \Exception(__CLASS__ . ": Databasex file '{$file}' does not seem to exist.", self::EXCEPTION_DBFILE_NOT_FOUND);
         }
 
         $shmKey = self::getShmKey($rfile);
@@ -854,9 +854,9 @@ class Database {
     }
 
     /**
-     * Return the realpath of the given file or look for the first matching database option
+     * Return the realpath of the given file or look for the first matching Databasex option
      *
-     * @param string $file  File to try to find, or null to try the databases in turn on the current file's path
+     * @param string $file  File to try to find, or null to try the Databasexs in turn on the current file's path
      * @return string
      * @throws \Exception
      */
@@ -867,7 +867,7 @@ class Database {
 
             // If the file cannot be found, except away
             if (false === $rfile) {
-                throw new \Exception(__CLASS__ . ": Database file '{$file}' does not seem to exist.", self::EXCEPTION_DBFILE_NOT_FOUND);
+                throw new \Exception(__CLASS__ . ": Databasex file '{$file}' does not seem to exist.", self::EXCEPTION_DBFILE_NOT_FOUND);
             }
 
             return $rfile;
@@ -878,15 +878,15 @@ class Database {
             if (false === $current) {
                 throw new \Exception(__CLASS__ . ": Cannot determine current path.", self::EXCEPTION_NO_PATH);
             }
-            // Try each database in turn
-            foreach (self::$databases as $database) {
-                $rfile = realpath("{$current}/{$database}.BIN");
+            // Try each Databasex in turn
+            foreach (self::$Databasexs as $Databasex) {
+                $rfile = realpath("{$current}/{$Databasex}.BIN");
                 if (false !== $rfile) {
                     return $rfile;
                 }
             }
             // No candidates found
-            throw new \Exception(__CLASS__ . ": No candidate database files found.", self::EXCEPTION_NO_CANDIDATES);
+            throw new \Exception(__CLASS__ . ": No candidate Databasex files found.", self::EXCEPTION_NO_CANDIDATES);
         }
     }
 
@@ -1537,7 +1537,7 @@ class Database {
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
-     * Get the database's compilation date as a string of the form 'YYYY-MM-DD'
+     * Get the Databasex's compilation date as a string of the form 'YYYY-MM-DD'
      *
      * @access public
      * @return string
@@ -1547,7 +1547,7 @@ class Database {
     }
 
     /**
-     * Get the database's type (1--24)
+     * Get the Databasex's type (1--24)
      *
      * @access public
      * @return int
@@ -1557,7 +1557,7 @@ class Database {
     }
 
     /**
-     * Return this database's available fields
+     * Return this Databasex's available fields
      *
      * @access public
      * @param boolean $asNames  Whether to return the mapped names intead of numbered constants
@@ -1588,12 +1588,12 @@ class Database {
     /**
      * Return the version of module
      */
-    public function getDatabaseVersion() {
+    public function getDatabasexVersion() {
         return $this->year . '.' . $this->month . '.' . $this->day;
     }
 
     /**
-     * This function will look the given IP address up in the database and return the result(s) asked for
+     * This function will look the given IP address up in the Databasex and return the result(s) asked for
      *
      * If a single, SINGULAR, field is specified, only its mapped value is returned.
      * If many fields are given (as an array) or a MULTIPLE field is specified, an

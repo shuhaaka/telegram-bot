@@ -42,7 +42,7 @@ class BackUpWordPressWPTP extends TgramBot
                 <label><input type="checkbox" value="1" id="backupwordpress_plugin_new_backup_notification"
                               name="backupwordpress_plugin_new_backup_notification" <?php checked($this->get_option('backupwordpress_plugin_new_backup_notification', 0), 1) ?>> <?php _e('Active', $this->plugin_key) ?>
                 </label>
-                <p class="description"><?php _e('Requires the Schedule "Telegram Notification" option to be enabled.', WPTELEGRAMPRO_PLUGIN_KEY); ?></p>
+                <p class="description"><?php _e('Requires the Schedule "Telegram Notification" option to be enabled.', TGRAM_PLUGIN_KEY); ?></p>
             </td>
         </tr>
         <?php
@@ -87,7 +87,7 @@ class BackUpWordPressWPTP extends TgramBot
 
             if ($attacheFile) {
                 // If it's larger than the max attachment size limit assume it's not going to be able to send the backup
-                $maxFileSize = wp_convert_hr_to_bytes(WPTELEGRAMPRO_MAX_FILE_SIZE);
+                $maxFileSize = wp_convert_hr_to_bytes(TGRAM_MAX_FILE_SIZE);
                 if (@filesize($file) < $maxFileSize) {
                     $mid_message = __('The backup file should be attached to this message.', $this->plugin_key) . "\n";
                     $message = $start_message . $mid_message . $end_message;

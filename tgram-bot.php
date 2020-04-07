@@ -31,32 +31,32 @@ if (!defined('ABSPATH')) die('No direct access allowed');
  */
 $plugin = get_plugin_data(__FILE__, false, false);
 $version = $plugin['Version'];
-define('WPTELEGRAMPRO_VERSION', $version);
-define('WPTELEGRAMPRO_PLUGIN_KEY', 'telegram-bot');
-define('WPTELEGRAMPRO_MAX_PHOTO_SIZE', '10mb'); 
-define('WPTELEGRAMPRO_MAX_FILE_SIZE', '50mb');  
-define('WPTELEGRAMPRO_BASENAME', plugin_basename(__FILE__));
-define('WPTELEGRAMPRO_DIR', untrailingslashit(plugin_dir_path(__FILE__)));
-define('WPTELEGRAMPRO_URL', untrailingslashit(plugins_url('', __FILE__)));
-define('WPTELEGRAMPRO_ASSETS_DIR', WPTELEGRAMPRO_DIR . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR);
-define('WPTELEGRAMPRO_INC_DIR', WPTELEGRAMPRO_DIR . DIRECTORY_SEPARATOR . 'inc' . DIRECTORY_SEPARATOR);
-define('WPTELEGRAMPRO_MOD_DIR', WPTELEGRAMPRO_DIR . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR);
-define('WPTELEGRAMPRO_MODINC_DIR', WPTELEGRAMPRO_DIR . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . 'inc' . DIRECTORY_SEPARATOR);
-define('WPTELEGRAMPRO_PLUGINS_DIR', WPTELEGRAMPRO_DIR . DIRECTORY_SEPARATOR . 'plugins' . DIRECTORY_SEPARATOR);
+define('TGRAM_VERSION', $version);
+define('TGRAM_PLUGIN_KEY', 'telegram-bot');
+define('TGRAM_MAX_PHOTO_SIZE', '10mb'); 
+define('TGRAM_MAX_FILE_SIZE', '50mb');  
+define('TGRAM_BASENAME', plugin_basename(__FILE__));
+define('TGRAM_DIR', untrailingslashit(plugin_dir_path(__FILE__)));
+define('TGRAM_URL', untrailingslashit(plugins_url('', __FILE__)));
+define('TGRAM_ASSETS_DIR', TGRAM_DIR . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR);
+define('TGRAM_INC_DIR', TGRAM_DIR . DIRECTORY_SEPARATOR . 'inc' . DIRECTORY_SEPARATOR);
+define('TGRAM_MOD_DIR', TGRAM_DIR . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR);
+define('TGRAM_MODINC_DIR', TGRAM_DIR . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . 'inc' . DIRECTORY_SEPARATOR);
+define('TGRAM_PLUGINS_DIR', TGRAM_DIR . DIRECTORY_SEPARATOR . 'plugins' . DIRECTORY_SEPARATOR);
 
-require_once WPTELEGRAMPRO_INC_DIR . 'Instance.php';
-require_once WPTELEGRAMPRO_INC_DIR . 'HelpersWPTP.php';
-require_once WPTELEGRAMPRO_INC_DIR . 'FilterableScriptsWPTP.php';
-require_once WPTELEGRAMPRO_INC_DIR . 'REST.php';
-require_once WPTELEGRAMPRO_INC_DIR . 'TelegramWPTP.php';
-require_once WPTELEGRAMPRO_INC_DIR . 'WordPressWPTP.php';
-require_once WPTELEGRAMPRO_INC_DIR . 'HelpsWPTP.php';
-require_once WPTELEGRAMPRO_INC_DIR . 'Users.php';
-
-
+require_once TGRAM_INC_DIR . 'Instance.php';
+require_once TGRAM_INC_DIR . 'HelpersWPTP.php';
+require_once TGRAM_INC_DIR . 'FilterableScriptsWPTP.php';
+require_once TGRAM_INC_DIR . 'REST.php';
+require_once TGRAM_INC_DIR . 'TelegramWPTP.php';
+require_once TGRAM_INC_DIR . 'WordPressWPTP.php';
+require_once TGRAM_INC_DIR . 'HelpsWPTP.php';
+require_once TGRAM_INC_DIR . 'Users.php';
 
 
-HelpersWPTP::requireAll(WPTELEGRAMPRO_MOD_DIR);
+
+
+HelpersWPTP::requireAll(TGRAM_MOD_DIR);
 
 class TgramBot
 {
@@ -355,7 +355,7 @@ class TgramBot
 
     function enqueue_scripts()
     {
-        $js_version = date("ymd-Gis", filemtime(WPTELEGRAMPRO_ASSETS_DIR . 'js' . DIRECTORY_SEPARATOR . 'wptp.js'));
+        $js_version = date("ymd-Gis", filemtime(TGRAM_ASSETS_DIR . 'js' . DIRECTORY_SEPARATOR . 'wptp.js'));
         $version = rand(100, 200) . rand(200, 300);
         wp_enqueue_script('textrange-js', plugin_dir_url(__FILE__) . 'assets/js/textrange.js', array('jquery'), $version, true);
         wp_enqueue_script('jquery.caret-js', plugin_dir_url(__FILE__) . 'assets/js/jquery.caret.js', array('jquery'), $version, true);
@@ -1166,7 +1166,7 @@ class TgramBot
             dbDelta($sql);
         }
 
-        update_option('tgrambot_version', WPTELEGRAMPRO_VERSION, false);
+        update_option('tgrambot_version', TGRAM_VERSION, false);
         update_option('update_keyboard_time_wptp', current_time('U'), false);
     }
 

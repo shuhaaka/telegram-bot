@@ -1,9 +1,7 @@
 <?php
-
 namespace tgrambot;
 
 if (!defined('ABSPATH')) exit;
-if (!class_exists('WooCommerce')) return;
 
 class WooCommerceWPTP extends TgramBot
 {

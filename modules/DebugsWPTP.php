@@ -157,7 +157,7 @@ class DebugsWPTP extends TgramBot
         $checkDBTable = $wpdb->get_var("show tables like '$this->db_users_table'") === $this->db_users_table;
         $checkDBTable = $checkDBTable ? $this->words['yes'] : $this->words['no'];
         $debugs[$this->plugin_name] = array(
-            __('Plugin Version', 'telegram-bot') => WPTELEGRAMPRO_VERSION,
+            __('Plugin Version', 'telegram-bot') => TGRAM_VERSION,
             __('Plugin DB Table Created', 'telegram-bot') => $checkDBTable
         );
 
@@ -169,7 +169,7 @@ class DebugsWPTP extends TgramBot
 
     protected function check_update_plugin($file = null)
     {
-        if ($file == null) $file = 'wp-telegram-pro/WPTelegramPro.php';
+        if ($file == null) $file = 'tgram-bot/tgram-bot.php';
         $plugin_updates = get_plugin_updates();
         if (in_array($file, array_keys($plugin_updates)))
             return array(
@@ -213,7 +213,7 @@ class DebugsWPTP extends TgramBot
      */
     function checkSSLCertificate($host)
     {
-        if (!is_ssl() || !class_exists('tgrambot\SSLCertificateWPTP')) return false;
+        if (!is_ssl() || !class_exists('tgram-bot\inc\SSLCertificateWPTP')) return false;
         try {
             $SSLCertificate = new SSLCertificateWPTP($host);
             return $SSLCertificate->request()->response();
