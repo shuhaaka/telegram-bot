@@ -9,8 +9,8 @@ class DebugsWPTP extends TgramBot
     public function __construct()
     {
         parent::__construct();
-        $this->page_key = $this->plugin_key . '-debugs';
-        $this->page_title = __('Debugs', $this->plugin_key);
+        $this->page_key = 'telegram-bot' . '-debugs';
+        $this->page_title = __('Debugs', 'telegram-bot');
         $this->url = get_bloginfo('url');
         add_action('admin_menu', array($this, 'menu'), 999999);
         add_action('admin_enqueue_scripts', [$this, 'admin_enqueue_scripts']);
@@ -36,7 +36,7 @@ class DebugsWPTP extends TgramBot
      */
     function menu()
     {
-        add_submenu_page($this->plugin_key, $this->plugin_name . $this->page_title_divider . $this->page_title, $this->page_title, 'manage_options', $this->page_key, array($this, 'pageContent'));
+        add_submenu_page('telegram-bot', $this->plugin_name . $this->page_title_divider . $this->page_title, $this->page_title, 'manage_options', $this->page_key, array($this, 'pageContent'));
     }
 
     /**
@@ -54,11 +54,11 @@ class DebugsWPTP extends TgramBot
             $countryCode = strtolower($domainCountry['countryCode']);
             $hostInfo = array(
                 'IP' => $domainIP,
-                __('Host Location', $this->plugin_key) => "<span class='ltr-right flex'><img src='https://www.countryflags.io/{$countryCode}/flat/16.png' alt='{$domainCountry['countryName']} Flag'> &nbsp;" . $domainCountry['countryCode'] . ' - ' . $domainCountry['countryName'] . '</span>'
+                __('Host Location', 'telegram-bot') => "<span class='ltr-right flex'><img src='https://www.countryflags.io/{$countryCode}/flat/16.png' alt='{$domainCountry['countryName']} Flag'> &nbsp;" . $domainCountry['countryCode'] . ' - ' . $domainCountry['countryName'] . '</span>'
             );
             if (in_array($domainCountry['countryCode'], $this->telegramFilterCountry))
-                $hostInfo[__('Tip', $this->plugin_key)] = __('Your website host location on the list of countries that have filtered the telegram. For this reason, the plugin may not work well. My suggestion is to use a host of another countries.', $this->plugin_key);
-            $debugs[__('Host', $this->plugin_key)] = $hostInfo;
+                $hostInfo[__('Tip', 'telegram-bot')] = __('Your website host location on the list of countries that have filtered the telegram. For this reason, the plugin may not work well. My suggestion is to use a host of another countries.', 'telegram-bot');
+            $debugs[__('Host', 'telegram-bot')] = $hostInfo;
         }
         return $debugs;
     }
@@ -73,7 +73,7 @@ class DebugsWPTP extends TgramBot
         $ssl = is_ssl() ? $this->words['active'] : $this->words['inactive'];
 
         $debugs['SSL'] = array(
-            __('Status', $this->plugin_key) => $ssl,
+            __('Status', 'telegram-bot') => $ssl,
         );
 
         // SSL Info
@@ -82,24 +82,24 @@ class DebugsWPTP extends TgramBot
             $info = $this->checkSSLCertificate($this->url);
 
             if (is_array($info)) {
-                $ssl_info[__('Issuer', $this->plugin_key)] = $info['issuer'];
-                $ssl_info[__('Valid', $this->plugin_key)] = $info['isValid'] ? __('Yes', $this->plugin_key) : __('No', $this->plugin_key);
+                $ssl_info[__('Issuer', 'telegram-bot')] = $info['issuer'];
+                $ssl_info[__('Valid', 'telegram-bot')] = $info['isValid'] ? __('Yes', 'telegram-bot') : __('No', 'telegram-bot');
 
                 $validFromDate = HelpersWPTP::localeDate($info['validFromDate']);
-                $ssl_info[__('Valid from', $this->plugin_key)] = "<span class='ltr-right'>" . $info['validFromDate'] . ($info['validFromDate'] != $validFromDate ? " / {$validFromDate}" : '') . "</span>";
+                $ssl_info[__('Valid from', 'telegram-bot')] = "<span class='ltr-right'>" . $info['validFromDate'] . ($info['validFromDate'] != $validFromDate ? " / {$validFromDate}" : '') . "</span>";
 
                 $expirationDate = HelpersWPTP::localeDate($info['expirationDate']);
-                $ssl_info[__('Valid until', $this->plugin_key)] = "<span class='ltr-right'>" . $info['expirationDate'] . ($info['expirationDate'] != $expirationDate ? " / {$expirationDate}" : '') . "</span>";
+                $ssl_info[__('Valid until', 'telegram-bot')] = "<span class='ltr-right'>" . $info['expirationDate'] . ($info['expirationDate'] != $expirationDate ? " / {$expirationDate}" : '') . "</span>";
 
-                $ssl_info[__('Is expired', $this->plugin_key)] = $info['isExpired'] ? __('Yes', $this->plugin_key) : __('No', $this->plugin_key);
-                $ssl_info[__('Remaining days to expiration', $this->plugin_key)] = $info['daysUntilExpirationDate'];
-                $ssl_info[__('Key', $this->plugin_key)] = $info['signatureAlgorithm'];
+                $ssl_info[__('Is expired', 'telegram-bot')] = $info['isExpired'] ? __('Yes', 'telegram-bot') : __('No', 'telegram-bot');
+                $ssl_info[__('Remaining days to expiration', 'telegram-bot')] = $info['daysUntilExpirationDate'];
+                $ssl_info[__('Key', 'telegram-bot')] = $info['signatureAlgorithm'];
             } elseif (is_string($info))
-                $ssl_info[__('SSL Info', $this->plugin_key)] = $info;
+                $ssl_info[__('SSL Info', 'telegram-bot')] = $info;
 
             $debugs['SSL'] = array_merge($debugs['SSL'], $ssl_info);
         } else {
-            $debugs['SSL'][__('Tip', $this->plugin_key)] = $this->words['ssl_error'];
+            $debugs['SSL'][__('Tip', 'telegram-bot')] = $this->words['ssl_error'];
         }
         return $debugs;
     }
@@ -118,15 +118,15 @@ class DebugsWPTP extends TgramBot
         $charset = get_bloginfo('charset');
         $text_direction = is_rtl() ? 'RTL' : 'LTR';
         $debugs[__('WordPress')] = array(
-            __('Version', $this->plugin_key) => $wp_version,
-            __('Debugging Mode', $this->plugin_key) => $debugMode,
-            __('Address', $this->plugin_key) => get_bloginfo('url'),
-            __('Language', $this->plugin_key) => $language,
-            __('Character encoding', $this->plugin_key) => $charset,
-            __('Text Direction', $this->plugin_key) => $text_direction
+            __('Version', 'telegram-bot') => $wp_version,
+            __('Debugging Mode', 'telegram-bot') => $debugMode,
+            __('Address', 'telegram-bot') => get_bloginfo('url'),
+            __('Language', 'telegram-bot') => $language,
+            __('Character encoding', 'telegram-bot') => $charset,
+            __('Text Direction', 'telegram-bot') => $text_direction
         );
         if (version_compare($wp_version, '5.2', '>='))
-            $debugs[__('WordPress')][__('Site Health', $this->plugin_key)] = '<a href="' . admin_url('site-health.php') . '">' . __('Check site health page', $this->plugin_key) . '</a>';
+            $debugs[__('WordPress')][__('Site Health', 'telegram-bot')] = '<a href="' . admin_url('site-health.php') . '">' . __('Check site health page', 'telegram-bot') . '</a>';
         return $debugs;
     }
 
@@ -140,8 +140,8 @@ class DebugsWPTP extends TgramBot
         $phpversion = phpversion();
         $curl = function_exists('curl_version') ? curl_version()['version'] : $this->words['inactive'];
         $debugs['PHP'] = array(
-            __('PHP Version', $this->plugin_key) => $phpversion,
-            __('PHP CURL', $this->plugin_key) => $curl
+            __('PHP Version', 'telegram-bot') => $phpversion,
+            __('PHP CURL', 'telegram-bot') => $curl
         );
         return $debugs;
     }
@@ -157,12 +157,12 @@ class DebugsWPTP extends TgramBot
         $checkDBTable = $wpdb->get_var("show tables like '$this->db_users_table'") === $this->db_users_table;
         $checkDBTable = $checkDBTable ? $this->words['yes'] : $this->words['no'];
         $debugs[$this->plugin_name] = array(
-            __('Plugin Version', $this->plugin_key) => WPTELEGRAMPRO_VERSION,
-            __('Plugin DB Table Created', $this->plugin_key) => $checkDBTable
+            __('Plugin Version', 'telegram-bot') => WPTELEGRAMPRO_VERSION,
+            __('Plugin DB Table Created', 'telegram-bot') => $checkDBTable
         );
 
         if ($updateInfo = $this->check_update_plugin())
-            $debugs[$this->plugin_name][__('Update', $this->plugin_key)] = '<a href="' . $updateInfo['updateDetailURL'] . '" class="thickbox open-plugin-details-modal">' . __('Update to the new version', $this->plugin_key) . ' ' . $updateInfo['newVersion'] . '</a>';
+            $debugs[$this->plugin_name][__('Update', 'telegram-bot')] = '<a href="' . $updateInfo['updateDetailURL'] . '" class="thickbox open-plugin-details-modal">' . __('Update to the new version', 'telegram-bot') . ' ' . $updateInfo['newVersion'] . '</a>';
 
         return $debugs;
     }

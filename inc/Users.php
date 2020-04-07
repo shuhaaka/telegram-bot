@@ -15,14 +15,14 @@ defined('ABSPATH') || exit;
 class Users extends Instance
 {
     protected static $_instance;
-    protected $TelegramBot;
+    protected $TgramBot;
     private $_login_dry_run = false;
 
     public function init()
     {
-        $this->TelegramBot = TelegramBot::getInstance();
+        $this->TgramBot = TgramBot::getInstance();
 
-        if ($this->TelegamBot->get_option('telegram_bot_two_factor_auth', false)) {
+        if ($this->TgramBot->get_option('telegram_bot_two_factor_auth', false)) {
             add_action('login_message', [$this, 'login_message']);
             add_action('login_enqueue_scripts', [$this, 'login_enqueue_scripts']);
             add_action('login_form', [$this, 'login_form']);
@@ -97,7 +97,7 @@ class Users extends Instance
      * @copyright This code inspired by DoLogin plugin, https://wordpress.org/plugins/dologin
      * @since  1.0
      */
-    public function telegramBotTFA()
+    public function TgramBotTFA()
     {
         $WPTelegramPro = $this->WPTelegramPro;
 

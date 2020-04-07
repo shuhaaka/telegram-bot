@@ -7,8 +7,9 @@
  * Version: 1.0.0
  * Author URI: https://eson.uz
  * Text Domain: telegram-bot
+ * Domain Path: /languages
  * WC requires at least: 3.0.0
- * WC tested up to: 3.9
+ * Tested up to: 5.4
  */
 
 namespace tgrambot;
@@ -18,7 +19,12 @@ if (!defined('ABSPATH')) exit;
 if (!function_exists('get_plugin_data'))
     require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
-global $TelegramBot;
+global $TgramBot;
+
+
+if (!defined('ABSPATH')) die('No direct access allowed');
+
+
 
 /**
  * Define version.
@@ -27,8 +33,8 @@ $plugin = get_plugin_data(__FILE__, false, false);
 $version = $plugin['Version'];
 define('WPTELEGRAMPRO_VERSION', $version);
 define('WPTELEGRAMPRO_PLUGIN_KEY', 'telegram-bot');
-define('WPTELEGRAMPRO_MAX_PHOTO_SIZE', '10mb'); //https://core.telegram.org/bots/api#sending-files
-define('WPTELEGRAMPRO_MAX_FILE_SIZE', '50mb');  //https://core.telegram.org/bots/api#sending-files
+define('WPTELEGRAMPRO_MAX_PHOTO_SIZE', '10mb'); 
+define('WPTELEGRAMPRO_MAX_FILE_SIZE', '50mb');  
 define('WPTELEGRAMPRO_BASENAME', plugin_basename(__FILE__));
 define('WPTELEGRAMPRO_DIR', untrailingslashit(plugin_dir_path(__FILE__)));
 define('WPTELEGRAMPRO_URL', untrailingslashit(plugins_url('', __FILE__)));
@@ -47,6 +53,9 @@ require_once WPTELEGRAMPRO_INC_DIR . 'WordPressWPTP.php';
 require_once WPTELEGRAMPRO_INC_DIR . 'HelpsWPTP.php';
 require_once WPTELEGRAMPRO_INC_DIR . 'Users.php';
 
+
+
+
 HelpersWPTP::requireAll(WPTELEGRAMPRO_MOD_DIR);
 
 class TgramBot
@@ -59,31 +68,34 @@ class TgramBot
         $telegram_input, $user, $default_keyboard, $plugin_name,
         $ignore_post_types = array("attachment", "revision", "nav_menu_item", "custom_css", "customize_changeset", "oembed_cache", "product_variation");
     protected $aboutTabID = 'about-wptp-tab', $page_title_divider, $wp_user_rc_key = '_random_code_wptp';
+
     
+ 
     
-    public function localization_setup() {
-        load_plugin_textdomain( 'telegram-bot', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-    }
+   
 
     public function __construct($bypass = false)
     {
         global $wpdb;
 
         $this->page_title_divider = is_rtl() ? ' < ' : ' > ';
-        $this->options = get_option($this->plugin_key);
+        $this->options = get_option('telegram-bot');
         $this->telegram = new TelegramWPTP($this->get_option('api_token'));
         $this->db_users_table = $wpdb->prefix . 'tgrambot_users';
-        $this->plugin_name = __('Telegram Bot', $this->plugin_key);
+        $this->plugin_name = __('Telegram Bot', 'telegram-bot');
         $this->now = date("Y-m-d H:i:s");
         $this->init($bypass);
         $this->words = apply_filters('tgrambot_words', $this->words);
 
         add_filter('tgrambot_words', [$this, 'words']);
+        
+      
 
         if ($bypass) {
             REST::get_instance()->init();
             Users::get_instance()->init();
 
+            add_action( 'init', array( $this, 'load_textdomain' ) );
             add_action('tgrambot_keyboard_response', [$this, 'change_user_status'], 1);
             add_action('tgrambot_keyboard_response', [$this, 'connect_telegram_wp_user'], 20);
             add_filter('tgrambot_after_settings_update_message', [$this, 'after_settings_updated_message'], 10);
@@ -102,37 +114,40 @@ class TgramBot
             add_action('tgrambot_settings_content', [$this, 'about_settings_content']);
             add_filter('tgrambot_post_info', [$this, 'fix_post_info'], 9999, 3);
             add_filter('tgrambot_telegram_bot_api_parameters', [$this, 'fix_telegram_text'], 9999);
+            
         }
     }
 
+    
+   
     function words($words)
     {
         $new_words = array(
-            'yes' => __('Yes', $this->plugin_key),
-            'no' => __('No', $this->plugin_key),
-            'active' => __('Active', $this->plugin_key),
-            'inactive' => __('Inactive', $this->plugin_key),
-            'next' => __('Next >', $this->plugin_key),
-            'prev' => __('< Previous', $this->plugin_key),
-            'next_page' => __('Next Page >', $this->plugin_key),
-            'prev_page' => __('< Previous Page', $this->plugin_key),
-            'back' => __('Back', $this->plugin_key),
-            'posts' => __('Posts', $this->plugin_key),
-            'search' => __('Search', $this->plugin_key),
-            'categories' => __('Categories', $this->plugin_key),
-            'detail' => __('Detail', $this->plugin_key),
-            'more' => __('More', $this->plugin_key),
-            'ssl_error' => __('The plugin requires SSL in the domain of your website!', $this->plugin_key),
-            'profile_success_connect' => __('Welcome, Your Telegram account is successfully connected to the website.', $this->plugin_key),
-            'profile_disconnect' => __('Your profile was successfully disconnected from Telegram account.', $this->plugin_key),
-            'user_disconnect' => __('This profile was successfully disconnected from Telegram account.', $this->plugin_key),
-            'no_linked_telegram_account' => __('No linked Telegram account to this user profile.', $this->plugin_key),
-            'error_sending_message' => __('Error in sending message', $this->plugin_key),
-            'dynamic_code_missing' => __('Dynamic code is required.', $this->plugin_key),
-            'dynamic_code_not_correct' => __('Dynamic code is not correct.', $this->plugin_key),
-            'dynamic_code_expired' => __('Dynamic code expired.', $this->plugin_key),
-            'empty_username_password' => __('Username or password is empty.', $this->plugin_key),
-            'unknown_error' => __('Unknown error', $this->plugin_key),
+            'yes' => __('Yes', 'telegram-bot'),
+            'no' => __('No', 'telegram-bot'),
+            'active' => __('Active', 'telegram-bot'),
+            'inactive' => __('Inactive', 'telegram-bot'),
+            'next' => __('Next >', 'telegram-bot'),
+            'prev' => __('< Previous', 'telegram-bot'),
+            'next_page' => __('Next Page >', 'telegram-bot'),
+            'prev_page' => __('< Previous Page', 'telegram-bot'),
+            'back' => __('Back', 'telegram-bot'),
+            'posts' => __('Posts', 'telegram-bot'),
+            'search' => __('Search', 'telegram-bot'),
+            'categories' => __('Categories', 'telegram-bot'),
+            'detail' => __('Detail', 'telegram-bot'),
+            'more' => __('More', 'telegram-bot'),
+            'ssl_error' => __('The plugin requires SSL in the domain of your website!', 'telegram-bot'),
+            'profile_success_connect' => __('Welcome, Your Telegram account is successfully connected to the website.', 'telegram-bot'),
+            'profile_disconnect' => __('Your profile was successfully disconnected from Telegram account.', 'telegram-bot'),
+            'user_disconnect' => __('This profile was successfully disconnected from Telegram account.', 'telegram-bot'),
+            'no_linked_telegram_account' => __('No linked Telegram account to this user profile.', 'telegram-bot'),
+            'error_sending_message' => __('Error in sending message', 'telegram-bot'),
+            'dynamic_code_missing' => __('Dynamic code is required.', 'telegram-bot'),
+            'dynamic_code_not_correct' => __('Dynamic code is not correct.', 'telegram-bot'),
+            'dynamic_code_expired' => __('Dynamic code expired.', 'telegram-bot'),
+            'empty_username_password' => __('Username or password is empty.', 'telegram-bot'),
+            'unknown_error' => __('Unknown error', 'telegram-bot'),
         );
         $words = array_merge($words, $new_words);
 
@@ -141,31 +156,34 @@ class TgramBot
 
     function init($bypass = false)
     {
+        
         if (isset($_GET['wptp']) && $_GET['wptp'] == get_option('wptp-rand-url')) {
             try {
                 $this->telegram_input = $this->telegram->input();
                 $this->set_user();
                 if (!$bypass)
                     add_action('init', array($this, 'get_init'));
+                   
             } catch (\Exception $e) {
                 // Exception
             }
         }
     }
+    
 
     function settings_tab($tabs)
     {
-        $tabs[$this->aboutTabID] = __('About', $this->plugin_key);
+        $tabs[$this->aboutTabID] = __('About', 'telegram-bot');
         return $tabs;
     }
 
     function helps_command_list()
-    {
+    {   
         $commands = apply_filters('tgrambot_default_commands', array());
         $textRows = count($commands) > 7 ? 7 : count($commands);
         ?>
         <div class="item">
-            <button class="toggle" type="button"> <?php _e('Default command list', $this->plugin_key) ?></button>
+            <button class="toggle" type="button"> <?php _e('Default command list', 'telegram-bot') ?></button>
             <div class="panel">
                 <div>
                 <pre class="ltr"><?php
@@ -178,7 +196,7 @@ class TgramBot
 
                     <span class="description">
                             <?php
-                            echo sprintf(__('How to set bot commands: Start %s and select your bot > "Edit Bot" > "Edit Commands" > Send text below.', $this->plugin_key), '<a href="https://t.me/BotFather" target="_blank">@BotFather</a>');
+                            echo sprintf(__('How to set bot commands: Start %s and select your bot > "Edit Bot" > "Edit Commands" > Send text below.', 'telegram-bot'), '<a href="https://t.me/BotFather" target="_blank">@BotFather</a>');
                             ?>
                         </span><br><br>
                     <textarea cols="30" class="ltr" rows="<?php echo $textRows ?>" style="resize:none"
@@ -194,15 +212,19 @@ class TgramBot
         <?php
     }
 
-    function about_settings_content()
+    /**
+	 * Load textdomain.
+	 */
+	public function load_textdomain() {
+		load_plugin_textdomain( 'telegram-bot', false, basename( dirname( __FILE__ ) ) . '/languages' );
+	}
+    public function about_settings_content()
     {
         ?>
         <div id="<?php echo $this->aboutTabID ?>-content" class="wptp-tab-content hidden">
-            <h3><?php _e('Integrate WordPress with Telegram', $this->plugin_key) ?></h3>            
+            <h3><?php _e('Integrate WordPress with Telegram', 'telegram-bot'); ?></h3>            
             <p>
-                <?php
-                _e('Keep in touch with me:', $this->plugin_key);
-                ?> <a href="https://eson.uz">Shuhrat Mamataliyev</a>
+                <?php _e('Keep in touch with me:', 'telegram-bot'); ?> <a href="https://eson.uz">Shuhrat Mamataliyev</a>
             </p>
         </div>
         <?php
@@ -289,9 +311,9 @@ class TgramBot
         $this->telegram->bot_info();
         $bot_info = $this->telegram->get_last_result();
         if ($bot_info['ok'] && $bot_info['result']['is_bot']) {
-            echo __('Bot Name:', $this->plugin_key) . ' ' . $bot_info['result']['first_name'] . ' , @' . $bot_info['result']['username'];
+            echo __('Bot Name:', 'telegram-bot') . ' ' . $bot_info['result']['first_name'] . ' , @' . $bot_info['result']['username'];
         } else {
-            _e('API Token Invalid (Need to save settings)', $this->plugin_key);
+            _e('API Token Invalid (Need to save settings)', 'telegram-bot');
         }
         exit;
     }
@@ -306,7 +328,7 @@ class TgramBot
         if ($user === null || !empty($user['wp_id']))
             return $user_id;
         $this->update_user(array('wp_id' => $user_id));
-        $this->telegram->sendMessage(__('Welcome, Your Telegram account is successfully connected to the store.', $this->plugin_key), null, $user['user_id']);
+        $this->telegram->sendMessage(__('Welcome, Your Telegram account is successfully connected to the store.', 'telegram-bot'), null, $user['user_id']);
         setcookie('wptpwc_user_id', null, -1);
         unset($_COOKIE['wptpwc_user_id']);
     }
@@ -342,8 +364,8 @@ class TgramBot
         wp_enqueue_script('wptp-js', plugin_dir_url(__FILE__) . 'assets/js/wptp.js', array('jquery'), $js_version, true);
         // Localize the script with new data
         $translation_array = array(
-            'new_channel' => __('New Channel', $this->plugin_key),
-            'confirm_remove_channel' => __('Remove % Channel?', $this->plugin_key),
+            'new_channel' => __('New Channel', 'telegram-bot'),
+            'confirm_remove_channel' => __('Remove % Channel?', 'telegram-bot'),
             // 'max_channel' => $this->ChannelWPT->max_channel,
         );
         wp_localize_script('wptp-js', 'wptp', $translation_array);
@@ -364,12 +386,12 @@ class TgramBot
 
     function menu()
     {
-        add_menu_page($this->plugin_name, $this->plugin_name, 'manage_options', $this->plugin_key, array($this, 'settings'), 'dashicons-wptp-telegram');
+        add_menu_page($this->plugin_name, $this->plugin_name, 'manage_options', 'telegram-bot', array($this, 'settings'), 'dashicons-wptp-telegram');
     }
 
     function after_settings_updated_message($update_message)
     {
-        $update_message .= $this->message(__('Settings saved.', $this->plugin_key));
+        $update_message .= $this->message(__('Settings saved.', 'telegram-bot'));
         return $update_message;
     }
 
@@ -388,13 +410,13 @@ class TgramBot
             $update_message = apply_filters('tgrambot_before_settings_update_message', $update_message, $this->options, $_POST);
 
             $options = apply_filters('tgrambot_option_settings', $_POST, $this->options);
-            update_option($this->plugin_key, $options, false);
+            update_option('telegram-bot', $options, false);
 
             do_action('tgrambot_after_settings_updated', $this->options, $options);
             $update_message = apply_filters('tgrambot_after_settings_update_message', $update_message, $this->options, $_POST);
         }
 
-        $this->options = get_option($this->plugin_key);
+        $this->options = get_option('telegram-bot');
         add_filter('wp_dropdown_cats', array($this, 'dropdown_filter'), 10, 2);
 
         ?>
@@ -444,8 +466,8 @@ class TgramBot
     {
         $options = $this->options;
         $options[$key] = $value;
-        update_option($this->plugin_key, $options, false);
-        return $this->options = get_option($this->plugin_key);
+        update_option('telegram-bot', $options, false);
+        return $this->options = get_option('telegram-bot');
     }
 
     function query($query = array())
@@ -511,7 +533,7 @@ class TgramBot
 
         $c = 0;
         if ($query_->have_posts()) {
-            add_filter('excerpt_more', 'TelegramBot::excerpt_more');
+            add_filter('excerpt_more', 'TgramBot::excerpt_more');
 
             while ($query_->have_posts()) {
                 $query_->the_post();
@@ -732,6 +754,8 @@ class TgramBot
         if (!function_exists('is_plugin_active'))
             require_once($this->get_admin_path() . 'includes' . DIRECTORY_SEPARATOR . 'plugin.php');
         return is_plugin_active($plugin);
+
+       
     }
 
     /**
@@ -801,9 +825,9 @@ class TgramBot
         $select = '<select name="' . $name . '" id="' . $name . '">';
         if ($none_select != null)
             $select .= '<option value="">' . $none_select . '</option>';
-        $select .= '<option value="full" ' . selected('full', $selected, false) . '>' . __('Full', $this->plugin_key) . '</option>';
+        $select .= '<option value="full" ' . selected('full', $selected, false) . '>' . __('Full', 'telegram-bot') . '</option>';
         foreach ($image_sizes as $k => $v)
-            $select .= '<option value="' . $k . '" ' . selected($k, $selected, false) . '>' . __(ucwords(str_replace('_', ' ', $k))) . (!empty($v['width']) ? ' (' . $v['width'] . 'x' . $v['height'] . ($v['crop'] ? ', ' . __('Crop', $this->plugin_key) : '') . ')' : '') . '</option>';
+            $select .= '<option value="' . $k . '" ' . selected($k, $selected, false) . '>' . __(ucwords(str_replace('_', ' ', $k))) . (!empty($v['width']) ? ' (' . $v['width'] . 'x' . $v['height'] . ($v['crop'] ? ', ' . __('Crop', 'telegram-bot') : '') . ')' : '') . '</option>';
         $select .= '</select>';
         return $select;
     }
@@ -1000,7 +1024,7 @@ class TgramBot
     function add_every_minutes($schedules)
     {
         for ($i = 1; $i <= 60; $i++) {
-            $title = str_replace("%", "%d", __('Every % Minutes', $this->plugin_key));
+            $title = str_replace("%", "%d", __('Every % Minutes', 'telegram-bot'));
             $schedules['every_' . $i . '_minutes'] = array(
                 'interval' => $i * 60,
                 'display' => sprintf($title, $i)
@@ -1085,9 +1109,9 @@ class TgramBot
     public function plugin_action_links($links, $plugin_file)
     {
         if ($plugin_file == plugin_basename(__FILE__)) {
-            array_unshift($links, '<a href="' . admin_url('admin.php?page=telegram-bot-debugs') . '">' . __('Debugs', $this->plugin_key) . '</a>');
-            array_unshift($links, '<a href="' . admin_url('admin.php?page=telegram-bot-helps') . '">' . __('Helps', $this->plugin_key) . '</a>');
-            array_unshift($links, '<a href="' . admin_url('admin.php?page=telegram-bot') . '">' . __('Settings', $this->plugin_key) . '</a>');
+            array_unshift($links, '<a href="' . admin_url('admin.php?page=telegram-bot-debugs') . '">' . __('Debugs', 'telegram-bot') . '</a>');
+            array_unshift($links, '<a href="' . admin_url('admin.php?page=telegram-bot-helps') . '">' . __('Helps', 'telegram-bot') . '</a>');
+            array_unshift($links, '<a href="' . admin_url('admin.php?page=telegram-bot') . '">' . __('Settings', 'telegram-bot') . '</a>');
         }
 
         return $links;
@@ -1106,7 +1130,7 @@ class TgramBot
     function plugin_row_meta($links_array, $plugin_file, $plugin_data, $status)
     {
         if ($plugin_file == plugin_basename(__FILE__)) {
-            $links_array[] = '<a href="https://eson.uz" target="_blank">' . __('Telegram Channel', $this->plugin_key) . '</a>';
+            $links_array[] = '<a href="https://eson.uz" target="_blank">' . __('Telegram Channel', 'telegram-bot') . '</a>';
         }
 
         return $links_array;
@@ -1148,7 +1172,7 @@ class TgramBot
 
     /**
      * Returns an instance of class
-     * @return  TelegramBot
+     * @return  TgramBot
      */
     static function getInstance()
     {
@@ -1156,10 +1180,10 @@ class TgramBot
         if (func_num_args())
             $bypass = func_get_args()[0];
         if (self::$instance == null)
-            self::$instance = new TelegramBot($bypass);
+            self::$instance = new TgramBot($bypass);
         return self::$instance;
     }
 }
 
-$TelegramBot = TelegramBot::getInstance(true);
-register_activation_hook(__FILE__, array('tgrambot\TelegramBot', 'install'));
+$TgramBot = TgramBot::getInstance(true);
+register_activation_hook(__FILE__, array('tgrambot\TgramBot', 'install'));

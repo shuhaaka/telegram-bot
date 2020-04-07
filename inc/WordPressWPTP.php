@@ -811,7 +811,7 @@ class WordPressWPTP extends TgramBot
                 </tr>
                 <tr>
                     <td>
-                        <label for="force_update_keyboard"><?php _e('Force update keyboard', $this->plugin_key) ?></label>
+                        <label for="force_update_keyboard"><?php _e('Force update keyboard', 'e') ?></label>
                     </td>
                     <td>
                         <label>

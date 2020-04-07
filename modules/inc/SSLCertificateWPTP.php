@@ -2,13 +2,13 @@
 
 namespace tgrambot;
 /**
- * TelegramBot SSL Certificate
+ * TgramBot SSL Certificate
  *
  * @since      1.0.0
  * @copyright  Based on https://github.com/spatie/ssl-certificate
  *
- * @package    TelegramBot
- * @subpackage TelegramBot/modules/inc
+ * @package    TgramBot
+ * @subpackage TgramBot/modules/inc
  */
 class SSLCertificateWPTP
 {

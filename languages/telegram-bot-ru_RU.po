@@ -1,30 +1,30 @@
 msgid ""
 msgstr ""
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Project-Id-Version: Telegram Bot\n"
-"POT-Creation-Date: 2020-04-06 16:25+0500\n"
-"PO-Revision-Date: 2020-04-06 17:34+0500\n"
+"POT-Creation-Date: 2020-04-06 22:08+0500\n"
+"PO-Revision-Date: 2020-04-07 11:54+0500\n"
+"Last-Translator: \n"
 "Language-Team: \n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "X-Generator: Poedit 2.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
-"X-Poedit-WPHeader: telegram-bot.php\n"
+"X-Poedit-WPHeader: tgram-bot.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
 "esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
 "_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
-"Last-Translator: \n"
-"Language: ru\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: inc/HelpsWPTP.php:13 telegram-bot.php:1095
+#: inc/HelpsWPTP.php:13 tgram-bot.php:1090
 msgid "Helps"
-msgstr "Помощь"
+msgstr "Справки"
 
 #: inc/Users.php:139 inc/Users.php:205
 msgid "Dynamic Code"
@@ -33,16 +33,15 @@ msgstr "Динамический Код"
 #: inc/Users.php:151 plugins/DologinWPTP.php:258
 #, php-format
 msgid "Sent dynamic code to this Telegram account @%s."
-msgstr ""
+msgstr "Отправил динамический код в эту учетную запись Telegram @%s."
 
 #: inc/Users.php:201
-#, fuzzy
 msgid "Telegram Authentication"
-msgstr "Адрес в телеграмме"
+msgstr "Аутентификация Telegram"
 
 #: inc/Users.php:225
 msgid "Two step Telegram bot authentication is on"
-msgstr ""
+msgstr "Двухэтапная аутентификация бота Telegram включена"
 
 #: inc/Users.php:241 inc/WordPressWPTP.php:203 plugins/DologinWPTP.php:280
 #, php-format
@@ -60,23 +59,20 @@ msgstr "Подключиться к Telegram"
 #: inc/WordPressWPTP.php:83 modules/ChannelWPTP.php:52
 #: plugins/BackUpWordPressServiceWPTP.php:32
 #: plugins/BackUpWordPressServiceWPTP.php:70
-#, fuzzy
 msgid "Telegram"
-msgstr "Введите адрес в телеграмме"
+msgstr "Telegram"
 
 #: inc/WordPressWPTP.php:87
 msgid "This profile has been linked to this Telegram account:"
-msgstr ""
+msgstr "Этот профиль был привязан к этой учетной записи Telegram:"
 
 #: inc/WordPressWPTP.php:87 modules/WoocommerceWPTP.php:378
-#, fuzzy
 msgid "Disconnect"
 msgstr "Отключить"
 
 #: inc/WordPressWPTP.php:92
-#, fuzzy
 msgid "Telegram Bot Code"
-msgstr "Адрес в телеграмме"
+msgstr "Код Telegram Bot"
 
 #: inc/WordPressWPTP.php:98 modules/WoocommerceWPTP.php:388
 msgid "Or"
@@ -89,14 +85,14 @@ msgstr "Запросить подключение"
 #: inc/WordPressWPTP.php:100 modules/WoocommerceWPTP.php:383
 msgid "Send this code from telegram bot to identify the your user."
 msgstr ""
+"Отправьте этот код от бота telegram, чтобы идентифицировать вашего "
+"пользователя."
 
 #: inc/WordPressWPTP.php:112
-#, fuzzy
 msgid "Start Bot"
-msgstr "Пошли"
+msgstr "Запускать бот"
 
-#: inc/WordPressWPTP.php:113 telegram-bot.php:120
-#, fuzzy
+#: inc/WordPressWPTP.php:113 tgram-bot.php:121
 msgid "Posts"
 msgstr "Посты"
 
@@ -104,19 +100,17 @@ msgstr "Посты"
 msgid "Categories List"
 msgstr "Список категорий"
 
-#: inc/WordPressWPTP.php:115 inc/WordPressWPTP.php:793 telegram-bot.php:121
+#: inc/WordPressWPTP.php:115 inc/WordPressWPTP.php:793 tgram-bot.php:122
 msgid "Search"
 msgstr "Поиск"
 
 #: inc/WordPressWPTP.php:143
-#, fuzzy
 msgid "Set Webhook Successfully."
 msgstr "Перехватчик успешна создан."
 
 #: inc/WordPressWPTP.php:147
-#, fuzzy
 msgid "Set Webhook with Error!"
-msgstr "Ошибка!"
+msgstr "Ошибка вебхука!"
 
 #: inc/WordPressWPTP.php:170
 msgid "WordPress Tags"
@@ -127,14 +121,12 @@ msgid "The ID of this post"
 msgstr "ID этого поста"
 
 #: inc/WordPressWPTP.php:173
-#, fuzzy
 msgid "The title of this post"
-msgstr "Название публикации/страницы (если есть)"
+msgstr "Название публикации/страницы"
 
 #: inc/WordPressWPTP.php:174
-#, fuzzy
 msgid "The Slug of this post"
-msgstr "Слаг"
+msgstr "Слаг записи"
 
 #: inc/WordPressWPTP.php:175
 msgid "The first 55 words of this post"
@@ -145,53 +137,54 @@ msgid "The whole content of this post"
 msgstr "Все содержание этого поста"
 
 #: inc/WordPressWPTP.php:177
-#, fuzzy
 msgid "The display name of author of this post"
-msgstr "Пост автора"
+msgstr "Отображаемое имя автора этого поста"
 
 #: inc/WordPressWPTP.php:178
 msgid "The permalink of this author posts"
-msgstr "Постоянная ссылка этого автора сообщения"
+msgstr "Постоянная ссылка этого автора поста"
 
 #: inc/WordPressWPTP.php:179
-#, fuzzy
 msgid "The permalink of this post"
-msgstr "Постоянная ссылка"
+msgstr "Постоянная ссылка записи"
 
 #: inc/WordPressWPTP.php:180
-#, fuzzy
 msgid "The short url of this post"
-msgstr "URL назначенной статьи"
+msgstr "Короткий URL этого поста"
 
 #: inc/WordPressWPTP.php:181
 msgid ""
 "The tags of this post. Tags are automatically converted to Telegram hashtags"
-msgstr ""
+msgstr "Теги этого поста. Теги автоматически конвертируются в хэштеги Telegram"
 
 #: inc/WordPressWPTP.php:182
 msgid ""
 "The categories of this post. Categories are automatically separated by | "
 "symbol"
 msgstr ""
+"Категории этого поста. Категории автоматически разделяются на | условное "
+"обозначение"
 
 #: inc/WordPressWPTP.php:183
-#, fuzzy
 msgid "The featured image URL"
-msgstr "Рекоендуемое изображение"
+msgstr "URL Рекомендуемого изображения"
 
 #: inc/WordPressWPTP.php:184
 msgid "The custom field of this post, Example {cf:price}"
-msgstr ""
+msgstr "Настраиваемое поле этого сообщения, Пример {cf: price}"
 
 #: inc/WordPressWPTP.php:185
 msgid ""
 "The Taxonomy Terms of this post: {terms:taxonomy}, Example {terms:category}"
 msgstr ""
+"Условия таксономии этого поста: {{terms:taxonomy}, Пример {terms:category}"
 
 #: inc/WordPressWPTP.php:186
 msgid ""
 "IF Statement for custom field, Example: {if='cf:price'}Price: {cf:price}{/if}"
 msgstr ""
+"Оператор IF для настраиваемого поля, пример: {if = 'cf: price'} Price: {cf: "
+"price} {/ if}"
 
 #. translators: 1: User name 2: Date 3: Time 4: IP address
 #: inc/WordPressWPTP.php:205
@@ -200,6 +193,8 @@ msgid ""
 "Your successful login to %1$s account on date %2$s at %3$s with %4$s IP "
 "address done."
 msgstr ""
+"Вы успешно вошли в учетную запись %1$s на дату %2$s на %3$s с IP-адресом "
+"%4$s."
 
 #: inc/WordPressWPTP.php:249 inc/WordPressWPTP.php:788
 msgid "User login"
@@ -249,7 +244,7 @@ msgstr "Email"
 
 #: inc/WordPressWPTP.php:277
 msgid "emailed"
-msgstr ""
+msgstr "посылаемые"
 
 #: inc/WordPressWPTP.php:277
 msgid "email"
@@ -260,9 +255,8 @@ msgid "notification"
 msgstr "оповещения"
 
 #: inc/WordPressWPTP.php:346 inc/WordPressWPTP.php:778
-#, fuzzy
 msgid "Register a new user"
-msgstr "Регистрация"
+msgstr "Регистрация нового пользователя"
 
 #: inc/WordPressWPTP.php:350
 msgid "User role"
@@ -352,11 +346,11 @@ msgstr "WordPress"
 
 #: inc/WordPressWPTP.php:652
 msgid "Telegram Bot API Token"
-msgstr ""
+msgstr "Telegram Bot API Token"
 
 #: inc/WordPressWPTP.php:665
 msgid "Posts Per Page"
-msgstr "Сообщения на странице"
+msgstr "Посты на странице"
 
 #: inc/WordPressWPTP.php:673
 msgid "Image Size"
@@ -368,7 +362,7 @@ msgstr "Сообщения"
 
 #: inc/WordPressWPTP.php:682
 msgid "Start Command<br>(Welcome Message)"
-msgstr ""
+msgstr "Команда запуска <br> (Приветственное сообщение)"
 
 #: inc/WordPressWPTP.php:686
 #, php-format
@@ -380,9 +374,8 @@ msgid "Users"
 msgstr "Пользователи"
 
 #: inc/WordPressWPTP.php:694
-#, fuzzy
 msgid "Telegram Connectivity"
-msgstr "Адрес в телеграмме"
+msgstr "Подключиться к Telegram"
 
 #: inc/WordPressWPTP.php:698 inc/WordPressWPTP.php:744
 #: modules/ChannelWPTP.php:585 modules/ChannelWPTP.php:635
@@ -401,7 +394,7 @@ msgstr "Адрес в телеграмме"
 #: plugins/QuFormWPTP.php:64 plugins/VisualFormBuilderWPTP.php:38
 #: plugins/WPFormsWPTP.php:41 plugins/WPSMSWPTP.php:38
 #: plugins/WPStatisticsWPTP.php:39 plugins/WPUserAvatarWPTP.php:38
-#: plugins/WeFormsWPTP.php:42 telegram-bot.php:113
+#: plugins/WeFormsWPTP.php:42 tgram-bot.php:114
 msgid "Active"
 msgstr "Активный"
 
@@ -411,6 +404,9 @@ msgid ""
 "This feature is displayed in the user profile, Admin bar, and WooCommerce "
 "account details."
 msgstr ""
+"Включите возможность подключения профиля WordPress к учетной записи "
+"Telegram. Эта функция отображается в профиле пользователя, панели "
+"администратора и в деталях учетной записи WooCommerce."
 
 #: inc/WordPressWPTP.php:707
 msgid "Successful connect message"
@@ -421,13 +417,12 @@ msgid "Disconnect message"
 msgstr "Отключить сообщение"
 
 #: inc/WordPressWPTP.php:727
-#, fuzzy
 msgid "Two factor auth"
-msgstr "Токен аутентификации"
+msgstr "Двухфакторная аутентификация"
 
 #: inc/WordPressWPTP.php:731
 msgid "Enable Two Step Telegram bot Auth"
-msgstr ""
+msgstr "Включить двухэтапную аутентификацию бота Telegram"
 
 #: inc/WordPressWPTP.php:734
 msgid ""
@@ -435,26 +430,35 @@ msgid ""
 "account in their profile. To ensure no conflict with other plugins, Disable "
 "other Two step authentication."
 msgstr ""
+"Проверяйте текстовый код для каждой попытки входа в систему. Пользователи "
+"должны настроить учетную запись Telegram в своем профиле. Чтобы не "
+"конфликтовать с другими плагинами, отключите другую двухэтапную "
+"аутентификацию."
 
 #: inc/WordPressWPTP.php:740 plugins/DologinWPTP.php:61
 msgid "Force Telegram bot auth validation"
-msgstr ""
+msgstr "Проверка подлинности бота Force Telegram"
 
 #: inc/WordPressWPTP.php:747 plugins/DologinWPTP.php:68
 msgid ""
 "If enabled this, any user without linked Telegram account in profile will "
 "not be able to login."
 msgstr ""
+"Если включено, любой пользователь без связанной учетной записи Telegram в "
+"профиле не сможет войти в систему."
 
 #: inc/WordPressWPTP.php:750 plugins/DologinWPTP.php:72
 msgid ""
 "You need to setup your Telegram Connectivity before enabling this setting to "
 "avoid yourself being blocked from next time login."
 msgstr ""
+"Вам нужно настроить подключение Telegram перед включением этого параметра, "
+"чтобы избежать блокировки при следующем входе в систему."
 
 #: inc/WordPressWPTP.php:751 plugins/DologinWPTP.php:73
 msgid "Click here to connect the WordPress profile to the Telegram account"
 msgstr ""
+"Нажмите здесь, чтобы подключить профиль WordPress к учетной записи Telegram"
 
 #: inc/WordPressWPTP.php:758 modules/WoocommerceWPTP.php:829
 #: plugins/BackUpWordPressServiceWPTP.php:37
@@ -467,73 +471,68 @@ msgstr "Администраторы"
 
 #: inc/WordPressWPTP.php:766
 msgid "Trying to send recovery mode (PHP errors) notification"
-msgstr ""
+msgstr "Попытка отправить уведомление о режиме восстановления (ошибки PHP)"
 
 #: inc/WordPressWPTP.php:769
-#, fuzzy
 msgid "Auto core update"
 msgstr "Saasland core"
 
 #: inc/WordPressWPTP.php:772
-#, fuzzy
 msgid "New comment"
 msgstr "Новый комментарий"
 
 #: inc/WordPressWPTP.php:775
-#, fuzzy
 msgid "Users login"
-msgstr ""
-"Включение этого добавит социальные иконки в регистрационную форму, чтобы "
-"пользователи могли войти или зарегистрироваться с помощью социальных профилей"
+msgstr "Вход для пользователей"
 
 #: inc/WordPressWPTP.php:797
-#, fuzzy
 msgid "Post Type"
 msgstr "Тип записи"
 
 #: inc/WordPressWPTP.php:810
-#, fuzzy
 msgid "Telegram Keyboard"
-msgstr "Адрес в телеграмме"
+msgstr "Telegram Keyboard"
 
 #: inc/WordPressWPTP.php:814
-#, fuzzy
 msgid "Force update keyboard"
-msgstr "Принудительные загрузки"
+msgstr "Принудительно обновить клавиатуру"
 
 #: inc/WordPressWPTP.php:822
 msgid ""
 "You should update keyboard for users when change WordPress language, active "
 "Woocommerce plugin, search setting changed. (Status don't save)"
 msgstr ""
+"Вы должны обновить клавиатуру для пользователей, когда меняете язык "
+"WordPress, активный плагин Woocommerce, изменились настройки поиска. (Статус "
+"не сохраняется)"
 
 #: modules/ChannelWPTP.php:45 modules/ChannelWPTP.php:460
-#, fuzzy
 msgid "Send to Channel"
-msgstr "Отправить"
+msgstr "Отправить на канал"
 
-#: modules/ChannelWPTP.php:83 telegram-bot.php:1115
-#, fuzzy
+#: modules/ChannelWPTP.php:83 tgram-bot.php:1110
 msgid "Telegram Channel"
-msgstr "Адрес в телеграмме"
+msgstr "Телеграмма Канал"
 
 #: modules/ChannelWPTP.php:87
 msgid ""
 "Telegram channel is a great way for attracting people to your site.<br> This "
 "option allows you to send posts to your Telegram channel."
 msgstr ""
+"Канал Telegram - отличный способ привлечь людей на ваш сайт. <br> Этот "
+"параметр позволяет отправлять сообщения на ваш канал Telegram."
 
 #: modules/ChannelWPTP.php:90
 msgid "Create a channel (if you don't already have one)."
-msgstr ""
+msgstr "Создайте канал (если у вас его еще нет)."
 
 #: modules/ChannelWPTP.php:91
 msgid "Create a bot (if you don't already have one)."
-msgstr ""
+msgstr "Создайте бота (если у вас его еще нет)."
 
 #: modules/ChannelWPTP.php:92
 msgid "Go to channel options and select 'Administrator' option."
-msgstr ""
+msgstr "Зайдите в настройки каналов и выберите «Администратор»."
 
 #: modules/ChannelWPTP.php:93
 msgid "Select 'Add Administrator' option."
@@ -542,42 +541,43 @@ msgstr "Выберите опцию «Добавить администрато�
 #: modules/ChannelWPTP.php:94
 msgid "Search the username of your bot and add it as administrator."
 msgstr ""
+"Найдите имя пользователя вашего бота и добавьте его в качестве "
+"администратора."
 
 #: modules/ChannelWPTP.php:95
-#, fuzzy
 msgid "Allow 'Post Messages' Permission"
-msgstr "У вас нет полномочии для удаления товара"
+msgstr "Разрешить разрешение «Публиковать сообщения»"
 
 #: modules/ChannelWPTP.php:96
 msgid "Enter the username of the channel and hit SAVE button!!!"
-msgstr ""
+msgstr "Введите имя пользователя канала и нажмите кнопку Сохранить !!!"
 
 #: modules/ChannelWPTP.php:97
 msgid ""
 "Yes! Now, whenever you publish or update a post you can choose whether send "
 "it to Telegram (from post editor page)"
 msgstr ""
+"Да! Теперь, когда вы публикуете или обновляете сообщение, вы можете выбрать, "
+"отправлять ли его в Telegram (со страницы редактора сообщений)."
 
 #: modules/ChannelWPTP.php:467 modules/ChannelWPTP.php:499
 #: modules/ChannelWPTP.php:751 modules/DebugsWPTP.php:86
-#: modules/DebugsWPTP.php:94 telegram-bot.php:111
+#: modules/DebugsWPTP.php:94 tgram-bot.php:112
 msgid "Yes"
 msgstr "Да"
 
 #: modules/ChannelWPTP.php:472 modules/ChannelWPTP.php:504
-#: modules/DebugsWPTP.php:86 modules/DebugsWPTP.php:94 telegram-bot.php:112
+#: modules/DebugsWPTP.php:86 modules/DebugsWPTP.php:94 tgram-bot.php:113
 msgid "No"
 msgstr "Нет"
 
 #: modules/ChannelWPTP.php:479 modules/ChannelWPTP.php:734
-#, fuzzy
 msgid "Message Pattern"
-msgstr "Паттерн"
+msgstr "Шаблон сообщения"
 
 #: modules/ChannelWPTP.php:492
-#, fuzzy
 msgid "Attache featured Image"
-msgstr "Рекоендуемое изображение"
+msgstr "Прикрепить избранное изображение"
 
 #: modules/ChannelWPTP.php:525
 msgid "[Set 'channel' attribute]"
@@ -585,7 +585,7 @@ msgstr "[Установить атрибут 'channel']"
 
 #: modules/ChannelWPTP.php:538
 msgid "[API Token or Channel Username Invalid]"
-msgstr ""
+msgstr "[Токен API или имя канала неверны]"
 
 #: modules/ChannelWPTP.php:551
 msgid "Channel Member Count:"
@@ -596,86 +596,82 @@ msgid ""
 "API Token or Channel Username Invalid, It may not have access to the "
 "channel! (Read Help)"
 msgstr ""
+"Неверный API-токен или имя пользователя канала. Возможно, у него нет доступа "
+"к каналу! (Читать справку)"
 
 #: modules/ChannelWPTP.php:567
 msgid "Channel"
-msgstr ""
+msgstr "Канал"
 
 #: modules/ChannelWPTP.php:580
 msgid "Send to Channels"
-msgstr "Отправить к канал"
+msgstr "Отправить на каналы"
 
 #: modules/ChannelWPTP.php:591
-#, fuzzy
 msgid "Check send every"
 msgstr "Отправить"
 
 #: modules/ChannelWPTP.php:597 modules/ChannelWPTP.php:610
 #: plugins/WordfenceWPTP.php:116
 msgid "Minutes"
-msgstr "Минут"
+msgstr "Минуты"
 
 #: modules/ChannelWPTP.php:599
 #, php-format
 msgid "Work with <a href=\"%s\" target=\"_blank\">WP-Cron</a>."
-msgstr ""
+msgstr "Работайте с <a href=\"%s\" target=\"_blank\"> WP-Cron </a>."
 
 #: modules/ChannelWPTP.php:605
-#, fuzzy
 msgid "Delay in send"
-msgstr "Отправить"
+msgstr "Задержка отправки"
 
 #: modules/ChannelWPTP.php:611
 msgid "Least 5 minutes recommended."
-msgstr ""
+msgstr "Рекомендуется минимум 5 минут."
 
 #: modules/ChannelWPTP.php:616
-#, fuzzy
 msgid "Display Metabox for"
-msgstr "Поле метаданных"
+msgstr "Показать метабокс для"
 
 #: modules/ChannelWPTP.php:629
-#, fuzzy
 msgid "Enable Quick Send"
-msgstr "Быстрый Поиск"
+msgstr "Включить быструю отправку"
 
 #: modules/ChannelWPTP.php:637
 msgid ""
 "Display Telegram column in admin post type archive (Requires the metabox "
 "display access)."
 msgstr ""
+"Отобразить столбец Telegram в архиве типа записей администратора (требуется "
+"доступ для отображения метабокса)."
 
 #: modules/ChannelWPTP.php:684
 msgid "Add Channel"
 msgstr "Добавить Канал"
 
-#: modules/ChannelWPTP.php:696 telegram-bot.php:351
+#: modules/ChannelWPTP.php:696 tgram-bot.php:346
 msgid "New Channel"
 msgstr "Новый Канал"
 
 #: modules/ChannelWPTP.php:701
-#, fuzzy
 msgid "Channel Username"
-msgstr "Пользователь"
+msgstr "Имя пользователя канала"
 
 #: modules/ChannelWPTP.php:713
-#, fuzzy
 msgid "Send to channel (Default)"
-msgstr "Не по умолчанию"
+msgstr "Отправить на канал (по умолчанию)"
 
 #: modules/ChannelWPTP.php:723
-#, fuzzy
 msgid "Active on PostType"
-msgstr "Не активно"
+msgstr "Активен в типе записи"
 
 #: modules/ChannelWPTP.php:746
 msgid "With featured image?"
 msgstr "С избранным изображением?"
 
 #: modules/ChannelWPTP.php:757
-#, fuzzy
 msgid "Formatting messages"
-msgstr "Нет форматирования"
+msgstr "Форматирование сообщений"
 
 #: modules/ChannelWPTP.php:760
 msgid ""
@@ -683,11 +679,13 @@ msgid ""
 "links). By checking one of the following options, your messages will be "
 "compatible with Telegram format."
 msgstr ""
+"Telegram поддерживает базовую разметку и некоторые теги HTML (полужирный, "
+"курсив, встроенные ссылки). Если вы выберете один из следующих вариантов, "
+"ваши сообщения будут совместимы с форматом Telegram."
 
 #: modules/ChannelWPTP.php:762
-#, fuzzy
 msgid "Telegram Bot API"
-msgstr "Адрес в телеграмме"
+msgstr "Telegram Bot API"
 
 #: modules/ChannelWPTP.php:766
 msgid "Simple"
@@ -695,14 +693,13 @@ msgstr "Простой"
 
 #: modules/ChannelWPTP.php:767
 msgid "Markdown"
-msgstr ""
+msgstr "Markdown"
 
 #: modules/ChannelWPTP.php:768
 msgid "HTML"
 msgstr "HTML"
 
 #: modules/ChannelWPTP.php:774
-#, fuzzy
 msgid "Excerpt length"
 msgstr "Фиксированная длина"
 
@@ -711,16 +708,14 @@ msgid "Word"
 msgstr "Слова"
 
 #: modules/ChannelWPTP.php:785
-#, fuzzy
 msgid "Inline button title"
-msgstr "Встроенный дисплей"
+msgstr "Заголовок встроенной кнопки"
 
 #: modules/ChannelWPTP.php:795
 msgid "Web page preview in messages"
-msgstr ""
+msgstr "Предварительный просмотр веб-страницы в сообщениях"
 
 #: modules/ChannelWPTP.php:800
-#, fuzzy
 msgid "Disable"
 msgstr "Отключить"
 
@@ -728,14 +723,13 @@ msgstr "Отключить"
 msgid "- Select a Tag -"
 msgstr "- Выберите тег -"
 
-#: modules/DebugsWPTP.php:13 telegram-bot.php:1094
+#: modules/DebugsWPTP.php:13 tgram-bot.php:1089
 msgid "Debugs"
-msgstr ""
+msgstr "Отладки"
 
 #: modules/DebugsWPTP.php:57
-#, fuzzy
 msgid "Host Location"
-msgstr "Host Name (Имя хоста)"
+msgstr "Расположение хоста"
 
 #: modules/DebugsWPTP.php:60 modules/DebugsWPTP.php:102
 msgid "Tip"
@@ -747,6 +741,9 @@ msgid ""
 "telegram. For this reason, the plugin may not work well. My suggestion is to "
 "use a host of another countries."
 msgstr ""
+"Местоположение вашего сайта в списке стран, которые отфильтровали "
+"телеграмму. По этой причине плагин может не работать хорошо. Мое предложение "
+"состоит в том, чтобы использовать множество других стран."
 
 #: modules/DebugsWPTP.php:61
 msgid "Host"
@@ -758,7 +755,7 @@ msgstr "Статус"
 
 #: modules/DebugsWPTP.php:85
 msgid "Issuer"
-msgstr ""
+msgstr "Эмитент"
 
 #: modules/DebugsWPTP.php:86
 msgid "Valid"
@@ -769,22 +766,18 @@ msgid "Valid from"
 msgstr "Действителен с"
 
 #: modules/DebugsWPTP.php:92
-#, fuzzy
 msgid "Valid until"
-msgstr "Значение недействительно"
+msgstr "Годен до"
 
 #: modules/DebugsWPTP.php:94
-#, fuzzy
 msgid "Is expired"
-msgstr "Срок действия превышен"
+msgstr "Истек"
 
 #: modules/DebugsWPTP.php:95
-#, fuzzy
 msgid "Remaining days to expiration"
-msgstr "Дата истечения"
+msgstr "Осталось дней до истечения срока"
 
 #: modules/DebugsWPTP.php:96
-#, fuzzy
 msgid "Key"
 msgstr "Ключ"
 
@@ -793,14 +786,12 @@ msgid "SSL Info"
 msgstr "SSL Info"
 
 #: modules/DebugsWPTP.php:121 plugins/WordfenceWPTP.php:163
-#, fuzzy
 msgid "Version"
-msgstr "Version"
+msgstr "Версия"
 
 #: modules/DebugsWPTP.php:122
-#, fuzzy
 msgid "Debugging Mode"
-msgstr "Режим"
+msgstr "Режим отладки"
 
 #: modules/DebugsWPTP.php:123
 msgid "Address"
@@ -815,21 +806,18 @@ msgid "Character encoding"
 msgstr "Кодировка символов"
 
 #: modules/DebugsWPTP.php:126
-#, fuzzy
 msgid "Text Direction"
-msgstr "Направления"
+msgstr "Направление текста"
 
 #: modules/DebugsWPTP.php:129
-#, fuzzy
 msgid "Site Health"
-msgstr "Питание для хорошего здоровья"
+msgstr "Здоровье сайта"
 
 #: modules/DebugsWPTP.php:129
 msgid "Check site health page"
-msgstr ""
+msgstr "Проверьте страницу здоровья сайта"
 
 #: modules/DebugsWPTP.php:143
-#, fuzzy
 msgid "PHP Version"
 msgstr "Версия PHP"
 
@@ -838,87 +826,76 @@ msgid "PHP CURL"
 msgstr "PHP CURL"
 
 #: modules/DebugsWPTP.php:160
-#, fuzzy
 msgid "Plugin Version"
-msgstr "Plugin"
+msgstr "Версия плагина"
 
 #: modules/DebugsWPTP.php:161
 msgid "Plugin DB Table Created"
-msgstr ""
+msgstr "Таблица БД Плагина создана"
 
 #: modules/DebugsWPTP.php:165
-#, fuzzy
 msgid "Update to the new version"
-msgstr "Как обновить версию PHP"
+msgstr "Обновление до новой версии"
 
 #: modules/PluginsWPTP.php:134
-#, fuzzy
 msgid "Plugins"
 msgstr "Плагины"
 
 #: modules/ProxyWPTP.php:147 modules/ProxyWPTP.php:164
-#, fuzzy
 msgid "Proxy"
-msgstr "Включить ставку прокси для этого продукта аукциона"
+msgstr "Прокси"
 
 #: modules/ProxyWPTP.php:160
 msgid "DISCLAIMER"
-msgstr ""
+msgstr "ОТКАЗ ОТ ОТВЕТСТВЕННОСТИ"
 
 #: modules/ProxyWPTP.php:161
 msgid "Use the proxy at your own risk!"
-msgstr ""
+msgstr "Используйте прокси на свой страх и риск!"
 
-#: modules/ProxyWPTP.php:169 telegram-bot.php:114
-#, fuzzy
+#: modules/ProxyWPTP.php:169 tgram-bot.php:115
 msgid "Inactive"
 msgstr "Неактивный"
 
 #: modules/ProxyWPTP.php:173 modules/ProxyWPTP.php:286
-#, fuzzy
 msgid "Google Script"
-msgstr "Google+"
+msgstr "Google Script"
 
 #: modules/ProxyWPTP.php:177
-#, fuzzy
 msgid "PHP Proxy"
-msgstr "Версия PHP"
+msgstr "PHP Прокси"
 
 #: modules/ProxyWPTP.php:188
-#, fuzzy
 msgid "Google Script URL"
-msgstr "Google+ URL"
+msgstr "URL Google Script"
 
 #: modules/ProxyWPTP.php:194
 msgid "The requests to Telegram will be sent via your Google Script."
-msgstr ""
+msgstr "Запросы к Telegram будут отправляться через ваш скрипт Google."
 
 #: modules/ProxyWPTP.php:195
-#, fuzzy
 msgid "See help page"
-msgstr "Посмотреть"
+msgstr "Смотрите страницу Справки"
 
 #: modules/ProxyWPTP.php:205
-#, fuzzy
 msgid "Proxy Host"
-msgstr "Host Name (Имя хоста)"
+msgstr "Прокси Хост"
 
 #: modules/ProxyWPTP.php:211
 msgid "Host IP or domain name like 192.168.55.124"
-msgstr ""
+msgstr "IP-адрес хоста или доменное имя, например 192.168.55.124"
 
 #: modules/ProxyWPTP.php:216
 msgid "Proxy Port"
-msgstr "Proxy Port"
+msgstr "Прокси Порт"
 
 #: modules/ProxyWPTP.php:222
 msgid "Target Port like 8080"
-msgstr ""
+msgstr "Целевой порт как 8080"
 
 #: modules/ProxyWPTP.php:226
-#, fuzzy
 msgid "Proxy Type"
-msgstr "Тип"
+msgstr "Тип Прокси"
 
 #: modules/ProxyWPTP.php:231
 msgid "HTTP"
@@ -958,6 +935,10 @@ msgid ""
 "hosts. Simply send the request to this script instead of the Telegram Bot "
 "API after deploying it as a web app and allowing anonymous access."
 msgstr ""
+"Вы можете использовать этот скрипт для обхода запретов на Telegram API "
+"разными хостами. Просто отправьте запрос к этому сценарию вместо Telegram "
+"Bot API после развертывания его в виде веб-приложения и разрешения "
+"анонимного доступа."
 
 #: modules/ProxyWPTP.php:293
 msgid "How to Deploy"
@@ -967,70 +948,82 @@ msgstr "Как развернуть"
 #, php-format
 msgid "Goto <a href=\"%s\">script.google.com</a> and sign in if required"
 msgstr ""
+"Перейдите <a href=\"%s\"> script.google.com </a> и, если необходимо, войдите "
+"в систему."
 
 #: modules/ProxyWPTP.php:296
 msgid "Create a new project and give it a name"
-msgstr ""
+msgstr "Создайте новый проект и дайте ему имя"
 
 #: modules/ProxyWPTP.php:297
 msgid ""
 "It should open a file (Code.gs by default). Remove the contents of this file"
 msgstr ""
+"Он должен открыть файл (Code.gs по умолчанию). Удалить содержимое этого файла"
 
 #: modules/ProxyWPTP.php:298
 msgid ""
 "Copy the contents of below code and paste into your project file (Code.gs)"
 msgstr ""
+"Скопируйте содержимое приведенного ниже кода и вставьте его в файл проекта "
+"(Code.gs)."
 
 #: modules/ProxyWPTP.php:299
 msgid "Click File > Save or press Ctrl+S"
-msgstr ""
+msgstr "Нажмите Файл> Сохранить или нажмите Ctrl + S"
 
 #: modules/ProxyWPTP.php:300
 msgid "Click \"Publish\" from the menu and select \"Deploy as web app...\""
 msgstr ""
+"Нажмите «Опубликовать» в меню и выберите «Развернуть как веб-приложение ...»"
 
 #: modules/ProxyWPTP.php:301
 msgid "If asked, Enter any name for the project and click \"OK\""
-msgstr ""
+msgstr "Если будет предложено, введите любое имя для проекта и нажмите «ОК»."
 
 #: modules/ProxyWPTP.php:302
 msgid "In \"Execute the app as:\", select \"Me (your email)\" [IMPORTANT]"
 msgstr ""
+"В разделе «Выполнить приложение как:» выберите «Я (ваш адрес электронной "
+"почты)» [ВАЖНО]"
 
 #: modules/ProxyWPTP.php:303
 msgid ""
 "In \"Who has access to the app:\", select \"Anyone, even anonymous"
 "\" [IMPORTANT]"
 msgstr ""
+"В разделе «Кто имеет доступ к приложению:» выберите «Любой, даже "
+"анонимный» [ВАЖНО]"
 
 #: modules/ProxyWPTP.php:304
 msgid "Click \"Deploy\" to open the Authorization box"
-msgstr ""
+msgstr "Нажмите «Развернуть», чтобы открыть окно авторизации."
 
 #: modules/ProxyWPTP.php:305
 msgid "Click \"Review Permissions\" to authorize the script"
-msgstr ""
+msgstr "Нажмите «Просмотреть разрешения», чтобы авторизовать скрипт"
 
 #: modules/ProxyWPTP.php:306
 msgid "In the popup window select your Google Account"
-msgstr ""
+msgstr "Во всплывающем окне выберите свой аккаунт Google"
 
 #: modules/ProxyWPTP.php:307
 msgid "On the next screen, click \"Allow\""
-msgstr ""
+msgstr "На следующем экране нажмите «Разрешить»"
 
 #: modules/ProxyWPTP.php:308
 msgid ""
 "After redirection, you should see \"This project is now deployed as a web app"
 "\""
 msgstr ""
+"После перенаправления вы должны увидеть «Этот проект теперь развернут как "
+"веб-приложение»"
 
 #: modules/ProxyWPTP.php:309
 msgid "Copy the \"Current web app URL\" and paste it in plugin"
-msgstr ""
+msgstr "Скопируйте «Текущий URL веб-приложения» и вставьте его в плагин"
 
-#: modules/WoocommerceWPTP.php:18 telegram-bot.php:123
+#: modules/WoocommerceWPTP.php:18 tgram-bot.php:124
 msgid "Detail"
 msgstr "Подробнее"
 
@@ -1043,7 +1036,6 @@ msgid "Product"
 msgstr "Товар"
 
 #: modules/WoocommerceWPTP.php:89
-#, fuzzy
 msgid "Stock status"
 msgstr "Состояние на складе"
 
@@ -1052,9 +1044,8 @@ msgid "No stock"
 msgstr "Нет на складе"
 
 #: modules/WoocommerceWPTP.php:95
-#, fuzzy
 msgid "Low stock"
-msgstr "Величина малых запасов"
+msgstr "Низкий запас"
 
 #: modules/WoocommerceWPTP.php:96
 msgid "Current quantity"
@@ -1067,7 +1058,6 @@ msgstr "Статус заказа изменен"
 #: modules/WoocommerceWPTP.php:132 modules/WoocommerceWPTP.php:176
 #: modules/WoocommerceWPTP.php:215 modules/WoocommerceWPTP.php:266
 #: modules/WoocommerceWPTP.php:338
-#, fuzzy
 msgid "Order number"
 msgstr "Номер заказа"
 
@@ -1076,14 +1066,13 @@ msgid "Old status"
 msgstr "Старый статус"
 
 #: modules/WoocommerceWPTP.php:134 modules/WoocommerceWPTP.php:177
-#, fuzzy
 msgid "New status"
-msgstr "Статус нового продукта"
+msgstr "Новый статус:"
 
 #: modules/WoocommerceWPTP.php:214 modules/WoocommerceWPTP.php:265
 #: modules/WoocommerceWPTP.php:849 modules/WoocommerceWPTP.php:862
 msgid "New order note"
-msgstr "Новая запись заказа"
+msgstr "Запись нового заказа"
 
 #: modules/WoocommerceWPTP.php:216 modules/WoocommerceWPTP.php:267
 msgid "Note"
@@ -1098,21 +1087,18 @@ msgid "Total price"
 msgstr "Итоговая цена"
 
 #: modules/WoocommerceWPTP.php:343
-#, fuzzy
 msgid "Payment method"
 msgstr "Метод оплаты"
 
 #: modules/WoocommerceWPTP.php:344
-#, fuzzy
 msgid "Items"
-msgstr "Материалы"
+msgstr "Товары"
 
 #: modules/WoocommerceWPTP.php:378
 msgid "Your profile has been linked to this Telegram account:"
-msgstr ""
+msgstr "Ваш профиль был связан с этим аккаунтом Telegram:"
 
 #: modules/WoocommerceWPTP.php:398 modules/WoocommerceWPTP.php:420
-#, fuzzy
 msgid "Products"
 msgstr "Товары"
 
@@ -1121,7 +1107,6 @@ msgid "Product Categories List"
 msgstr "Список категорий товаров"
 
 #: modules/WoocommerceWPTP.php:400 modules/WoocommerceWPTP.php:422
-#, fuzzy
 msgid "Cart"
 msgstr "Корзина"
 
@@ -1155,7 +1140,7 @@ msgstr "В наличии"
 
 #: modules/WoocommerceWPTP.php:429
 msgid "Out of stock"
-msgstr "Нет на складе"
+msgstr "Нет вналичии"
 
 #: modules/WoocommerceWPTP.php:556
 msgid "WooCommerce Tags"
@@ -1392,14 +1377,12 @@ msgid "All In One WP Security & Firewall Dashboard"
 msgstr "All In One WP Security & Firewall Dashboard"
 
 #: plugins/BackUpWordPressServiceWPTP.php:41
-#, fuzzy
 msgid "Attache backup file"
 msgstr "Резервное копирование/восстановление"
 
 #: plugins/BackUpWordPressWPTP.php:39
-#, fuzzy
 msgid "Notification for new backup"
-msgstr "Переотправить уведомление о новом заказе"
+msgstr "Уведомление о новой резервной копии"
 
 #: plugins/BackUpWordPressWPTP.php:45
 msgid "Requires the Schedule \"Telegram Notification\" option to be enabled."
@@ -1413,17 +1396,19 @@ msgstr "Ошибка при восстановления %s товара"
 #: plugins/BackUpWordPressWPTP.php:77
 #, php-format
 msgid "BackUpWordPress was unable to backup your site %1$s."
-msgstr ""
+msgstr "BackUpWordPress не удалось создать резервную копию вашего сайта %1$s."
 
 #: plugins/BackUpWordPressWPTP.php:78
 msgid "Here are the errors that we've encountered:"
-msgstr ""
+msgstr "Вот ошибки, с которыми мы столкнулись:"
 
 #: plugins/BackUpWordPressWPTP.php:79
 msgid ""
 "If the errors above look like Martian, you can find further assistance on "
 "our support forum:"
 msgstr ""
+"Если приведенные выше ошибки выглядят как марсианские, вы можете найти "
+"дополнительную помощь на нашем форуме поддержки:"
 
 #: plugins/BackUpWordPressWPTP.php:84
 #, php-format
@@ -1509,6 +1494,8 @@ msgid ""
 "Open the <a href=\"%s\" target=\"_blank\">Additional Settings</a> tab in the "
 "contact form editor page, and add lines like these:"
 msgstr ""
+"Откройте вкладку <a href=\"%s\" target=\"_blank\"> Дополнительные настройки "
+"</a> на странице редактора формы контакта и добавьте следующие строки:"
 
 #: plugins/ContactForm7WPTP.php:167
 msgid "Subject"
@@ -1520,7 +1507,7 @@ msgstr "Сообщение"
 
 #: plugins/DologinWPTP.php:47
 msgid "Two factor auth with Telegram bot"
-msgstr ""
+msgstr "Двухфакторная аутентификация с ботом Telegram"
 
 #: plugins/DologinWPTP.php:54
 msgid "This feature replaces with DoLogin Two Step SMS Auth."
@@ -1528,7 +1515,7 @@ msgstr ""
 
 #: plugins/DologinWPTP.php:55
 msgid "(Requires Telegram Connectivity in WordPress tab)"
-msgstr ""
+msgstr "(Требуется подключение Telegram на вкладке WordPress)"
 
 #. translators: 1: Code 2: Location
 #: plugins/DologinWPTP.php:226
@@ -1538,7 +1525,7 @@ msgstr "Динамический код: %1$s, Локация: %2$s."
 
 #: plugins/FormidableFormsWPTP.php:154
 msgid "(no title)"
-msgstr "(без заголовка)"
+msgstr "(без загаловка)"
 
 #: plugins/FormidableFormsWPTP.php:154
 msgid " (child)"
@@ -1569,7 +1556,6 @@ msgid "Notification for email unsubscribe"
 msgstr "Уведомление по электронной почте отписаться"
 
 #: plugins/MailchimpForWPWPTP.php:100
-#, fuzzy
 msgid "New email subscribed to Mailchimp"
 msgstr "Адрес электронной почты нового пользователя."
 
@@ -1578,42 +1564,34 @@ msgid "Subscriber email in Mailchimp updated"
 msgstr ""
 
 #: plugins/MailchimpForWPWPTP.php:107
-#, fuzzy
 msgid "Email unsubscribed from Mailchimp"
 msgstr "Письмо будет отправлено с этого адреса электронной почты."
 
 #: plugins/NewsletterWPTP.php:38 plugins/WPSMSWPTP.php:34
-#, fuzzy
 msgid "Notification for new subscriber"
-msgstr "Переотправить уведомление о новом заказе"
+msgstr "SMS new subscriber"
 
 #: plugins/NewsletterWPTP.php:48
-#, fuzzy
 msgid "Notification for unsubscribe"
-msgstr "Убрать из рассылки"
+msgstr "Уведомление по электронной почте отписаться"
 
 #: plugins/NewsletterWPTP.php:76
-#, fuzzy
 msgid "New subscriber for newsletter"
-msgstr "Ovic: Newsletter"
+msgstr "SMS new subscriber"
 
 #: plugins/NewsletterWPTP.php:76
-#, fuzzy
 msgid "Unsubscribe from newsletter"
 msgstr "Убрать из рассылки"
 
 #: plugins/NewsletterWPTP.php:91
-#, fuzzy
 msgid "Newsletter Dashboard"
 msgstr "Display Newsletter"
 
 #: plugins/WPCerberSecurityWPTP.php:18
-#, fuzzy
 msgid "Citadel mode is activated"
 msgstr "Активированный"
 
 #: plugins/WPCerberSecurityWPTP.php:19
-#, fuzzy
 msgid "Number of lockouts is increasing"
 msgstr "Увеличение памяти, выделенной PHP "
 
@@ -1626,12 +1604,10 @@ msgid "The WP Cerber Security plugin has been deactivated"
 msgstr ""
 
 #: plugins/WPCerberSecurityWPTP.php:22
-#, fuzzy
 msgid "New Custom login URL"
 msgstr "Пользовательский текст URL:"
 
 #: plugins/WPCerberSecurityWPTP.php:23
-#, fuzzy
 msgid "A new activity has been recorded"
 msgstr "Элемент ленты активности был успешно обновлен."
 
@@ -1640,18 +1616,16 @@ msgid "Weekly report"
 msgstr "Еденедельный отчет"
 
 #: plugins/WPCerberSecurityWPTP.php:25
-#, fuzzy
 msgid "Scanner Report"
-msgstr "Жалоба"
+msgstr "Отчет сканера"
 
 #: plugins/WPCerberSecurityWPTP.php:53
 msgid "Notification for events"
 msgstr "Уведомление для событий"
 
 #: plugins/WPCerberSecurityWPTP.php:98
-#, fuzzy
 msgid "WP Cerber Security Dashboard"
-msgstr "Модерацию в админке WordPress"
+msgstr "All In One WP Security & Firewall Dashboard"
 
 #: plugins/WPSMSWPTP.php:53
 msgid "SMS new subscriber"
@@ -1670,24 +1644,22 @@ msgid ""
 "Requires enable \"Statistical reporting\" option in the Notification tab in "
 "WP Statistics settings."
 msgstr ""
+"Требуется включить опцию «Статистическая отчетность» на вкладке "
+"«Уведомления» в настройках WP Statistics."
 
 #: plugins/WPStatisticsWPTP.php:58
-#, fuzzy
 msgid "WP Statistics report"
-msgstr "Жалоба"
+msgstr "Польная статистика"
 
 #: plugins/WPStatisticsWPTP.php:75
-#, fuzzy
 msgid "WP Statistics Dashboard"
 msgstr "Модерацию в админке WordPress"
 
 #: plugins/WPUserAvatarWPTP.php:34
-#, fuzzy
 msgid "Notification for user avatar change"
 msgstr "Сменить аватар"
 
 #: plugins/WPUserAvatarWPTP.php:71
-#, fuzzy
 msgid "User avatar change notification"
 msgstr "Сменить аватар"
 
@@ -1696,37 +1668,32 @@ msgid "User Profile"
 msgstr "Профиль пользователя"
 
 #: plugins/WordfenceWPTP.php:17
-#, fuzzy
 msgid "Wordfence auto update"
-msgstr "Автообновление в:"
+msgstr "Wordfence Консоль"
 
 #: plugins/WordfenceWPTP.php:18
-#, fuzzy
 msgid "Wordfence firewall deactivated"
-msgstr "Деактивированный"
+msgstr "Wordfence Консоль"
 
 #: plugins/WordfenceWPTP.php:19
-#, fuzzy
 msgid "Wordfence deactivated"
-msgstr "Деактивированный"
+msgstr "Wordfence Консоль"
 
 #: plugins/WordfenceWPTP.php:20
 msgid "IP address blocked"
 msgstr "IP адрес блокирован"
 
 #: plugins/WordfenceWPTP.php:21
-#, fuzzy
 msgid "IP address throttled"
-msgstr "IP-адреc пользователя."
+msgstr "IP адрес блокирован"
 
 #: plugins/WordfenceWPTP.php:22
-#, fuzzy
 msgid "Lost password form used"
 msgstr "Забыли Пароль?"
 
 #: plugins/WordfenceWPTP.php:23
 msgid "User locked out from login"
-msgstr ""
+msgstr "Пользователь заблокирован от входа"
 
 #: plugins/WordfenceWPTP.php:24
 msgid "Administrator user logged in"
@@ -1803,103 +1770,101 @@ msgid "Support URL"
 msgstr "URL поддержки"
 
 #: plugins/WordfenceWPTP.php:170
-#, fuzzy
 msgid "Attack Count"
 msgstr "Количество"
 
 #: plugins/WordfenceWPTP.php:171
-#, fuzzy
 msgid "Attack Table"
-msgstr "Таблица"
+msgstr "Увеличение скорости атаки"
 
 #. Plugin Name of the plugin/theme
-#: telegram-bot.php:76
+#: tgram-bot.php:77
 msgid "Telegram Bot"
 msgstr "Telegram Bot"
 
-#: telegram-bot.php:115
+#: tgram-bot.php:116
 msgid "Next >"
 msgstr "След >"
 
-#: telegram-bot.php:116
+#: tgram-bot.php:117
 msgid "< Previous"
 msgstr "<Предыдущая"
 
-#: telegram-bot.php:117
+#: tgram-bot.php:118
 msgid "Next Page >"
 msgstr "Следующая страница >"
 
-#: telegram-bot.php:118
+#: tgram-bot.php:119
 msgid "< Previous Page"
 msgstr "< Предыдущая страница"
 
-#: telegram-bot.php:119
+#: tgram-bot.php:120
 msgid "Back"
 msgstr "Назад"
 
-#: telegram-bot.php:122
+#: tgram-bot.php:123
 msgid "Categories"
 msgstr "Категории"
 
-#: telegram-bot.php:124
+#: tgram-bot.php:125
 msgid "More"
 msgstr "Подробнее"
 
-#: telegram-bot.php:125
+#: tgram-bot.php:126
 msgid "The plugin requires SSL in the domain of your website!"
 msgstr "Плагин требует SSL в домене вашего сайта!"
 
-#: telegram-bot.php:126
+#: tgram-bot.php:127
 msgid ""
 "Welcome, Your Telegram account is successfully connected to the website."
 msgstr ""
 "Добро пожаловать! Ваша учетная запись Telegram успешно подключена к сайту."
 
-#: telegram-bot.php:127
+#: tgram-bot.php:128
 msgid "Your profile was successfully disconnected from Telegram account."
 msgstr "Ваш профиль был успешно отключен от учетной записи Telegram."
 
-#: telegram-bot.php:128
+#: tgram-bot.php:129
 msgid "This profile was successfully disconnected from Telegram account."
 msgstr "Этот профиль был успешно отключен от учетной записи Telegram."
 
-#: telegram-bot.php:129
+#: tgram-bot.php:130
 msgid "No linked Telegram account to this user profile."
 msgstr "Нет привязанной учетной записи Telegram к этому профилю пользователя."
 
-#: telegram-bot.php:130
+#: tgram-bot.php:131
 msgid "Error in sending message"
 msgstr "Ошибка при отправке сообщения"
 
-#: telegram-bot.php:131
+#: tgram-bot.php:132
 msgid "Dynamic code is required."
 msgstr "Динамический код не требуется."
 
-#: telegram-bot.php:132
+#: tgram-bot.php:133
 msgid "Dynamic code is not correct."
 msgstr "Динамический код неверен."
 
-#: telegram-bot.php:133
+#: tgram-bot.php:134
 msgid "Dynamic code expired."
 msgstr "Динамический код истек."
 
-#: telegram-bot.php:134
+#: tgram-bot.php:135
 msgid "Username or password is empty."
 msgstr "Имя пользователя или пароль пустые."
 
-#: telegram-bot.php:135
+#: tgram-bot.php:136
 msgid "Unknown error"
 msgstr "Неизвестная ошибка"
 
-#: telegram-bot.php:158
+#: tgram-bot.php:159
 msgid "About"
 msgstr "Информация"
 
-#: telegram-bot.php:168
+#: tgram-bot.php:169
 msgid "Default command list"
 msgstr "Список команд по умолчанию"
 
-#: telegram-bot.php:181
+#: tgram-bot.php:182
 #, php-format
 msgid ""
 "How to set bot commands: Start %s and select your bot > \"Edit Bot\" > "
@@ -1909,66 +1874,58 @@ msgstr ""
 "«Редактировать бота»> «Редактировать команды»> Отправить текст ниже."
 
 #. Description of the plugin/theme
-#: telegram-bot.php:201
+#: tgram-bot.php:202
 msgid "Integrate WordPress with Telegram"
 msgstr "Интеграция WordPress с Telegram"
 
-#: telegram-bot.php:202
-msgid "Do you like WP Telegram Pro?"
-msgstr ""
-
-#: telegram-bot.php:205
-msgid "Give it a rating"
-msgstr "Дайте ему оценку"
-
-#: telegram-bot.php:210
+#: tgram-bot.php:205
 msgid "Keep in touch with me:"
 msgstr "Оставайтесь на связи со мной:"
 
-#: telegram-bot.php:298
+#: tgram-bot.php:293
 msgid "Bot Name:"
 msgstr "Имя бота:"
 
-#: telegram-bot.php:300
+#: tgram-bot.php:295
 msgid "API Token Invalid (Need to save settings)"
 msgstr "Неверный API-токен (необходимо сохранить настройки)"
 
-#: telegram-bot.php:315
+#: tgram-bot.php:310
 msgid "Welcome, Your Telegram account is successfully connected to the store."
 msgstr ""
 "Добро пожаловать! Ваша учетная запись Telegram успешно подключена к магазину."
 
-#: telegram-bot.php:352
+#: tgram-bot.php:347
 msgid "Remove % Channel?"
 msgstr "Удалить % канал?"
 
-#: telegram-bot.php:378
+#: tgram-bot.php:373
 msgid "Settings saved."
 msgstr "Настройки сохранены."
 
-#: telegram-bot.php:425
+#: tgram-bot.php:420
 msgid "Save"
 msgstr "Сохранить"
 
-#: telegram-bot.php:810
+#: tgram-bot.php:805
 msgid "Full"
 msgstr "Полный"
 
-#: telegram-bot.php:812
+#: tgram-bot.php:807
 msgid "Crop"
 msgstr "Обрезать"
 
-#: telegram-bot.php:1009
+#: tgram-bot.php:1004
 msgid "Every % Minutes"
 msgstr "Каждые %d минут"
 
-#: telegram-bot.php:1096
+#: tgram-bot.php:1091
 msgid "Settings"
 msgstr "Настройки"
 
 #. Plugin URI of the plugin/theme
-msgid "https://github.com/parsakafi/wp-telegram-pro"
-msgstr ""
+msgid "https://github.com/shuhaaka/telegram-bot"
+msgstr "https://github.com/shuhaaka/telegram-bot"
 
 #. Author of the plugin/theme
 msgid "Shuhrat Mamataliyev"

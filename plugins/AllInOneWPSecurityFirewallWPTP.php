@@ -22,7 +22,7 @@ class AllInOneWPSecurityFirewallWPTP extends TgramBot
 
     function settings_content()
     {
-        $this->options = get_option($this->plugin_key);
+        $this->options = get_option('telegram-bot');
         ?>
         <tr>
             <th colspan="2" class="title-with-icon">
@@ -32,11 +32,11 @@ class AllInOneWPSecurityFirewallWPTP extends TgramBot
         </tr>
         <tr>
             <td>
-                <?php _e('Notification for lock the user', $this->plugin_key); ?>
+                <?php _e('Notification for lock the user', 'telegram-bot'); ?>
             </td>
             <td>
                 <label><input type="checkbox" value="1" id="allinonewpsecurityfirewall_lock_user_notification"
-                              name="allinonewpsecurityfirewall_lock_user_notification" <?php checked($this->get_option('allinonewpsecurityfirewall_lock_user_notification', 0), 1) ?>> <?php _e('Active', $this->plugin_key) ?>
+                              name="allinonewpsecurityfirewall_lock_user_notification" <?php checked($this->get_option('allinonewpsecurityfirewall_lock_user_notification', 0), 1) ?>> <?php _e('Active', 'telegram-bot') ?>
                 </label>
             </td>
         </tr>
@@ -51,15 +51,15 @@ class AllInOneWPSecurityFirewallWPTP extends TgramBot
      */
     function new_blacklisted_ip($ip_range, $username)
     {
-        $text = "*" . __('All In One WP Security & Firewall lock the user', $this->plugin_key) . "*\n\n";
+        $text = "*" . __('All In One WP Security & Firewall lock the user', 'telegram-bot') . "*\n\n";
 
         if (is_email($username))
-            $text .= __('Email', $this->plugin_key) . ': ' . $username . "\n";
+            $text .= __('Email', 'telegram-bot') . ': ' . $username . "\n";
         else
-            $text .= __('User Name', $this->plugin_key) . ': ' . $username . "\n";
+            $text .= __('User Name', 'telegram-bot') . ': ' . $username . "\n";
 
-        $text .= __('IP range', $this->plugin_key) . ': ' . $ip_range . "\n";
-        $text .= __('Date', $this->plugin_key) . ': ' . HelpersWPTP::localeDate() . "\n";
+        $text .= __('IP range', 'telegram-bot') . ': ' . $ip_range . "\n";
+        $text .= __('Date', 'telegram-bot') . ': ' . HelpersWPTP::localeDate() . "\n";
         $text = apply_filters('wptelegrampro_allinonewpsecurityfirewall_lock_user_notification_text', $text, $ip_range, $username);
 
         if (!$text) return;
@@ -68,7 +68,7 @@ class AllInOneWPSecurityFirewallWPTP extends TgramBot
         if ($users) {
             $keyboard = array(array(
                 array(
-                    'text' => __('All In One WP Security & Firewall Dashboard', $this->plugin_key),
+                    'text' => __('All In One WP Security & Firewall Dashboard', 'telegram-bot'),
                     'url' => admin_url('admin.php?page=aiowpsec')
                 )
             ));

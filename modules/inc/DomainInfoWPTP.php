@@ -3,12 +3,12 @@
 namespace tgrambot;
 
 /**
- * TelegramBot Domain Info
+ * TgramBot Domain Info
  *
  * @since      1.0.0
  *
- * @package    TelegramBot
- * @subpackage TelegramBot/modules/inc
+ * @package    TgramBot
+ * @subpackage TgramBot/modules/inc
  */
 class DomainInfoWPTP
 {

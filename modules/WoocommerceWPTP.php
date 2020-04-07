@@ -15,7 +15,7 @@ class WooCommerceWPTP extends TgramBot
         parent::__construct();
 
         $this->default_products_keyboard = array(array(
-            array('text' => __('Detail', $this->plugin_key), 'callback_data' => 'product_detail')
+            array('text' => __('Detail', 'telegram-bot'), 'callback_data' => 'product_detail')
         ));
 
         add_filter('tgrambot_words', [$this, 'words']);
@@ -84,18 +84,18 @@ class WooCommerceWPTP extends TgramBot
             $low_stock_amount = absint(wc_get_low_stock_amount($product));
             $product_stock_amount = absint($product->get_stock_quantity());
 
-            $text = "*" . __('Product stock status', $this->plugin_key) . "*\n\n";
-            $text .= __('Product', $this->plugin_key) . ': ' . $product->get_title() . "\n";
-            $text .= __('Stock status', $this->plugin_key) . ': ';
+            $text = "*" . __('Product stock status', 'telegram-bot') . "*\n\n";
+            $text .= __('Product', 'telegram-bot') . ': ' . $product->get_title() . "\n";
+            $text .= __('Stock status', 'telegram-bot') . ': ';
 
             if ($product_stock_amount <= $no_stock_amount) {
-                $text .= __('No stock', $this->plugin_key) . "\n";
+                $text .= __('No stock', 'telegram-bot') . "\n";
 
             } elseif ($product_stock_amount <= $low_stock_amount) {
-                $text .= __('Low stock', $this->plugin_key) . "\n";
-                $text .= __('Current quantity', $this->plugin_key) . ': ' . $product_stock_amount . "\n";
+                $text .= __('Low stock', 'telegram-bot') . "\n";
+                $text .= __('Current quantity', 'telegram-bot') . ': ' . $product_stock_amount . "\n";
             }
-            $text .= __('Date', $this->plugin_key) . ': ' . HelpersWPTP::localeDate() . "\n";
+            $text .= __('Date', 'telegram-bot') . ': ' . HelpersWPTP::localeDate() . "\n";
 
             $text = apply_filters('tgrambot_wc_admin_product_stock_change_notification_text', $text, $product);
 
@@ -128,11 +128,11 @@ class WooCommerceWPTP extends TgramBot
             ));
             $keyboards = $this->telegram->keyboard($keyboard, 'inline_keyboard');
 
-            $text = "*" . __('Order status changed', $this->plugin_key) . "*\n\n";
-            $text .= __('Order number', $this->plugin_key) . ': ' . $order_id . "\n";
-            $text .= __('Old status', $this->plugin_key) . ': ' . wc_get_order_status_name($old_status) . "\n";
-            $text .= __('New status', $this->plugin_key) . ': ' . wc_get_order_status_name($new_status) . "\n";
-            $text .= __('Date', $this->plugin_key) . ': ' . HelpersWPTP::localeDate($order->get_date_modified()) . "\n";
+            $text = "*" . __('Order status changed', 'telegram-bot') . "*\n\n";
+            $text .= __('Order number', 'telegram-bot') . ': ' . $order_id . "\n";
+            $text .= __('Old status', 'telegram-bot') . ': ' . wc_get_order_status_name($old_status) . "\n";
+            $text .= __('New status', 'telegram-bot') . ': ' . wc_get_order_status_name($new_status) . "\n";
+            $text .= __('Date', 'telegram-bot') . ': ' . HelpersWPTP::localeDate($order->get_date_modified()) . "\n";
 
             $text = apply_filters('tgrambot_wc_admin_order_status_notification_text', $text, $order, $order_id);
 
@@ -172,10 +172,10 @@ class WooCommerceWPTP extends TgramBot
                     $keyboards = null;
                 }
 
-                $text = "*" . __('Order status changed', $this->plugin_key) . "*\n\n";
-                $text .= __('Order number', $this->plugin_key) . ': ' . $order_id . "\n";
-                $text .= __('New status', $this->plugin_key) . ': ' . wc_get_order_status_name($new_status) . "\n";
-                $text .= __('Date', $this->plugin_key) . ': ' . HelpersWPTP::localeDate($order->get_date_modified()) . "\n";
+                $text = "*" . __('Order status changed', 'telegram-bot') . "*\n\n";
+                $text .= __('Order number', 'telegram-bot') . ': ' . $order_id . "\n";
+                $text .= __('New status', 'telegram-bot') . ': ' . wc_get_order_status_name($new_status) . "\n";
+                $text .= __('Date', 'telegram-bot') . ': ' . HelpersWPTP::localeDate($order->get_date_modified()) . "\n";
                 $text = apply_filters('tgrambot_wc_user_order_status_notification_text', $text, $order, $order_id);
 
                 $this->telegram->sendMessage($text, $keyboards, $user['user_id'], 'Markdown');
@@ -211,10 +211,10 @@ class WooCommerceWPTP extends TgramBot
             ));
             $keyboards = $this->telegram->keyboard($keyboard, 'inline_keyboard');
 
-            $text = "*" . __('New order note', $this->plugin_key) . "*\n\n";
-            $text .= __('Order number', $this->plugin_key) . ': ' . $order_id . "\n";
-            $text .= __('Note', $this->plugin_key) . ': ' . "\n" . $content . "\n";
-            $text .= __('Date', $this->plugin_key) . ': ' . HelpersWPTP::localeDate() . "\n";
+            $text = "*" . __('New order note', 'telegram-bot') . "*\n\n";
+            $text .= __('Order number', 'telegram-bot') . ': ' . $order_id . "\n";
+            $text .= __('Note', 'telegram-bot') . ': ' . "\n" . $content . "\n";
+            $text .= __('Date', 'telegram-bot') . ': ' . HelpersWPTP::localeDate() . "\n";
 
             $text = apply_filters('tgrambot_wc_admin_order_note_notification_text', $text, $content, $order_id);
 
@@ -262,10 +262,10 @@ class WooCommerceWPTP extends TgramBot
                     $keyboards = null;
                 }
 
-                $text = "*" . __('New order note', $this->plugin_key) . "*\n\n";
-                $text .= __('Order number', $this->plugin_key) . ': ' . $order_id . "\n";
-                $text .= __('Note', $this->plugin_key) . ': ' . "\n" . $customer_note . "\n";
-                $text .= __('Date', $this->plugin_key) . ': ' . HelpersWPTP::localeDate() . "\n";
+                $text = "*" . __('New order note', 'telegram-bot') . "*\n\n";
+                $text .= __('Order number', 'telegram-bot') . ': ' . $order_id . "\n";
+                $text .= __('Note', 'telegram-bot') . ': ' . "\n" . $customer_note . "\n";
+                $text .= __('Date', 'telegram-bot') . ': ' . HelpersWPTP::localeDate() . "\n";
                 $text = apply_filters('tgrambot_wc_user_order_note_customer_notification_text', $text, $customer_note, $order_id);
 
                 $this->telegram->sendMessage($text, $keyboards, $user['user_id'], 'Markdown');
@@ -334,14 +334,14 @@ class WooCommerceWPTP extends TgramBot
             ));
             $keyboards = $this->telegram->keyboard($keyboard, 'inline_keyboard');
 
-            $text = "*" . __('New Order', $this->plugin_key) . "*\n\n";
-            $text .= __('Order number', $this->plugin_key) . ': ' . $order_id . "\n";
-            $text .= __('Status', $this->plugin_key) . ': ' . wc_get_order_status_name($order->get_status()) . "\n";
-            $text .= __('Date', $this->plugin_key) . ': ' . HelpersWPTP::localeDate($order->get_date_modified()) . "\n";
-            $text .= __('Email', $this->plugin_key) . ': ' . $order->get_billing_email() . "\n";
-            $text .= __('Total price', $this->plugin_key) . ': ' . $this->wc_price($order->get_total()) . "\n";
-            $text .= __('Payment method', $this->plugin_key) . ': ' . $order->get_payment_method_title() . "\n";
-            $text .= "\n" . __('Items', $this->plugin_key) . ':' . "\n";
+            $text = "*" . __('New Order', 'telegram-bot') . "*\n\n";
+            $text .= __('Order number', 'telegram-bot') . ': ' . $order_id . "\n";
+            $text .= __('Status', 'telegram-bot') . ': ' . wc_get_order_status_name($order->get_status()) . "\n";
+            $text .= __('Date', 'telegram-bot') . ': ' . HelpersWPTP::localeDate($order->get_date_modified()) . "\n";
+            $text .= __('Email', 'telegram-bot') . ': ' . $order->get_billing_email() . "\n";
+            $text .= __('Total price', 'telegram-bot') . ': ' . $this->wc_price($order->get_total()) . "\n";
+            $text .= __('Payment method', 'telegram-bot') . ': ' . $order->get_payment_method_title() . "\n";
+            $text .= "\n" . __('Items', 'telegram-bot') . ':' . "\n";
 
             foreach ($order->get_items() as $item_id => $item_data) {
                 $product = $item_data->get_product();
@@ -375,17 +375,17 @@ class WooCommerceWPTP extends TgramBot
         ?>
         <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
             <?php if ($bot_user) { ?>
-                <?php echo __('Your profile has been linked to this Telegram account:', $this->plugin_key) . ' ' . $bot_user['first_name'] . ' ' . $bot_user['last_name'] . ' <a href="https://t.me/' . $bot_user['username'] . '" target="_blank">@' . $bot_user['username'] . '</a> (<a href="' . $this->get_bot_disconnect_link($user_id) . '">' . __('Disconnect', $this->plugin_key) . '</a>)'; ?>
+                <?php echo __('Your profile has been linked to this Telegram account:', 'telegram-bot') . ' ' . $bot_user['first_name'] . ' ' . $bot_user['last_name'] . ' <a href="https://t.me/' . $bot_user['username'] . '" target="_blank">@' . $bot_user['username'] . '</a> (<a href="' . $this->get_bot_disconnect_link($user_id) . '">' . __('Disconnect', 'telegram-bot') . '</a>)'; ?>
             <?php } else {
                 $code = $this->get_user_random_code($user_id);
                 ?>
-                <label for="telegram_user_code"><?php _e('Connect to Telegram', $this->plugin_key) ?></label>
-                <span class="description"><em><?php _e('Send this code from telegram bot to identify the your user.', $this->plugin_key) ?></em></span>
+                <label for="telegram_user_code"><?php _e('Connect to Telegram', 'telegram-bot') ?></label>
+                <span class="description"><em><?php _e('Send this code from telegram bot to identify the your user.', 'telegram-bot') ?></em></span>
                 <br>
                 <input type="text" id="telegram_user_code" class="woocommerce-Input woocommerce-Input--text input-text"
                        value="<?php echo $code ?>"
                        onfocus="this.select();" onmouseup="return false;"
-                       readonly> <?php echo __('Or', $this->plugin_key) . ' <a href="' . $this->get_bot_connect_link($user_id) . '" target="_blank">' . __('Request Connect', $this->plugin_key) . '</a>' ?>
+                       readonly> <?php echo __('Or', 'telegram-bot') . ' <a href="' . $this->get_bot_connect_link($user_id) . '" target="_blank">' . __('Request Connect', 'telegram-bot') . '</a>' ?>
             <?php } ?>
         </p>
         <?php
@@ -395,9 +395,9 @@ class WooCommerceWPTP extends TgramBot
     {
         $commands = array_merge($commands,
             array(
-                'products' => __('Products', $this->plugin_key),
-                'product_categories' => __('Product Categories List', $this->plugin_key),
-                'cart' => __('Cart', $this->plugin_key)
+                'products' => __('Products', 'telegram-bot'),
+                'product_categories' => __('Product Categories List', 'telegram-bot'),
+                'cart' => __('Cart', 'telegram-bot')
             ));
         return $commands;
     }
@@ -417,16 +417,16 @@ class WooCommerceWPTP extends TgramBot
     function words($words)
     {
         $new_words = array(
-            'products' => __('Products', $this->plugin_key),
-            'product_categories' => __('Product Categories', $this->plugin_key),
-            'cart' => __('Cart', $this->plugin_key),
-            'checkout' => __('Checkout', $this->plugin_key),
-            'cart_empty_message' => __('Your cart is empty.', $this->plugin_key),
-            'confirm_empty_cart' => __('Empty Cart?', $this->plugin_key),
-            'cart_emptied' => __('Cart has been empty.', $this->plugin_key),
-            'refresh_cart' => __('Refresh Cart', $this->plugin_key),
-            'instock' => __('In stock', $this->plugin_key),
-            'outofstock' => __('Out of stock', $this->plugin_key),
+            'products' => __('Products', 'telegram-bot'),
+            'product_categories' => __('Product Categories', 'telegram-bot'),
+            'cart' => __('Cart', 'telegram-bot'),
+            'checkout' => __('Checkout', 'telegram-bot'),
+            'cart_empty_message' => __('Your cart is empty.', 'telegram-bot'),
+            'confirm_empty_cart' => __('Empty Cart?', 'telegram-bot'),
+            'cart_emptied' => __('Cart has been empty.', 'telegram-bot'),
+            'refresh_cart' => __('Refresh Cart', 'telegram-bot'),
+            'instock' => __('In stock', 'telegram-bot'),
+            'outofstock' => __('Out of stock', 'telegram-bot'),
         );
         $words = array_merge($words, $new_words);
 
@@ -553,30 +553,30 @@ class WooCommerceWPTP extends TgramBot
     function patterns_tags($tags)
     {
         $tags['WooCommerce'] = array(
-            'title' => __('WooCommerce Tags', $this->plugin_key),
+            'title' => __('WooCommerce Tags', 'telegram-bot'),
             'plugin' => 'woocommerce',
             'tags' => array(
-                'currency-symbol' => __('The currency symbol', $this->plugin_key),
-                'price' => __('The price of this product', $this->plugin_key),
-                'regularprice' => __('The regular price of this product', $this->plugin_key),
-                'saleprice' => __('The sale price of this product', $this->plugin_key),
-                'width' => __('The width of this product', $this->plugin_key),
-                'length' => __('The length of this product', $this->plugin_key),
-                'height' => __('The height of this product', $this->plugin_key),
-                'weight' => __('The weight of this product', $this->plugin_key),
-                'dimensions' => __('The dimensions of this product', $this->plugin_key),
-                'average_rating' => __('The average rating of this product', $this->plugin_key),
-                'sku' => __('The SKU (Stock Keeping Unit) of this product', $this->plugin_key),
-                'downloadable' => __('Is this product downloadable? (Yes or No)', $this->plugin_key),
-                'virtual' => __('Is this product virtual? (Yes or No)', $this->plugin_key),
-                'sold-individually' => __('Is this product sold individually? (Yes or No)', $this->plugin_key),
-                'tax-status' => __('The tax status of this product', $this->plugin_key),
-                'tax-class' => __('The tax class of this product', $this->plugin_key),
-                'stock' => __('The stock amount of this product', $this->plugin_key),
-                'stock-status' => __('The stock status of this product', $this->plugin_key),
-                'back-orders' => __('Whether or not backorders allowed?', $this->plugin_key),
-                'featured' => __('Is this a featured product? (Yes or No)', $this->plugin_key),
-                'visibility' => __('Is this product visible? (Yes or No)', $this->plugin_key)
+                'currency-symbol' => __('The currency symbol', 'telegram-bot'),
+                'price' => __('The price of this product', 'telegram-bot'),
+                'regularprice' => __('The regular price of this product', 'telegram-bot'),
+                'saleprice' => __('The sale price of this product', 'telegram-bot'),
+                'width' => __('The width of this product', 'telegram-bot'),
+                'length' => __('The length of this product', 'telegram-bot'),
+                'height' => __('The height of this product', 'telegram-bot'),
+                'weight' => __('The weight of this product', 'telegram-bot'),
+                'dimensions' => __('The dimensions of this product', 'telegram-bot'),
+                'average_rating' => __('The average rating of this product', 'telegram-bot'),
+                'sku' => __('The SKU (Stock Keeping Unit) of this product', 'telegram-bot'),
+                'downloadable' => __('Is this product downloadable? (Yes or No)', 'telegram-bot'),
+                'virtual' => __('Is this product virtual? (Yes or No)', 'telegram-bot'),
+                'sold-individually' => __('Is this product sold individually? (Yes or No)', 'telegram-bot'),
+                'tax-status' => __('The tax status of this product', 'telegram-bot'),
+                'tax-class' => __('The tax class of this product', 'telegram-bot'),
+                'stock' => __('The stock amount of this product', 'telegram-bot'),
+                'stock-status' => __('The stock status of this product', 'telegram-bot'),
+                'back-orders' => __('Whether or not backorders allowed?', 'telegram-bot'),
+                'featured' => __('Is this a featured product? (Yes or No)', 'telegram-bot'),
+                'visibility' => __('Is this product visible? (Yes or No)', 'telegram-bot')
             )
         );
         return $tags;
@@ -647,7 +647,7 @@ class WooCommerceWPTP extends TgramBot
             $product_id = intval(end(explode('_', $button_data)));
             if (get_post_status($product_id) === 'publish') {
                 $image_size = $this->get_option('image_size');
-                $this->telegram->answerCallbackQuery(__('Galleries', $this->plugin_key) . ': ' . get_the_title($product_id));
+                $this->telegram->answerCallbackQuery(__('Galleries', 'telegram-bot') . ': ' . get_the_title($product_id));
                 $_product = new \WC_Product($product_id);
                 $galleries = $_product->get_gallery_image_ids();
                 if (is_array($galleries) && count($galleries)) {
@@ -670,7 +670,7 @@ class WooCommerceWPTP extends TgramBot
 
                             if ($i == count($galleries)) {
                                 $keyboard = array(array(
-                                    array('text' => __('Back to Product', $this->plugin_key), 'callback_data' => 'product_detail_' . $product_id)
+                                    array('text' => __('Back to Product', 'telegram-bot'), 'callback_data' => 'product_detail_' . $product_id)
                                 ));
                                 $keyboards = $this->telegram->keyboard($keyboard, 'inline_keyboard');
                             }
@@ -680,7 +680,7 @@ class WooCommerceWPTP extends TgramBot
                     }
                 }
             } else {
-                $this->telegram->answerCallbackQuery(__('The product does not exist', $this->plugin_key));
+                $this->telegram->answerCallbackQuery(__('The product does not exist', 'telegram-bot'));
             }
 
         } elseif ($this->button_data_check($button_data, 'add_to_cart')) {
@@ -691,12 +691,12 @@ class WooCommerceWPTP extends TgramBot
                 $can_to_cart_ = $this->can_to_cart($button_data['3'], true);
                 $alert = false;
                 if ($in_cart)
-                    $message = __('Remove from Cart:', $this->plugin_key) . ' ' . get_the_title($button_data['3']);
+                    $message = __('Remove from Cart:', 'telegram-bot') . ' ' . get_the_title($button_data['3']);
                 else
                     if ($can_to_cart)
-                        $message = __('Add to Cart:', $this->plugin_key) . ' ' . get_the_title($button_data['3']);
+                        $message = __('Add to Cart:', 'telegram-bot') . ' ' . get_the_title($button_data['3']);
                     else {
-                        $message = __('Please select product variations:', $this->plugin_key) . ' ' . $can_to_cart_;
+                        $message = __('Please select product variations:', 'telegram-bot') . ' ' . $can_to_cart_;
                         $alert = true;
                     }
                 $this->telegram->answerCallbackQuery($message, null, $alert);
@@ -710,17 +710,17 @@ class WooCommerceWPTP extends TgramBot
                 $keyboards = $this->telegram->keyboard($keyboard, 'inline_keyboard');
                 $this->telegram->editMessageReplyMarkup($keyboards, $button_data['4']);
             } else {
-                $this->telegram->answerCallbackQuery(__('The product does not exist', $this->plugin_key));
+                $this->telegram->answerCallbackQuery(__('The product does not exist', 'telegram-bot'));
             }
 
         } elseif ($this->button_data_check($button_data, 'product_detail')) {
             $product_id = intval(end(explode('_', $button_data)));
             if (get_post_status($product_id) === 'publish') {
-                $this->telegram->answerCallbackQuery(__('Product', $this->plugin_key) . ': ' . get_the_title($product_id));
+                $this->telegram->answerCallbackQuery(__('Product', 'telegram-bot') . ': ' . get_the_title($product_id));
                 $product = $this->query(array('p' => $product_id, 'post_type' => 'product'));
                 $this->send_product($product);
             } else {
-                $this->telegram->answerCallbackQuery(__('The product does not exist', $this->plugin_key));
+                $this->telegram->answerCallbackQuery(__('The product does not exist', 'telegram-bot'));
             }
 
         } elseif ($this->button_data_check($button_data, 'product_page_')) {
@@ -757,7 +757,7 @@ class WooCommerceWPTP extends TgramBot
                 $products = $this->query(array('category_id' => $product_category_id, 'per_page' => $this->get_option('products_per_page', 1), 'post_type' => 'product'));
                 $this->send_products($products);
             } else {
-                $this->telegram->answerCallbackQuery(__('Product Category Invalid!', $this->plugin_key));
+                $this->telegram->answerCallbackQuery(__('Product Category Invalid!', 'telegram-bot'));
             }
 
         } elseif ($this->button_data_check($button_data, 'confirm_empty_cart')) {
@@ -795,19 +795,19 @@ class WooCommerceWPTP extends TgramBot
 
     function settings_tab($tabs)
     {
-        $tabs[$this->tabID] = __('WooCommerce', $this->plugin_key);
+        $tabs[$this->tabID] = __('WooCommerce', 'telegram-bot');
         return $tabs;
     }
 
     function settings_content()
     {
-        $this->options = get_option($this->plugin_key);
+        $this->options = get_option('telegram-bot');
         ?>
         <div id="<?php echo $this->tabID ?>-content" class="wptp-tab-content hidden">
             <table>
                 <tr>
                     <td>
-                        <label for="products_per_page"><?php _e('Products Per Page', $this->plugin_key) ?></label>
+                        <label for="products_per_page"><?php _e('Products Per Page', 'telegram-bot') ?></label>
                     </td>
                     <td><input type="number" name="products_per_page" id="products_per_page"
                                value="<?php echo $this->get_option('products_per_page', $this->per_page) ?>"
@@ -815,105 +815,105 @@ class WooCommerceWPTP extends TgramBot
                 </tr>
                 <tr>
                     <td>
-                        <label for="wc_exclude_categories"><?php _e('Exclude Categories', $this->plugin_key) ?></label>
+                        <label for="wc_exclude_categories"><?php _e('Exclude Categories', 'telegram-bot') ?></label>
                     </td>
-                    <td><?php echo $this->dropdown_categories('wc_exclude_categories[]', 'product_cat', $this->get_option('wc_exclude_categories'), array('blank' => __('None', $this->plugin_key), 'class' => 'multi_select_none_wptp')); ?></td>
+                    <td><?php echo $this->dropdown_categories('wc_exclude_categories[]', 'product_cat', $this->get_option('wc_exclude_categories'), array('blank' => __('None', 'telegram-bot'), 'class' => 'multi_select_none_wptp')); ?></td>
                 </tr>
                 <tr>
                     <td>
-                        <label for="wc_exclude_display_categories"><?php _e('Exclude Display Categories', $this->plugin_key) ?></label>
+                        <label for="wc_exclude_display_categories"><?php _e('Exclude Display Categories', 'telegram-bot') ?></label>
                     </td>
-                    <td><?php echo $this->dropdown_categories('wc_exclude_display_categories[]', 'product_cat', $this->get_option('wc_exclude_display_categories'), array('blank' => __('None', $this->plugin_key), 'class' => 'multi_select_none_wptp')); ?></td>
+                    <td><?php echo $this->dropdown_categories('wc_exclude_display_categories[]', 'product_cat', $this->get_option('wc_exclude_display_categories'), array('blank' => __('None', 'telegram-bot'), 'class' => 'multi_select_none_wptp')); ?></td>
                 </tr>
                 <tr>
-                    <th colspan="2"><?php _e('Notification', $this->plugin_key) ?></th>
+                    <th colspan="2"><?php _e('Notification', 'telegram-bot') ?></th>
                 </tr>
                 <tr>
                     <td>
-                        <?php _e('Administrators', $this->plugin_key); ?>
+                        <?php _e('Administrators', 'telegram-bot'); ?>
                     </td>
                     <td>
                         <label><input type="checkbox" value="1" id="wc_admin_new_order_notification"
-                                      name="wc_admin_new_order_notification" <?php checked($this->get_option('wc_admin_new_order_notification', 0), 1) ?>> <?php _e('New order', $this->plugin_key) ?>
+                                      name="wc_admin_new_order_notification" <?php checked($this->get_option('wc_admin_new_order_notification', 0), 1) ?>> <?php _e('New order', 'telegram-bot') ?>
                         </label><br>
                         <label><input type="checkbox" value="1" id="wc_admin_order_status_notification"
-                                      name="wc_admin_order_status_notification" <?php checked($this->get_option('wc_admin_order_status_notification', 0), 1) ?>> <?php _e('Order status change', $this->plugin_key) ?>
+                                      name="wc_admin_order_status_notification" <?php checked($this->get_option('wc_admin_order_status_notification', 0), 1) ?>> <?php _e('Order status change', 'telegram-bot') ?>
                         </label><br>
                         <label><input type="checkbox" value="1" id="wc_admin_product_low_stock_notification"
-                                      name="wc_admin_product_low_stock_notification" <?php checked($this->get_option('wc_admin_product_low_stock_notification', 0), 1) ?>> <?php _e('Product low stock', $this->plugin_key) ?>
+                                      name="wc_admin_product_low_stock_notification" <?php checked($this->get_option('wc_admin_product_low_stock_notification', 0), 1) ?>> <?php _e('Product low stock', 'telegram-bot') ?>
                         </label><br>
                         <label><input type="checkbox" value="1" id="wc_admin_product_no_stock_notification"
-                                      name="wc_admin_product_no_stock_notification" <?php checked($this->get_option('wc_admin_product_no_stock_notification', 0), 1) ?>> <?php _e('Product no stock', $this->plugin_key) ?>
+                                      name="wc_admin_product_no_stock_notification" <?php checked($this->get_option('wc_admin_product_no_stock_notification', 0), 1) ?>> <?php _e('Product no stock', 'telegram-bot') ?>
                         </label><br>
                         <label><input type="checkbox" value="1" id="wc_admin_order_note_notification"
-                                      name="wc_admin_order_note_notification" <?php checked($this->get_option('wc_admin_order_note_notification', 0), 1) ?>> <?php _e('New order note', $this->plugin_key) ?>
+                                      name="wc_admin_order_note_notification" <?php checked($this->get_option('wc_admin_order_note_notification', 0), 1) ?>> <?php _e('New order note', 'telegram-bot') ?>
                         </label>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <?php _e('Customers', $this->plugin_key); ?>
+                        <?php _e('Customers', 'telegram-bot'); ?>
                     </td>
                     <td>
                         <label><input type="checkbox" value="1" id="wc_order_status_notification"
-                                      name="wc_order_status_notification" <?php checked($this->get_option('wc_order_status_notification', 0), 1) ?>> <?php _e('Order status change', $this->plugin_key) ?>
+                                      name="wc_order_status_notification" <?php checked($this->get_option('wc_order_status_notification', 0), 1) ?>> <?php _e('Order status change', 'telegram-bot') ?>
                         </label><br>
                         <label><input type="checkbox" value="1" id="wc_order_note_customer_notification"
-                                      name="wc_order_note_customer_notification" <?php checked($this->get_option('wc_order_note_customer_notification', 0), 1) ?>> <?php _e('New order note', $this->plugin_key) ?>
+                                      name="wc_order_note_customer_notification" <?php checked($this->get_option('wc_order_note_customer_notification', 0), 1) ?>> <?php _e('New order note', 'telegram-bot') ?>
                         </label>
                     </td>
                 </tr>
                 <tr>
-                    <th colspan="2"><?php _e('Empty the cart', $this->plugin_key) ?></th>
+                    <th colspan="2"><?php _e('Empty the cart', 'telegram-bot') ?></th>
                 </tr>
                 <tr>
                     <td>
-                        <label for="empty_cart_after_wc_redirect"><?php _e('After Redirect to Cart Page', $this->plugin_key) ?></label>
+                        <label for="empty_cart_after_wc_redirect"><?php _e('After Redirect to Cart Page', 'telegram-bot') ?></label>
                     </td>
                     <td>
                         <label><input type="checkbox" value="1" id="empty_cart_after_wc_redirect"
-                                      name="empty_cart_after_wc_redirect" <?php checked($this->get_option('empty_cart_after_wc_redirect'), 1) ?>> <?php _e('Active', $this->plugin_key) ?>
+                                      name="empty_cart_after_wc_redirect" <?php checked($this->get_option('empty_cart_after_wc_redirect'), 1) ?>> <?php _e('Active', 'telegram-bot') ?>
                         </label>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <label for="empty_cart_after_wc_payment_complete"><?php _e('After Payment Complete', $this->plugin_key) ?></label>
+                        <label for="empty_cart_after_wc_payment_complete"><?php _e('After Payment Complete', 'telegram-bot') ?></label>
                     </td>
                     <td>
                         <label><input type="checkbox" value="1" id="empty_cart_after_wc_payment_complete"
-                                      name="empty_cart_after_wc_payment_complete" <?php checked($this->get_option('empty_cart_after_wc_payment_complete'), 1) ?>> <?php _e('Active', $this->plugin_key) ?>
+                                      name="empty_cart_after_wc_payment_complete" <?php checked($this->get_option('empty_cart_after_wc_payment_complete'), 1) ?>> <?php _e('Active', 'telegram-bot') ?>
                         </label>
                     </td>
                 </tr>
                 <tr>
-                    <th colspan="2"><?php _e('Display', $this->plugin_key) ?></th>
+                    <th colspan="2"><?php _e('Display', 'telegram-bot') ?></th>
                 </tr>
                 <tr>
-                    <td><?php _e('Meta Data', $this->plugin_key) ?></td>
+                    <td><?php _e('Meta Data', 'telegram-bot') ?></td>
                     <td>
                         <label><input type="checkbox" value="1"
-                                      name="weight_display" <?php checked($this->get_option('weight_display'), 1) ?>><?php _e('Weight', $this->plugin_key) ?>
+                                      name="weight_display" <?php checked($this->get_option('weight_display'), 1) ?>><?php _e('Weight', 'telegram-bot') ?>
                         </label>
                         <label><input type="checkbox" value="1"
-                                      name="dimensions_display" <?php checked($this->get_option('dimensions_display'), 1) ?>><?php _e('Dimensions', $this->plugin_key) ?>
+                                      name="dimensions_display" <?php checked($this->get_option('dimensions_display'), 1) ?>><?php _e('Dimensions', 'telegram-bot') ?>
                         </label>
                         <label><input type="checkbox" value="1"
-                                      name="attributes_display" <?php checked($this->get_option('attributes_display'), 1) ?>><?php _e('Attributes', $this->plugin_key) ?>
+                                      name="attributes_display" <?php checked($this->get_option('attributes_display'), 1) ?>><?php _e('Attributes', 'telegram-bot') ?>
                         </label>
                         <label><input type="checkbox" value="1"
-                                      name="rating_display" <?php checked($this->get_option('rating_display'), 1) ?>><?php _e('Rating', $this->plugin_key) ?>
+                                      name="rating_display" <?php checked($this->get_option('rating_display'), 1) ?>><?php _e('Rating', 'telegram-bot') ?>
                         </label>
                     </td>
                 </tr>
                 <tr>
-                    <td><?php _e('Keyboard', $this->plugin_key) ?></td>
+                    <td><?php _e('Keyboard', 'telegram-bot') ?></td>
                     <td>
                         <label><input type="checkbox" value="1"
-                                      name="gallery_keyboard" <?php checked($this->get_option('gallery_keyboard'), 1) ?>><?php _e('Gallery Button', $this->plugin_key) ?>
+                                      name="gallery_keyboard" <?php checked($this->get_option('gallery_keyboard'), 1) ?>><?php _e('Gallery Button', 'telegram-bot') ?>
                         </label>
                         <label><input type="checkbox" value="1"
-                                      name="category_keyboard" <?php checked($this->get_option('category_keyboard'), 1) ?>><?php _e('Category Buttons', $this->plugin_key) ?>
+                                      name="category_keyboard" <?php checked($this->get_option('category_keyboard'), 1) ?>><?php _e('Category Buttons', 'telegram-bot') ?>
                         </label>
                     </td>
                 </tr>
@@ -931,7 +931,7 @@ class WooCommerceWPTP extends TgramBot
 
         $in_cart = $this->check_cart($product['ID']);
         $keyboard = array(array(
-            // array('text' => __('Detail', $this->plugin_key), 'callback_data' => 'product_detail_' . $product['ID']),
+            // array('text' => __('Detail', 'telegram-bot'), 'callback_data' => 'product_detail_' . $product['ID']),
             array('text' => '🔗️', 'url' => $product['link']),
             array('text' => ($in_cart ? '- ' : '+ ') . '🛒', 'callback_data' => 'add_to_cart_' . $product['ID'] . '_' . $message_id),
         ));
@@ -1013,11 +1013,11 @@ class WooCommerceWPTP extends TgramBot
     function select_product_variation($product, $variation_type, $variation_name, $variation_value, $message_id, $taxonomy)
     {
         if ($variation_type == 'text')
-            $this->telegram->answerCallbackQuery(__('Select', $this->plugin_key) . ' ' . $variation_name . ': ' . $variation_value);
+            $this->telegram->answerCallbackQuery(__('Select', 'telegram-bot') . ' ' . $variation_name . ': ' . $variation_value);
         elseif ($variation_type == 'tax' && !empty($taxonomy)) {
             $term = get_term_by('slug', $variation_value, $taxonomy);
             if ($term)
-                $this->telegram->answerCallbackQuery(__('Select', $this->plugin_key) . ' ' . $variation_name . ': ' . $term->name);
+                $this->telegram->answerCallbackQuery(__('Select', 'telegram-bot') . ' ' . $variation_name . ': ' . $term->name);
         }
         $this->add_to_cart($product['ID'], null, $variation_name, $variation_value);
         //$this->product_keyboard_variations($product, $variation_name, $message_id);
@@ -1221,7 +1221,7 @@ class WooCommerceWPTP extends TgramBot
                 $i++;
             }
         } else {
-            $this->telegram->sendMessage(__('Your request without result!', $this->plugin_key));
+            $this->telegram->sendMessage(__('Your request without result!', 'telegram-bot'));
         }
     }
 
@@ -1234,11 +1234,11 @@ class WooCommerceWPTP extends TgramBot
 
         // Weight
         if ($this->get_option('weight_display') == 1 && !empty($product['weight']))
-            $metas[] = __('Weight', $this->plugin_key) . ': ' . $product['weight'] . ' ' . get_option('woocommerce_weight_unit');
+            $metas[] = __('Weight', 'telegram-bot') . ': ' . $product['weight'] . ' ' . get_option('woocommerce_weight_unit');
 
         // Dimensions
         if ($this->get_option('dimensions_display') == 1 && !empty($product['dimensions']) && $product['dimensions'] != __('N/A', 'woocommerce'))
-            $metas[] = __('Dimensions', $this->plugin_key) . ': ' . $product['dimensions'];
+            $metas[] = __('Dimensions', 'telegram-bot') . ': ' . $product['dimensions'];
 
         // Attribute
         if ($this->get_option('attributes_display') == 1 && is_array($product['variations']) && count($product['variations'])) {

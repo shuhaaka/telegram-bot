@@ -131,7 +131,7 @@ class PluginsWPTP extends TgramBot
 
     function settings_tab($tabs)
     {
-        $tabs[$this->tabID] = __('Plugins', $this->plugin_key);
+        $tabs[$this->tabID] = __('Plugins', 'telegram-bot');
         return $tabs;
     }
 

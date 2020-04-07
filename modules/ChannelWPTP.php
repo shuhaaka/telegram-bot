@@ -42,14 +42,14 @@ class ChannelWPTP extends TgramBot
                 $channel_post_type = isset($options['channel_post_type'][$k]) && count($options['channel_post_type'][$k]) ? $options['channel_post_type'][$k] : [];
                 $post_types = array_keys($channel_post_type);
                 if (in_array($post_type, $post_types))
-                    echo '<span class="dashicons-wptp-telegram quick-send-channel-wptp" title="' . __('Send to Channel', $this->plugin_key) . ': @' . $v . '" data-channel="' . $v . '" data-id="' . $post_id . '" data-index="' . $k . '"></span>';
+                    echo '<span class="dashicons-wptp-telegram quick-send-channel-wptp" title="' . __('Send to Channel', 'telegram-bot') . ': @' . $v . '" data-channel="' . $v . '" data-id="' . $post_id . '" data-index="' . $k . '"></span>';
             }
         }
     }
 
     function filter_posts_columns($columns)
     {
-        $columns['telegram-wptp'] = __('Telegram', $this->plugin_key);
+        $columns['telegram-wptp'] = __('Telegram', 'telegram-bot');
         return $columns;
     }
 
@@ -80,21 +80,21 @@ class ChannelWPTP extends TgramBot
     {
         ?>
         <div class="item">
-            <button class="toggle" type="button"> <?php _e('Telegram Channel', $this->plugin_key) ?></button>
+            <button class="toggle" type="button"> <?php _e('Telegram Channel', 'telegram-bot') ?></button>
             <div class="panel">
                 <div>
                     <strong>
-                        <?php _e('Telegram channel is a great way for attracting people to your site.<br> This option allows you to send posts to your Telegram channel.', $this->plugin_key) ?>
+                        <?php _e('Telegram channel is a great way for attracting people to your site.<br> This option allows you to send posts to your Telegram channel.', 'telegram-bot') ?>
                     </strong>
                     <ol>
-                        <li><?php _e("Create a channel (if you don't already have one).", $this->plugin_key) ?></li>
-                        <li><?php _e("Create a bot (if you don't already have one).", $this->plugin_key) ?></li>
-                        <li><?php _e("Go to channel options and select 'Administrator' option.", $this->plugin_key) ?></li>
-                        <li><?php _e("Select 'Add Administrator' option.", $this->plugin_key) ?></li>
-                        <li><?php _e("Search the username of your bot and add it as administrator.", $this->plugin_key) ?></li>
-                        <li><?php _e("Allow 'Post Messages' Permission", $this->plugin_key) ?></li>
-                        <li><?php _e("Enter the username of the channel and hit SAVE button!!!", $this->plugin_key) ?></li>
-                        <li><?php _e("Yes! Now, whenever you publish or update a post you can choose whether send it to Telegram (from post editor page)", $this->plugin_key) ?>
+                        <li><?php _e("Create a channel (if you don't already have one).", 'telegram-bot') ?></li>
+                        <li><?php _e("Create a bot (if you don't already have one).", 'telegram-bot') ?></li>
+                        <li><?php _e("Go to channel options and select 'Administrator' option.", 'telegram-bot') ?></li>
+                        <li><?php _e("Select 'Add Administrator' option.", 'telegram-bot') ?></li>
+                        <li><?php _e("Search the username of your bot and add it as administrator.", 'telegram-bot') ?></li>
+                        <li><?php _e("Allow 'Post Messages' Permission", 'telegram-bot') ?></li>
+                        <li><?php _e("Enter the username of the channel and hit SAVE button!!!", 'telegram-bot') ?></li>
+                        <li><?php _e("Yes! Now, whenever you publish or update a post you can choose whether send it to Telegram (from post editor page)", 'telegram-bot') ?>
                         </li>
                     </ol>
                 </div>
@@ -457,26 +457,26 @@ class ChannelWPTP extends TgramBot
                         <table>
                             <tr>
                                 <td>
-                                    <?php _e('Send to Channel', $this->plugin_key) ?>
+                                    <?php _e('Send to Channel', 'telegram-bot') ?>
                                 </td>
                                 <td>
                                     <fieldset>
                                         <label>
                                             <input type="radio" class="send-to-channel send-to-channel-yes"
                                                    value="1" <?php checked(isset($send_to_channel) ? $send_to_channel : '', 1) ?>
-                                                   name="send_to_channel[<?php echo $options['channel_username'][$k] ?>]"> <?php _e('Yes', $this->plugin_key) ?>
+                                                   name="send_to_channel[<?php echo $options['channel_username'][$k] ?>]"> <?php _e('Yes', 'telegram-bot') ?>
                                         </label>
                                         <label>
                                             <input type="radio" class="send-to-channel send-to-channel-no"
                                                    value="2" <?php checked(isset($send_to_channel) ? $send_to_channel : '', 2) ?>
-                                                   name="send_to_channel[<?php echo $options['channel_username'][$k] ?>]"> <?php _e('No', $this->plugin_key) ?>
+                                                   name="send_to_channel[<?php echo $options['channel_username'][$k] ?>]"> <?php _e('No', 'telegram-bot') ?>
                                         </label>
                                     </fieldset>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <?php _e('Message Pattern', $this->plugin_key) ?>
+                                    <?php _e('Message Pattern', 'telegram-bot') ?>
                                 </td>
                                 <td>
                                     <?php $this->select_tags() ?>
@@ -489,19 +489,19 @@ class ChannelWPTP extends TgramBot
                             </tr>
                             <tr>
                                 <td>
-                                    <?php _e('Attache featured Image', $this->plugin_key) ?>
+                                    <?php _e('Attache featured Image', 'telegram-bot') ?>
                                 </td>
                                 <td>
                                     <fieldset>
                                         <label>
                                             <input type="radio"
                                                    value="1" <?php checked(isset($featured_image) ? $featured_image : '', 1) ?>
-                                                   name="channel_with_featured_image[<?php echo $options['channel_username'][$k] ?>]"> <?php _e('Yes', $this->plugin_key) ?>
+                                                   name="channel_with_featured_image[<?php echo $options['channel_username'][$k] ?>]"> <?php _e('Yes', 'telegram-bot') ?>
                                         </label>
                                         <label>
                                             <input type="radio"
                                                    value="2" <?php checked(isset($featured_image) ? $featured_image : '', 2) ?>
-                                                   name="channel_with_featured_image[<?php echo $options['channel_username'][$k] ?>]"> <?php _e('No', $this->plugin_key) ?>
+                                                   name="channel_with_featured_image[<?php echo $options['channel_username'][$k] ?>]"> <?php _e('No', 'telegram-bot') ?>
                                         </label>
                                     </fieldset>
                                 </td>
@@ -522,7 +522,7 @@ class ChannelWPTP extends TgramBot
         ), $atts);
 
         if (!$atts['channel'] || empty($atts['channel']))
-            return __("[Set 'channel' attribute]", $this->plugin_key);
+            return __("[Set 'channel' attribute]", 'telegram-bot');
 
         $transient_key = 'channel_members_' . $atts['channel'] . '_wptp';
 
@@ -535,7 +535,7 @@ class ChannelWPTP extends TgramBot
                 set_transient($transient_key, $count, 60 * 60);
                 return $count;
             } else {
-                return __('[API Token or Channel Username Invalid]', $this->plugin_key);
+                return __('[API Token or Channel Username Invalid]', 'telegram-bot');
             }
         } else {
             return get_transient($transient_key);
@@ -548,9 +548,9 @@ class ChannelWPTP extends TgramBot
         $channel = $this->telegram->get_members_count('@' . $channel_username);
         $channel_member = $this->telegram->get_last_result();
         if ($channel && $channel_member['ok'] && isset($channel_member['result'])) {
-            echo __('Channel Member Count:', $this->plugin_key) . ' ' . number_format($channel_member['result']);
+            echo __('Channel Member Count:', 'telegram-bot') . ' ' . number_format($channel_member['result']);
         } else {
-            _e('API Token or Channel Username Invalid, It may not have access to the channel! (Read Help)', $this->plugin_key);
+            _e('API Token or Channel Username Invalid, It may not have access to the channel! (Read Help)', 'telegram-bot');
         }
         exit;
     }
@@ -564,56 +564,56 @@ class ChannelWPTP extends TgramBot
 
     function settings_tab($tabs)
     {
-        $tabs[$this->tabID] = __('Channel', $this->plugin_key);
+        $tabs[$this->tabID] = __('Channel', 'telegram-bot');
         return $tabs;
     }
 
     function settings_content()
     {
-        $this->options = get_option($this->plugin_key);
+        $this->options = get_option('telegram-bot');
 
         ?>
         <div id="<?php echo $this->tabID ?>-content" class="wptp-tab-content hidden">
             <table>
                 <tr>
                     <td>
-                        <label for="send_to_channels"><?php _e('Send to Channels', $this->plugin_key) ?></label>
+                        <label for="send_to_channels"><?php _e('Send to Channels', 'telegram-bot') ?></label>
                     </td>
                     <td>
                         <label><input type="checkbox" id="send_to_channels" class="send_to_channels"
                                       value="1" <?php checked($this->get_option('send_to_channels'), 1) ?>
-                                      name="send_to_channels"> <?php _e('Active', $this->plugin_key) ?>
+                                      name="send_to_channels"> <?php _e('Active', 'telegram-bot') ?>
                         </label>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <label for="channels_cron_interval"><?php _e('Check send every', $this->plugin_key) ?></label>
+                        <label for="channels_cron_interval"><?php _e('Check send every', 'telegram-bot') ?></label>
                     </td>
                     <td>
                         <input type="number" name="channels_cron_interval" id="channels_cron_interval"
                                value="<?php echo $this->get_option('channels_cron_interval', 1) ?>" placeholder="1"
                                min="1" max="60"
-                               class="small excerpt_length ltr"> <?php _e('Minutes', $this->plugin_key) ?><span
+                               class="small excerpt_length ltr"> <?php _e('Minutes', 'telegram-bot') ?><span
                                 class="description">,
-                            <?php printf(__('Work with <a href="%s" target="_blank">WP-Cron</a>.', $this->plugin_key), "https://code.tutsplus.com/articles/insights-into-wp-cron-an-introduction-to-scheduling-tasks-in-wordpress--wp-23119") ?>
+                            <?php printf(__('Work with <a href="%s" target="_blank">WP-Cron</a>.', 'telegram-bot'), "https://code.tutsplus.com/articles/insights-into-wp-cron-an-introduction-to-scheduling-tasks-in-wordpress--wp-23119") ?>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <label for="channels_delay_send"><?php _e('Delay in send', $this->plugin_key) ?></label>
+                        <label for="channels_delay_send"><?php _e('Delay in send', 'telegram-bot') ?></label>
                     </td>
                     <td>
                         <input type="number" name="channels_delay_send" id="channels_delay_send"
                                value="<?php echo $this->get_option('channels_delay_send', 5) ?>" placeholder="0" min="0"
-                               class="small excerpt_length ltr"> <?php _e('Minutes', $this->plugin_key) ?><span
-                                class="description">, <?php _e('Least 5 minutes recommended.', $this->plugin_key) ?></span>
+                               class="small excerpt_length ltr"> <?php _e('Minutes', 'telegram-bot') ?><span
+                                class="description">, <?php _e('Least 5 minutes recommended.', 'telegram-bot') ?></span>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <label><?php _e('Display Metabox for', $this->plugin_key) ?></label>
+                        <label><?php _e('Display Metabox for', 'telegram-bot') ?></label>
                     </td>
                     <td>
                         <?php
@@ -626,15 +626,15 @@ class ChannelWPTP extends TgramBot
                 </tr>
                 <tr>
                     <td>
-                        <label for="quick_send_to_channel"><?php _e('Enable Quick Send', $this->plugin_key) ?></label>
+                        <label for="quick_send_to_channel"><?php _e('Enable Quick Send', 'telegram-bot') ?></label>
                     </td>
                     <td>
                         <label>
                             <input type="checkbox" id="quick_send_to_channel"
                                    value="1" <?php checked($this->get_option('quick_send_to_channel'), 1) ?>
-                                   name="quick_send_to_channel"> <?php _e('Active', $this->plugin_key) ?>
+                                   name="quick_send_to_channel"> <?php _e('Active', 'telegram-bot') ?>
                         </label><br>
-                        <span class="description"><?php _e('Display Telegram column in admin post type archive (Requires the metabox display access).', $this->plugin_key) ?></span>
+                        <span class="description"><?php _e('Display Telegram column in admin post type archive (Requires the metabox display access).', 'telegram-bot') ?></span>
                     </td>
                 </tr>
             </table>
@@ -643,27 +643,30 @@ class ChannelWPTP extends TgramBot
                 <?php
                 $options = $this->options;
                 $c = 0;
-                foreach ($options['channel_username'] as $k => $v) {
-                    if (empty($v))
-                        continue;
-                    if ($c >= $this->max_channel)
-                        break;
-                    $item = array(
-                        'index' => $c,
-                        'channel_username' => $options['channel_username'][$k],
-                        'channel_post_type' => isset($options['channel_post_type'][$k]) && is_array($options['channel_post_type'][$k]) ? $options['channel_post_type'][$k] : array(),
-                        'send_to_channel' => isset($options['send_to_channel'][$k]) ? $options['send_to_channel'][$k] : '',
-                        'message_pattern' => $options['channel_message_pattern'][$k],
-                        'with_featured_image' => isset($options['channel_with_featured_image'][$k]) ? $options['channel_with_featured_image'][$k] : '',
-                        'formatting_messages' => $options['channel_formatting_messages'][$k],
-                        'excerpt_length' => $options['channel_excerpt_length'][$k],
-                        'inline_button_title' => $options['channel_inline_button_title'][$k],
-                        'disable_web_page_preview' => isset($options['channel_disable_web_page_preview'][$k]) ? $options['channel_disable_web_page_preview'][$k] : '',
-                        //'image_position' => $options['channel_image_position'][$k]
-                    );
-                    $this->item($item);
-                    $c++;
-                }
+                if (is_array($options) || is_object($options))
+                    {
+                        foreach ($options['channel_username'] as $k => $v) {
+                            if (empty($v))
+                                continue;
+                            if ($c >= $this->max_channel)
+                                break;
+                            $item = array(
+                                'index' => $c,
+                                'channel_username' => $options['channel_username'][$k],
+                                'channel_post_type' => isset($options['channel_post_type'][$k]) && is_array($options['channel_post_type'][$k]) ? $options['channel_post_type'][$k] : array(),
+                                'send_to_channel' => isset($options['send_to_channel'][$k]) ? $options['send_to_channel'][$k] : '',
+                                'message_pattern' => $options['channel_message_pattern'][$k],
+                                'with_featured_image' => isset($options['channel_with_featured_image'][$k]) ? $options['channel_with_featured_image'][$k] : '',
+                                'formatting_messages' => $options['channel_formatting_messages'][$k],
+                                'excerpt_length' => $options['channel_excerpt_length'][$k],
+                                'inline_button_title' => $options['channel_inline_button_title'][$k],
+                                'disable_web_page_preview' => isset($options['channel_disable_web_page_preview'][$k]) ? $options['channel_disable_web_page_preview'][$k] : '',
+                                //'image_position' => $options['channel_image_position'][$k]
+                            );
+                            $this->item($item);
+                            $c++;
+                        }
+                    }
                 if ($c == 0) {
                     $item = array(
                         'index' => 0,
@@ -681,7 +684,7 @@ class ChannelWPTP extends TgramBot
                 }
                 ?>
                 <button type="button" class="add-channel" <?php echo $c >= $this->max_channel ? 'disabled' : '' ?>><span
-                            class="dashicons dashicons-plus"></span> <?php _e('Add Channel', $this->plugin_key) ?>
+                            class="dashicons dashicons-plus"></span> <?php _e('Add Channel', 'telegram-bot') ?>
                 </button>
             </div>
         </div>
@@ -693,12 +696,12 @@ class ChannelWPTP extends TgramBot
         ?>
         <div class="item" data-index="<?php echo $item['index'] ?>">
             <button class="toggle"
-                    type="button"><?php echo isset($item['channel_username']) && !empty($item['channel_username']) ? '@' . $item['channel_username'] : __('New Channel', $this->plugin_key); ?></button>
+                    type="button"><?php echo isset($item['channel_username']) && !empty($item['channel_username']) ? '@' . $item['channel_username'] : __('New Channel', 'telegram-bot'); ?></button>
             <div class="panel">
                 <table>
                     <tr>
                         <td>
-                            <?php _e('Channel Username', $this->plugin_key) ?>
+                            <?php _e('Channel Username', 'telegram-bot') ?>
                         </td>
                         <td>
                             @<input type="text" name="channel_username[<?php echo $item['index'] ?>]"
@@ -710,17 +713,17 @@ class ChannelWPTP extends TgramBot
                     </tr>
                     <tr>
                         <td>
-                            <?php _e('Send to channel (Default)', $this->plugin_key) ?>
+                            <?php _e('Send to channel (Default)', 'telegram-bot') ?>
                         </td>
                         <td>
                             <label><input type="checkbox" class="send_to_channel"
                                           value="1" <?php checked(isset($item['send_to_channel']) ? $item['send_to_channel'] : '', 1) ?>
-                                          name="send_to_channel[<?php echo $item['index'] ?>]"> <?php _e('Active', $this->plugin_key) ?>
+                                          name="send_to_channel[<?php echo $item['index'] ?>]"> <?php _e('Active', 'telegram-bot') ?>
                             </label>
                         </td>
                     </tr>
                     <tr>
-                        <td><?php _e("Active on PostType", $this->plugin_key) ?></td>
+                        <td><?php _e("Active on PostType", 'telegram-bot') ?></td>
                         <td>
                             <?php
                             foreach ($this->post_types as $post_type)
@@ -731,7 +734,7 @@ class ChannelWPTP extends TgramBot
                     </tr>
                     <tr>
                         <td>
-                            <?php _e('Message Pattern', $this->plugin_key) ?>
+                            <?php _e('Message Pattern', 'telegram-bot') ?>
                         </td>
                         <td>
                             <?php $this->select_tags() ?>
@@ -743,46 +746,46 @@ class ChannelWPTP extends TgramBot
                     </tr>
                     <tr>
                         <td>
-                            <?php _e('With featured image?', $this->plugin_key) ?>
+                            <?php _e('With featured image?', 'telegram-bot') ?>
                         </td>
                         <td>
                             <label><input type="checkbox" class="with_featured_image"
                                           value="1" <?php checked(isset($item['with_featured_image']) ? $item['with_featured_image'] : '', 1) ?>
-                                          name="channel_with_featured_image[<?php echo $item['index'] ?>]"> <?php _e('Yes', $this->plugin_key) ?>
+                                          name="channel_with_featured_image[<?php echo $item['index'] ?>]"> <?php _e('Yes', 'telegram-bot') ?>
                             </label>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <?php _e('Formatting messages', $this->plugin_key) ?>
+                            <?php _e('Formatting messages', 'telegram-bot') ?>
                         </td>
                         <td>
-                            <span class="description"><?php _e('Telegram supports basic markdown and some HTML tags (bold, italic, inline links). By checking one of the following options, your messages will be compatible with Telegram format.', $this->plugin_key) ?>
+                            <span class="description"><?php _e('Telegram supports basic markdown and some HTML tags (bold, italic, inline links). By checking one of the following options, your messages will be compatible with Telegram format.', 'telegram-bot') ?>
                                 (<a href="https://core.telegram.org/bots/api#formatting-options"
-                                    target="_blank"><?php _e('Telegram Bot API', $this->plugin_key) ?></a>)</span>
+                                    target="_blank"><?php _e('Telegram Bot API', 'telegram-bot') ?></a>)</span>
                             <br>
                             <select name="channel_formatting_messages[<?php echo $item['index'] ?>]"
                                     class="formatting_messages">
-                                <option value="simple" <?php selected(isset($item['formatting_messages']) ? $item['formatting_messages'] : '', 'simple') ?>><?php _e('Simple', $this->plugin_key) ?></option>
-                                <option value="Markdown" <?php selected(isset($item['formatting_messages']) ? $item['formatting_messages'] : '', 'Markdown') ?>><?php _e('Markdown', $this->plugin_key) ?></option>
-                                <option value="HTML" <?php selected(isset($item['formatting_messages']) ? $item['formatting_messages'] : '', 'HTML') ?>><?php _e('HTML', $this->plugin_key) ?></option>
+                                <option value="simple" <?php selected(isset($item['formatting_messages']) ? $item['formatting_messages'] : '', 'simple') ?>><?php _e('Simple', 'telegram-bot') ?></option>
+                                <option value="Markdown" <?php selected(isset($item['formatting_messages']) ? $item['formatting_messages'] : '', 'Markdown') ?>><?php _e('Markdown', 'telegram-bot') ?></option>
+                                <option value="HTML" <?php selected(isset($item['formatting_messages']) ? $item['formatting_messages'] : '', 'HTML') ?>><?php _e('HTML', 'telegram-bot') ?></option>
                             </select>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <?php _e('Excerpt length', $this->plugin_key) ?>
+                            <?php _e('Excerpt length', 'telegram-bot') ?>
                         </td>
                         <td>
                             <input type="number" name="channel_excerpt_length[<?php echo $item['index'] ?>]"
                                    value="<?php echo isset($item['excerpt_length']) ? $item['excerpt_length'] : '' ?>"
                                    placeholder="<?php echo $this->excerpt_length ?>"
-                                   class="excerpt_length ltr"> <?php _e('Word', $this->plugin_key) ?>
+                                   class="excerpt_length ltr"> <?php _e('Word', 'telegram-bot') ?>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <?php _e('Inline button title', $this->plugin_key) ?>
+                            <?php _e('Inline button title', 'telegram-bot') ?>
                         </td>
                         <td>
                             <input type="text" name="channel_inline_button_title[<?php echo $item['index'] ?>]"
@@ -792,32 +795,32 @@ class ChannelWPTP extends TgramBot
                     </tr>
                     <tr>
                         <td>
-                            <?php _e('Web page preview in messages', $this->plugin_key) ?>
+                            <?php _e('Web page preview in messages', 'telegram-bot') ?>
                         </td>
                         <td>
                             <label><input type="checkbox" class="disable_web_page_preview"
                                           value="1" <?php checked(isset($item['disable_web_page_preview']) ? $item['disable_web_page_preview'] : '', 1) ?>
-                                          name="channel_disable_web_page_preview[<?php echo $item['index'] ?>]"> <?php _e('Disable', $this->plugin_key) ?>
+                                          name="channel_disable_web_page_preview[<?php echo $item['index'] ?>]"> <?php _e('Disable', 'telegram-bot') ?>
                             </label>
                         </td>
                     </tr>
                     <!--<tr>
                         <td>
-                            <?php /*_e('Image Position', $this->plugin_key) */ ?>
+                            <?php /*_e('Image Position', 'telegram-bot') */ ?>
                         </td>
                         <td>
-                            <span class="description"><?php /*_e('Telegram limits the photo caption to 200 characters. Here are two options if your message text exceeds this limit:', $this->plugin_key) */ ?></span><br>
+                            <span class="description"><?php /*_e('Telegram limits the photo caption to 200 characters. Here are two options if your message text exceeds this limit:', 'telegram-bot') */ ?></span><br>
                             <select name="channel_image_position[<?php /*echo $item['index'] */ ?>]"
                                     class="image_position">
-                                <option value="before_text" <?php /*selected(isset($item['image_position']) ? $item['image_position'] : '', 'before_text') */ ?>><?php /*_e('Send image before text', $this->plugin_key) */ ?></option>
-                                <option value="after_text" <?php /*selected(isset($item['image_position']) ? $item['image_position'] : '', 'after_text') */ ?>><?php /*_e('Send image after text', $this->plugin_key) */ ?></option>
+                                <option value="before_text" <?php /*selected(isset($item['image_position']) ? $item['image_position'] : '', 'before_text') */ ?>><?php /*_e('Send image before text', 'telegram-bot') */ ?></option>
+                                <option value="after_text" <?php /*selected(isset($item['image_position']) ? $item['image_position'] : '', 'after_text') */ ?>><?php /*_e('Send image after text', 'telegram-bot') */ ?></option>
                             </select>
                             <br>
-                            <strong><?php /*_e('Send image before text', $this->plugin_key) */ ?>:</strong>
-                            <span class="description"><?php /*_e('This will send the photo with the pattern content as the caption. If pattern content exceeds 200 characters limit, then this will send the photo with the post title', $this->plugin_key) */ ?></span>
+                            <strong><?php /*_e('Send image before text', 'telegram-bot') */ ?>:</strong>
+                            <span class="description"><?php /*_e('This will send the photo with the pattern content as the caption. If pattern content exceeds 200 characters limit, then this will send the photo with the post title', 'telegram-bot') */ ?></span>
                             <br>
-                            <strong><?php /*_e('Send image after text', $this->plugin_key) */ ?>:</strong>
-                            <span class="description"><?php /*_e('This will attach an invisible link of your photo to the beginning of your message. People wouldn\'t see the link, but Telegram clients will show the photo at the bottom of the message (All in one message).', $this->plugin_key) */ ?></span>
+                            <strong><?php /*_e('Send image after text', 'telegram-bot') */ ?>:</strong>
+                            <span class="description"><?php /*_e('This will attach an invisible link of your photo to the beginning of your message. People wouldn\'t see the link, but Telegram clients will show the photo at the bottom of the message (All in one message).', 'telegram-bot') */ ?></span>
                         </td>
                     </tr>-->
                 </table>
@@ -830,7 +833,7 @@ class ChannelWPTP extends TgramBot
     {
         $this->patterns_tags = apply_filters('tgrambot_patterns_tags', $this->patterns_tags);
         $select = '<select class="patterns-select-wptp">';
-        $select .= '<option style="display:none;" selected> ' . __('- Select a Tag -', $this->plugin_key) . ' </option>';
+        $select .= '<option style="display:none;" selected> ' . __('- Select a Tag -', 'telegram-bot') . ' </option>';
         foreach ($this->patterns_tags as $group => $group_item) {
             if (isset($group_item['plugin']) && !$this->check_plugin_active($group_item['plugin']))
                 continue;

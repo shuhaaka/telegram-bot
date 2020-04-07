@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Telegram Bot\n"
-"POT-Creation-Date: 2020-04-06 16:25+0500\n"
-"PO-Revision-Date: 2020-04-06 16:25+0500\n"
+"POT-Creation-Date: 2020-04-06 21:30+0500\n"
+"PO-Revision-Date: 2020-04-06 21:29+0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: Poedit 2.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
-"X-Poedit-WPHeader: telegram-bot.php\n"
+"X-Poedit-WPHeader: tgram-bot.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
 "esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
@@ -21,7 +21,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: inc/HelpsWPTP.php:13 telegram-bot.php:1095
+#: inc/HelpsWPTP.php:13 tgram-bot.php:1089
 msgid "Helps"
 msgstr ""
 
@@ -89,7 +89,7 @@ msgstr ""
 msgid "Start Bot"
 msgstr ""
 
-#: inc/WordPressWPTP.php:113 telegram-bot.php:120
+#: inc/WordPressWPTP.php:113 tgram-bot.php:120
 msgid "Posts"
 msgstr ""
 
@@ -97,7 +97,7 @@ msgstr ""
 msgid "Categories List"
 msgstr ""
 
-#: inc/WordPressWPTP.php:115 inc/WordPressWPTP.php:793 telegram-bot.php:121
+#: inc/WordPressWPTP.php:115 inc/WordPressWPTP.php:793 tgram-bot.php:121
 msgid "Search"
 msgstr ""
 
@@ -384,7 +384,7 @@ msgstr ""
 #: plugins/QuFormWPTP.php:64 plugins/VisualFormBuilderWPTP.php:38
 #: plugins/WPFormsWPTP.php:41 plugins/WPSMSWPTP.php:38
 #: plugins/WPStatisticsWPTP.php:39 plugins/WPUserAvatarWPTP.php:38
-#: plugins/WeFormsWPTP.php:42 telegram-bot.php:113
+#: plugins/WeFormsWPTP.php:42 tgram-bot.php:113
 msgid "Active"
 msgstr ""
 
@@ -485,7 +485,7 @@ msgstr ""
 msgid "Send to Channel"
 msgstr ""
 
-#: modules/ChannelWPTP.php:83 telegram-bot.php:1115
+#: modules/ChannelWPTP.php:83 tgram-bot.php:1109
 msgid "Telegram Channel"
 msgstr ""
 
@@ -531,12 +531,12 @@ msgstr ""
 
 #: modules/ChannelWPTP.php:467 modules/ChannelWPTP.php:499
 #: modules/ChannelWPTP.php:751 modules/DebugsWPTP.php:86
-#: modules/DebugsWPTP.php:94 telegram-bot.php:111
+#: modules/DebugsWPTP.php:94 tgram-bot.php:111
 msgid "Yes"
 msgstr ""
 
 #: modules/ChannelWPTP.php:472 modules/ChannelWPTP.php:504
-#: modules/DebugsWPTP.php:86 modules/DebugsWPTP.php:94 telegram-bot.php:112
+#: modules/DebugsWPTP.php:86 modules/DebugsWPTP.php:94 tgram-bot.php:112
 msgid "No"
 msgstr ""
 
@@ -614,7 +614,7 @@ msgstr ""
 msgid "Add Channel"
 msgstr ""
 
-#: modules/ChannelWPTP.php:696 telegram-bot.php:351
+#: modules/ChannelWPTP.php:696 tgram-bot.php:345
 msgid "New Channel"
 msgstr ""
 
@@ -685,7 +685,7 @@ msgstr ""
 msgid "- Select a Tag -"
 msgstr ""
 
-#: modules/DebugsWPTP.php:13 telegram-bot.php:1094
+#: modules/DebugsWPTP.php:13 tgram-bot.php:1088
 msgid "Debugs"
 msgstr ""
 
@@ -812,7 +812,7 @@ msgstr ""
 msgid "Use the proxy at your own risk!"
 msgstr ""
 
-#: modules/ProxyWPTP.php:169 telegram-bot.php:114
+#: modules/ProxyWPTP.php:169 tgram-bot.php:114
 msgid "Inactive"
 msgstr ""
 
@@ -966,7 +966,7 @@ msgstr ""
 msgid "Copy the \"Current web app URL\" and paste it in plugin"
 msgstr ""
 
-#: modules/WoocommerceWPTP.php:18 telegram-bot.php:123
+#: modules/WoocommerceWPTP.php:18 tgram-bot.php:123
 msgid "Detail"
 msgstr ""
 
@@ -1710,92 +1710,92 @@ msgid "Attack Table"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-#: telegram-bot.php:76
+#: tgram-bot.php:76
 msgid "Telegram Bot"
 msgstr ""
 
-#: telegram-bot.php:115
+#: tgram-bot.php:115
 msgid "Next >"
 msgstr ""
 
-#: telegram-bot.php:116
+#: tgram-bot.php:116
 msgid "< Previous"
 msgstr ""
 
-#: telegram-bot.php:117
+#: tgram-bot.php:117
 msgid "Next Page >"
 msgstr ""
 
-#: telegram-bot.php:118
+#: tgram-bot.php:118
 msgid "< Previous Page"
 msgstr ""
 
-#: telegram-bot.php:119
+#: tgram-bot.php:119
 msgid "Back"
 msgstr ""
 
-#: telegram-bot.php:122
+#: tgram-bot.php:122
 msgid "Categories"
 msgstr ""
 
-#: telegram-bot.php:124
+#: tgram-bot.php:124
 msgid "More"
 msgstr ""
 
-#: telegram-bot.php:125
+#: tgram-bot.php:125
 msgid "The plugin requires SSL in the domain of your website!"
 msgstr ""
 
-#: telegram-bot.php:126
+#: tgram-bot.php:126
 msgid ""
 "Welcome, Your Telegram account is successfully connected to the website."
 msgstr ""
 
-#: telegram-bot.php:127
+#: tgram-bot.php:127
 msgid "Your profile was successfully disconnected from Telegram account."
 msgstr ""
 
-#: telegram-bot.php:128
+#: tgram-bot.php:128
 msgid "This profile was successfully disconnected from Telegram account."
 msgstr ""
 
-#: telegram-bot.php:129
+#: tgram-bot.php:129
 msgid "No linked Telegram account to this user profile."
 msgstr ""
 
-#: telegram-bot.php:130
+#: tgram-bot.php:130
 msgid "Error in sending message"
 msgstr ""
 
-#: telegram-bot.php:131
+#: tgram-bot.php:131
 msgid "Dynamic code is required."
 msgstr ""
 
-#: telegram-bot.php:132
+#: tgram-bot.php:132
 msgid "Dynamic code is not correct."
 msgstr ""
 
-#: telegram-bot.php:133
+#: tgram-bot.php:133
 msgid "Dynamic code expired."
 msgstr ""
 
-#: telegram-bot.php:134
+#: tgram-bot.php:134
 msgid "Username or password is empty."
 msgstr ""
 
-#: telegram-bot.php:135
+#: tgram-bot.php:135
 msgid "Unknown error"
 msgstr ""
 
-#: telegram-bot.php:158
+#: tgram-bot.php:158
 msgid "About"
 msgstr ""
 
-#: telegram-bot.php:168
+#: tgram-bot.php:168
 msgid "Default command list"
 msgstr ""
 
-#: telegram-bot.php:181
+#: tgram-bot.php:181
 #, php-format
 msgid ""
 "How to set bot commands: Start %s and select your bot > \"Edit Bot\" > "
@@ -1803,64 +1803,56 @@ msgid ""
 msgstr ""
 
 #. Description of the plugin/theme
-#: telegram-bot.php:201
+#: tgram-bot.php:201
 msgid "Integrate WordPress with Telegram"
 msgstr ""
 
-#: telegram-bot.php:202
-msgid "Do you like WP Telegram Pro?"
-msgstr ""
-
-#: telegram-bot.php:205
-msgid "Give it a rating"
-msgstr ""
-
-#: telegram-bot.php:210
+#: tgram-bot.php:204
 msgid "Keep in touch with me:"
 msgstr ""
 
-#: telegram-bot.php:298
+#: tgram-bot.php:292
 msgid "Bot Name:"
 msgstr ""
 
-#: telegram-bot.php:300
+#: tgram-bot.php:294
 msgid "API Token Invalid (Need to save settings)"
 msgstr ""
 
-#: telegram-bot.php:315
+#: tgram-bot.php:309
 msgid "Welcome, Your Telegram account is successfully connected to the store."
 msgstr ""
 
-#: telegram-bot.php:352
+#: tgram-bot.php:346
 msgid "Remove % Channel?"
 msgstr ""
 
-#: telegram-bot.php:378
+#: tgram-bot.php:372
 msgid "Settings saved."
 msgstr ""
 
-#: telegram-bot.php:425
+#: tgram-bot.php:419
 msgid "Save"
 msgstr ""
 
-#: telegram-bot.php:810
+#: tgram-bot.php:804
 msgid "Full"
 msgstr ""
 
-#: telegram-bot.php:812
+#: tgram-bot.php:806
 msgid "Crop"
 msgstr ""
 
-#: telegram-bot.php:1009
+#: tgram-bot.php:1003
 msgid "Every % Minutes"
 msgstr ""
 
-#: telegram-bot.php:1096
+#: tgram-bot.php:1090
 msgid "Settings"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://github.com/parsakafi/wp-telegram-pro"
+msgid "https://github.com/shuhaaka/telegram-bot"
 msgstr ""
 
 #. Author of the plugin/theme

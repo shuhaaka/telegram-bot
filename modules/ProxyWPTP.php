@@ -144,37 +144,37 @@ class ProxyWPTP extends TgramBot
 
     function settings_tab($tabs)
     {
-        $tabs[$this->tabID] = __('Proxy', $this->plugin_key);
+        $tabs[$this->tabID] = __('Proxy', 'telegram-bot');
         return $tabs;
     }
 
     function settings_content()
     {
-        $this->options = get_option($this->plugin_key);
+        $this->options = get_option('telegram-bot');
         $proxy_status = $this->get_option('proxy_status');
         $proxy_type = $this->get_option('proxy_type');
         ?>
         <div id="<?php echo $this->tabID ?>-content" class="wptp-tab-content hidden">
             <table>
                 <tr>
-                    <th><?php _e('DISCLAIMER', $this->plugin_key) ?></th>
-                    <td><?php _e('Use the proxy at your own risk!', $this->plugin_key) ?></td>
+                    <th><?php _e('DISCLAIMER', 'telegram-bot') ?></th>
+                    <td><?php _e('Use the proxy at your own risk!', 'telegram-bot') ?></td>
                 </tr>
                 <tr>
-                    <td><?php _e('Proxy', $this->plugin_key) ?></td>
+                    <td><?php _e('Proxy', 'telegram-bot') ?></td>
                     <td>
                         <fieldset>
                             <label>
                                 <input type="radio" value=""
-                                       name="proxy_status" <?php checked($proxy_status, '') ?>> <?php _e('Inactive', $this->plugin_key) ?>
+                                       name="proxy_status" <?php checked($proxy_status, '') ?>> <?php _e('Inactive', 'telegram-bot') ?>
                             </label>
                             <label>
                                 <input type="radio" value="google_script"
-                                       name="proxy_status" <?php checked($proxy_status, 'google_script') ?>> <?php _e('Google Script', $this->plugin_key) ?>
+                                       name="proxy_status" <?php checked($proxy_status, 'google_script') ?>> <?php _e('Google Script', 'telegram-bot') ?>
                             </label>
                             <label>
                                 <input type="radio" value="php_proxy"
-                                       name="proxy_status" <?php checked($proxy_status, 'php_proxy') ?>> <?php _e('PHP Proxy', $this->plugin_key) ?>
+                                       name="proxy_status" <?php checked($proxy_status, 'php_proxy') ?>> <?php _e('PHP Proxy', 'telegram-bot') ?>
                             </label>
                         </fieldset>
                     </td>
@@ -185,14 +185,14 @@ class ProxyWPTP extends TgramBot
                    class="proxy-status-wptp" <?php echo $proxy_status != 'google_script' ? 'style="display: none"' : '' ?>>
                 <tr>
                     <td>
-                        <label for="google_script_url"><?php _e('Google Script URL', $this->plugin_key) ?></label>
+                        <label for="google_script_url"><?php _e('Google Script URL', 'telegram-bot') ?></label>
                     </td>
                     <td>
                         <input type="url" name="google_script_url" id="google_script_url"
                                value="<?php echo $this->get_option('google_script_url') ?>"
                                class="regular-text ltr"><br>
-                        <span class="description"> &nbsp;<?php _e('The requests to Telegram will be sent via your Google Script.', $this->plugin_key) ?>
-                        (<?php _e('See help page', $this->plugin_key) ?>)
+                        <span class="description"> &nbsp;<?php _e('The requests to Telegram will be sent via your Google Script.', 'telegram-bot') ?>
+                        (<?php _e('See help page', 'telegram-bot') ?>)
                         </span>
                     </td>
                 </tr>
@@ -202,73 +202,73 @@ class ProxyWPTP extends TgramBot
                    class="proxy-status-wptp" <?php echo $proxy_status != 'php_proxy' ? 'style="display: none"' : '' ?>>
                 <tr>
                     <td>
-                        <label for="proxy_host"><?php _e('Proxy Host', $this->plugin_key) ?></label>
+                        <label for="proxy_host"><?php _e('Proxy Host', 'telegram-bot') ?></label>
                     </td>
                     <td>
                         <input type="text" name="proxy_host" id="proxy_host"
                                value="<?php echo $this->get_option('proxy_host') ?>"
                                class="regular-text ltr">
-                        <span class="description"> &nbsp;<?php _e('Host IP or domain name like 192.168.55.124', $this->plugin_key) ?></span>
+                        <span class="description"> &nbsp;<?php _e('Host IP or domain name like 192.168.55.124', 'telegram-bot') ?></span>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <label for="proxy_port"><?php _e('Proxy Port', $this->plugin_key) ?></label>
+                        <label for="proxy_port"><?php _e('Proxy Port', 'telegram-bot') ?></label>
                     </td>
                     <td>
                         <input type="text" name="proxy_port" id="proxy_port"
                                value="<?php echo $this->get_option('proxy_port') ?>"
                                class="small-text ltr">
-                        <span class="description"> &nbsp;<?php _e('Target Port like 8080', $this->plugin_key) ?></span>
+                        <span class="description"> &nbsp;<?php _e('Target Port like 8080', 'telegram-bot') ?></span>
                     </td>
                 </tr>
                 <tr>
-                    <td><?php _e('Proxy Type', $this->plugin_key) ?></td>
+                    <td><?php _e('Proxy Type', 'telegram-bot') ?></td>
                     <td>
                         <fieldset class="ltr-right">
                             <label>
                                 <input type="radio" value="CURLPROXY_HTTP"
-                                       name="proxy_type" <?php checked($proxy_type == 'CURLPROXY_HTTP' || $proxy_type == '' ? true : false) ?>> <?php _e('HTTP', $this->plugin_key) ?>
+                                       name="proxy_type" <?php checked($proxy_type == 'CURLPROXY_HTTP' || $proxy_type == '' ? true : false) ?>> <?php _e('HTTP', 'telegram-bot') ?>
                             </label>
                             <label>
                                 <input type="radio" value="CURLPROXY_SOCKS4"
-                                       name="proxy_type" <?php checked($proxy_type, 'CURLPROXY_SOCKS4') ?>> <?php _e('SOCKS4', $this->plugin_key) ?>
+                                       name="proxy_type" <?php checked($proxy_type, 'CURLPROXY_SOCKS4') ?>> <?php _e('SOCKS4', 'telegram-bot') ?>
                             </label>
                             <label>
                                 <input type="radio" value="CURLPROXY_SOCKS4A"
-                                       name="proxy_type" <?php checked($proxy_type, 'CURLPROXY_SOCKS4A') ?>> <?php _e('SOCKS4A', $this->plugin_key) ?>
+                                       name="proxy_type" <?php checked($proxy_type, 'CURLPROXY_SOCKS4A') ?>> <?php _e('SOCKS4A', 'telegram-bot') ?>
                             </label>
                             <label>
                                 <input type="radio" value="CURLPROXY_SOCKS5"
-                                       name="proxy_type" <?php checked($proxy_type, 'CURLPROXY_SOCKS5') ?>> <?php _e('SOCKS5', $this->plugin_key) ?>
+                                       name="proxy_type" <?php checked($proxy_type, 'CURLPROXY_SOCKS5') ?>> <?php _e('SOCKS5', 'telegram-bot') ?>
                             </label>
                             <label>
                                 <input type="radio" value="CURLPROXY_SOCKS5_HOSTNAME"
-                                       name="proxy_type" <?php checked($proxy_type, 'CURLPROXY_SOCKS5_HOSTNAME') ?>> <?php _e('SOCKS5_HOSTNAME', $this->plugin_key) ?>
+                                       name="proxy_type" <?php checked($proxy_type, 'CURLPROXY_SOCKS5_HOSTNAME') ?>> <?php _e('SOCKS5_HOSTNAME', 'telegram-bot') ?>
                             </label>
                         </fieldset>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <label for="proxy_username"><?php _e('Username', $this->plugin_key) ?></label>
+                        <label for="proxy_username"><?php _e('Username', 'telegram-bot') ?></label>
                     </td>
                     <td>
                         <input type="text" name="proxy_username" id="proxy_username"
                                value="<?php echo $this->get_option('proxy_username') ?>"
                                class="regular-text ltr">
-                        <span class="description"> &nbsp;<?php _e('Leave empty if not required', $this->plugin_key) ?></span>
+                        <span class="description"> &nbsp;<?php _e('Leave empty if not required', 'telegram-bot') ?></span>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <label for="proxy_password"><?php _e('Password', $this->plugin_key) ?></label>
+                        <label for="proxy_password"><?php _e('Password', 'telegram-bot') ?></label>
                     </td>
                     <td>
                         <input type="password" name="proxy_password" id="proxy_password"
                                value="<?php echo $this->get_option('proxy_password') ?>"
                                class="regular-text ltr">
-                        <span class="description"> &nbsp;<?php _e('Leave empty if not required', $this->plugin_key) ?></span>
+                        <span class="description"> &nbsp;<?php _e('Leave empty if not required', 'telegram-bot') ?></span>
                     </td>
                 </tr>
             </table>
@@ -283,30 +283,30 @@ class ProxyWPTP extends TgramBot
     {
         ?>
         <div class="item">
-            <button class="toggle" type="button"> <?php _e('Google Script', $this->plugin_key) ?></button>
+            <button class="toggle" type="button"> <?php _e('Google Script', 'telegram-bot') ?></button>
             <div class="panel">
                 <div>
                     <strong>
-                        <?php _e('You can use this script to bypass the bans on Telegram API by different hosts. Simply send the request to this script instead of the Telegram Bot API after deploying it as a web app and allowing anonymous access.', $this->plugin_key); ?>
+                        <?php _e('You can use this script to bypass the bans on Telegram API by different hosts. Simply send the request to this script instead of the Telegram Bot API after deploying it as a web app and allowing anonymous access.', 'telegram-bot'); ?>
                     </strong>
                     <br><br>
-                    <strong><?php _e('How to Deploy', $this->plugin_key) ?></strong>
+                    <strong><?php _e('How to Deploy', 'telegram-bot') ?></strong>
                     <ol>
                         <li><?php printf(__('Goto <a href="%s">script.google.com</a> and sign in if required'), 'https://script.google.com'); ?></li>
-                        <li><?php _e('Create a new project and give it a name', $this->plugin_key); ?></li>
-                        <li><?php _e('It should open a file (Code.gs by default). Remove the contents of this file', $this->plugin_key); ?></li>
-                        <li><?php _e('Copy the contents of below code and paste into your project file (Code.gs)', $this->plugin_key); ?></li>
-                        <li><?php _e('Click File > Save or press Ctrl+S', $this->plugin_key); ?></li>
-                        <li><?php _e('Click "Publish" from the menu and select "Deploy as web app..."', $this->plugin_key); ?></li>
-                        <li><?php _e('If asked, Enter any name for the project and click "OK"', $this->plugin_key); ?></li>
-                        <li><?php _e('In "Execute the app as:", select "Me (your email)" [IMPORTANT]', $this->plugin_key); ?></li>
-                        <li><?php _e('In "Who has access to the app:", select "Anyone, even anonymous" [IMPORTANT]', $this->plugin_key); ?></li>
-                        <li><?php _e('Click "Deploy" to open the Authorization box', $this->plugin_key); ?></li>
-                        <li><?php _e('Click "Review Permissions" to authorize the script', $this->plugin_key); ?></li>
-                        <li><?php _e('In the popup window select your Google Account', $this->plugin_key); ?></li>
-                        <li><?php _e('On the next screen, click "Allow"', $this->plugin_key); ?></li>
-                        <li><?php _e('After redirection, you should see "This project is now deployed as a web app"', $this->plugin_key); ?></li>
-                        <li><?php _e('Copy the "Current web app URL" and paste it in plugin', $this->plugin_key); ?></li>
+                        <li><?php _e('Create a new project and give it a name', 'telegram-bot'); ?></li>
+                        <li><?php _e('It should open a file (Code.gs by default). Remove the contents of this file', 'telegram-bot'); ?></li>
+                        <li><?php _e('Copy the contents of below code and paste into your project file (Code.gs)', 'telegram-bot'); ?></li>
+                        <li><?php _e('Click File > Save or press Ctrl+S', 'telegram-bot'); ?></li>
+                        <li><?php _e('Click "Publish" from the menu and select "Deploy as web app..."', 'telegram-bot'); ?></li>
+                        <li><?php _e('If asked, Enter any name for the project and click "OK"', 'telegram-bot'); ?></li>
+                        <li><?php _e('In "Execute the app as:", select "Me (your email)" [IMPORTANT]', 'telegram-bot'); ?></li>
+                        <li><?php _e('In "Who has access to the app:", select "Anyone, even anonymous" [IMPORTANT]', 'telegram-bot'); ?></li>
+                        <li><?php _e('Click "Deploy" to open the Authorization box', 'telegram-bot'); ?></li>
+                        <li><?php _e('Click "Review Permissions" to authorize the script', 'telegram-bot'); ?></li>
+                        <li><?php _e('In the popup window select your Google Account', 'telegram-bot'); ?></li>
+                        <li><?php _e('On the next screen, click "Allow"', 'telegram-bot'); ?></li>
+                        <li><?php _e('After redirection, you should see "This project is now deployed as a web app"', 'telegram-bot'); ?></li>
+                        <li><?php _e('Copy the "Current web app URL" and paste it in plugin', 'telegram-bot'); ?></li>
                     </ol>
                     </span>
                     <textarea cols="30" class="ltr" rows="5"
